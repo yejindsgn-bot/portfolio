@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kwon Yejin — UIUX / AI Design Portfolio</title>
+<meta name="description" content="권예진 UIUX / AI Design 포트폴리오 (2023–2026)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root { --bg:#0a0a0a; --fg:#f2f2f2; --muted:#8a8a8a; --accent:#2f6bff; --nav-h:56px; }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:var(--nav-h); }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:Inter, "Noto Sans KR", -apple-system, "Apple SD Gothic Neo", "Pretendard", sans-serif; -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+
+  header { position:fixed; inset:0 0 auto 0; height:var(--nav-h); z-index:50; display:flex; align-items:center; gap:24px; padding:0 24px;
+    background:rgba(10,10,10,.72); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); border-bottom:1px solid rgba(255,255,255,.08); }
+  .brand { font-weight:600; letter-spacing:.02em; font-size:14px; white-space:nowrap; }
+  .brand span { color:var(--muted); font-weight:400; margin-left:10px; }
+  nav { flex:1; display:flex; align-items:center; gap:2px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none; }
+  nav::-webkit-scrollbar { display:none; }
+  nav a { font-size:13px; color:var(--muted); padding:8px 10px; border-radius:8px; white-space:nowrap; transition:color .15s, background .15s; }
+  nav a:hover { color:var(--fg); }
+  nav a.active { color:var(--fg); background:rgba(255,255,255,.08); }
+  nav .grp { font-size:10px; letter-spacing:.14em; color:#5a5a5a; font-weight:600; padding:0 8px 0 18px; white-space:nowrap; border-left:1px solid rgba(255,255,255,.1); margin-left:8px; }
+  .contact { font-size:13px; color:var(--muted); white-space:nowrap; }
+  .contact:hover { color:var(--fg); }
+  #progress { position:fixed; top:0; left:0; height:2px; width:0; background:var(--accent); z-index:60; transition:width .1s linear; }
+
+  main { padding-top:var(--nav-h); }
+  .page { display:block; max-width:1920px; margin:0 auto; font-size:0; line-height:0; }
+  .page img { display:block; width:100%; height:auto; }
+
+  /* section dividers */
+  .page.dv { font-size:16px; line-height:1.5; background:#000; }
+  .divider { min-height:78vh; display:flex; align-items:center; padding:120px 6.25vw; border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08); }
+  .dv-in { width:100%; max-width:1200px; }
+  .dv-tag { display:flex; align-items:center; gap:14px; font-size:12px; letter-spacing:.22em; color:var(--muted); font-weight:600; }
+  .dv-tag .num { font-size:12px; color:var(--fg); padding:4px 8px; border:1px solid rgba(255,255,255,.25); border-radius:999px; letter-spacing:.08em; }
+  .divider h2 { font-size:clamp(44px, 7vw, 104px); font-weight:700; letter-spacing:-.03em; line-height:1; margin:28px 0 20px; }
+  .divider p { font-family:"Noto Sans KR", Inter, sans-serif; font-size:clamp(15px, 1.3vw, 19px); color:#b0b0b0; margin:0 0 56px; }
+  .pj-list { display:grid; grid-template-columns:1fr; border-top:1px solid rgba(255,255,255,.14); }
+  .pj { display:grid; grid-template-columns:56px 1fr auto 32px; align-items:center; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,.14); transition:padding-left .2s, color .2s; }
+  .pj:hover { padding-left:12px; }
+  .pj .n { font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; }
+  .pj .t { font-size:clamp(18px, 2vw, 26px); font-weight:500; letter-spacing:-.01em; }
+  .pj .s { font-size:13px; color:var(--muted); letter-spacing:.02em; }
+  .pj .arr { color:var(--muted); text-align:right; transition:transform .2s, color .2s; }
+  .pj:hover .arr { transform:translateX(4px); color:var(--fg); }
+
+  footer { padding:56px 24px 72px; text-align:center; color:var(--muted); font-size:13px; line-height:1.9; border-top:1px solid rgba(255,255,255,.08); }
+  footer strong { color:var(--fg); font-weight:600; }
+  footer .mail { color:var(--fg); }
+  #top { position:fixed; right:20px; bottom:20px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); color:var(--fg); border:1px solid rgba(255,255,255,.15);
+    display:grid; place-items:center; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s; backdrop-filter:blur(8px); z-index:50; font-size:16px; }
+  #top.show { opacity:1; pointer-events:auto; }
+
+  @media (max-width:1560px) { .contact { display:none; } }
+  @media (max-width:720px) {
+    header { padding:0 14px; gap:12px; }
+    .brand span, .contact { display:none; }
+    nav a { font-size:12px; padding:7px 8px; }
+    nav .grp { padding-left:12px; }
+    .divider { min-height:60vh; padding:72px 20px; }
+    .pj { grid-template-columns:36px 1fr 20px; }
+    .pj .s { display:none; }
+  }
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header>
+  <a class="brand" href="#cover">KWON YEJIN <span>UIUX / AI DESIGN</span></a>
+  <nav aria-label="Sections">
+<a href="#about" data-nav="about">About</a>
+<span class="grp">01 UIUX</span>
+<a href="#tag-seoul" data-nav="tag-seoul">TAG SEOUL</a>
+<a href="#smartthings" data-nav="smartthings">SmartThings</a>
+<a href="#samsung-ace" data-nav="samsung-ace">Samsung ACE</a>
+<a href="#samsung-search" data-nav="samsung-search">Search</a>
+<span class="grp">02 AX</span>
+<a href="#ax-workflow" data-nav="ax-workflow">AX Workflow</a>
+<a href="#samsung-health" data-nav="samsung-health">Samsung Health</a>
+<a href="#ai-living" data-nav="ai-living">AI Living</a>
+<a href="#da-short-form" data-nav="da-short-form">Short-form</a>
+  </nav>
+  <a class="contact" href="mailto:dpwls902717@gmail.com">dpwls902717@gmail.com</a>
+</header>
+
+<main>
+<section id="cover" class="page" aria-label="Cover">
+<img src="img/p01-01.jpg" srcset="img/p01-01.jpg 1920w, img/p01-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Portfolio page 1 part 1">
+</section>
+<section id="about" class="page" aria-label="About">
+<img src="img/p02-01.jpg" srcset="img/p02-01.jpg 1920w, img/p02-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Portfolio page 2 part 1" loading="lazy" decoding="async">
+<img src="img/p03-01.jpg" srcset="img/p03-01.jpg 1920w, img/p03-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Portfolio page 3 part 1" loading="lazy" decoding="async">
+</section>
+<section id="uiux" class="page dv" aria-label="uiux">
+<div class="divider">
+  <div class="dv-in">
+    <div class="dv-tag"><span class="num">01</span>UIUX PROJECT</div>
+    <h2>UI/UX Design</h2>
+    <p>서비스 UX 설계부터 UI 디자인, 실제 런칭까지 참여한 프로젝트</p>
+    <div class="pj-list">
+<a class="pj" href="#tag-seoul"><span class="n">01</span><span class="t">TAG SEOUL</span><span class="s">iF Design Award 2026</span><span class="arr">→</span></a>
+<a class="pj" href="#smartthings"><span class="n">02</span><span class="t">SmartThings Studio</span><span class="s">Samsung</span><span class="arr">→</span></a>
+<a class="pj" href="#samsung-ace"><span class="n">03</span><span class="t">Samsung ACE</span><span class="s">Samsung</span><span class="arr">→</span></a>
+<a class="pj" href="#samsung-search"><span class="n">04</span><span class="t">Samsung.com Search</span><span class="s">Samsung</span><span class="arr">→</span></a>
+    </div>
+  </div>
+</div>
+</section>
+<section id="tag-seoul" class="page" aria-label="TAG SEOUL">
+<img src="img/p04-01.jpg" srcset="img/p04-01.jpg 1920w, img/p04-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 1" loading="lazy" decoding="async">
+<img src="img/p04-02.jpg" srcset="img/p04-02.jpg 1920w, img/p04-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 2" loading="lazy" decoding="async">
+<img src="img/p04-03.jpg" srcset="img/p04-03.jpg 1920w, img/p04-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 3" loading="lazy" decoding="async">
+<img src="img/p04-04.jpg" srcset="img/p04-04.jpg 1920w, img/p04-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 4" loading="lazy" decoding="async">
+<img src="img/p04-05.jpg" srcset="img/p04-05.jpg 1920w, img/p04-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 5" loading="lazy" decoding="async">
+<img src="img/p04-06.jpg" srcset="img/p04-06.jpg 1920w, img/p04-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 6" loading="lazy" decoding="async">
+<img src="img/p04-07.jpg" srcset="img/p04-07.jpg 1920w, img/p04-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 7" loading="lazy" decoding="async">
+<img src="img/p04-08.jpg" srcset="img/p04-08.jpg 1920w, img/p04-08@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3010" alt="Portfolio page 4 part 8" loading="lazy" decoding="async">
+</section>
+<section id="smartthings" class="page" aria-label="SmartThings">
+<img src="img/p05-01.jpg" srcset="img/p05-01.jpg 1920w, img/p05-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3178" alt="Portfolio page 5 part 1" loading="lazy" decoding="async">
+<img src="img/p05-02.jpg" srcset="img/p05-02.jpg 1920w, img/p05-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3178" alt="Portfolio page 5 part 2" loading="lazy" decoding="async">
+<img src="img/p05-03.jpg" srcset="img/p05-03.jpg 1920w, img/p05-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3178" alt="Portfolio page 5 part 3" loading="lazy" decoding="async">
+<img src="img/p05-04.jpg" srcset="img/p05-04.jpg 1920w, img/p05-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3178" alt="Portfolio page 5 part 4" loading="lazy" decoding="async">
+<img src="img/p05-05.jpg" srcset="img/p05-05.jpg 1920w, img/p05-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3174" alt="Portfolio page 5 part 5" loading="lazy" decoding="async">
+</section>
+<section id="samsung-ace" class="page" aria-label="Samsung ACE">
+<img src="img/p06-01.jpg" srcset="img/p06-01.jpg 1920w, img/p06-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 1" loading="lazy" decoding="async">
+<img src="img/p06-02.jpg" srcset="img/p06-02.jpg 1920w, img/p06-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 2" loading="lazy" decoding="async">
+<img src="img/p06-03.jpg" srcset="img/p06-03.jpg 1920w, img/p06-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 3" loading="lazy" decoding="async">
+<img src="img/p06-04.jpg" srcset="img/p06-04.jpg 1920w, img/p06-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 4" loading="lazy" decoding="async">
+<img src="img/p06-05.jpg" srcset="img/p06-05.jpg 1920w, img/p06-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 5" loading="lazy" decoding="async">
+<img src="img/p06-06.jpg" srcset="img/p06-06.jpg 1920w, img/p06-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 6" loading="lazy" decoding="async">
+</section>
+<section id="samsung-search" class="page" aria-label="Search">
+<img src="img/p07-01.jpg" srcset="img/p07-01.jpg 1920w, img/p07-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2575" alt="Portfolio page 7 part 1" loading="lazy" decoding="async">
+<img src="img/p07-02.jpg" srcset="img/p07-02.jpg 1920w, img/p07-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2575" alt="Portfolio page 7 part 2" loading="lazy" decoding="async">
+<img src="img/p07-03.jpg" srcset="img/p07-03.jpg 1920w, img/p07-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2575" alt="Portfolio page 7 part 3" loading="lazy" decoding="async">
+<img src="img/p07-04.jpg" srcset="img/p07-04.jpg 1920w, img/p07-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2575" alt="Portfolio page 7 part 4" loading="lazy" decoding="async">
+</section>
+<section id="ax" class="page dv" aria-label="ax">
+<div class="divider">
+  <div class="dv-in">
+    <div class="dv-tag"><span class="num">02</span>AX PROJECT</div>
+    <h2>AI Transformation</h2>
+    <p>생성형 AI 워크플로우를 설계하고 콘텐츠 제작에 적용한 프로젝트</p>
+    <div class="pj-list">
+<a class="pj" href="#ax-workflow"><span class="n">01</span><span class="t">AX Workflow</span><span class="s">Process</span><span class="arr">→</span></a>
+<a class="pj" href="#samsung-health"><span class="n">02</span><span class="t">Samsung Health</span><span class="s">AI Art Direction</span><span class="arr">→</span></a>
+<a class="pj" href="#ai-living"><span class="n">03</span><span class="t">AI Living</span><span class="s">AI Art Direction</span><span class="arr">→</span></a>
+<a class="pj" href="#da-short-form"><span class="n">04</span><span class="t">DA Short-form</span><span class="s">AI Art Direction</span><span class="arr">→</span></a>
+    </div>
+  </div>
+</div>
+</section>
+<section id="ax-workflow" class="page" aria-label="AX Workflow">
+<img src="img/p08-01.jpg" srcset="img/p08-01.jpg 1920w, img/p08-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Portfolio page 8 part 1" loading="lazy" decoding="async">
+</section>
+<section id="samsung-health" class="page" aria-label="Samsung Health">
+<img src="img/p09-01.jpg" srcset="img/p09-01.jpg 1920w, img/p09-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 1" loading="lazy" decoding="async">
+<img src="img/p09-02.jpg" srcset="img/p09-02.jpg 1920w, img/p09-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 2" loading="lazy" decoding="async">
+<img src="img/p09-03.jpg" srcset="img/p09-03.jpg 1920w, img/p09-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 3" loading="lazy" decoding="async">
+<img src="img/p09-04.jpg" srcset="img/p09-04.jpg 1920w, img/p09-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 4" loading="lazy" decoding="async">
+<img src="img/p09-05.jpg" srcset="img/p09-05.jpg 1920w, img/p09-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 5" loading="lazy" decoding="async">
+</section>
+<section id="ai-living" class="page" aria-label="AI Living">
+<img src="img/p10-01.jpg" srcset="img/p10-01.jpg 1920w, img/p10-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3070" alt="Portfolio page 10 part 1" loading="lazy" decoding="async">
+<img src="img/p10-02.jpg" srcset="img/p10-02.jpg 1920w, img/p10-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3070" alt="Portfolio page 10 part 2" loading="lazy" decoding="async">
+<img src="img/p10-03.jpg" srcset="img/p10-03.jpg 1920w, img/p10-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3070" alt="Portfolio page 10 part 3" loading="lazy" decoding="async">
+<img src="img/p10-04.jpg" srcset="img/p10-04.jpg 1920w, img/p10-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3070" alt="Portfolio page 10 part 4" loading="lazy" decoding="async">
+</section>
+<section id="da-short-form" class="page" aria-label="Short-form">
+<img src="img/p11-01.jpg" srcset="img/p11-01.jpg 1920w, img/p11-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2470" alt="Portfolio page 11 part 1" loading="lazy" decoding="async">
+<img src="img/p11-02.jpg" srcset="img/p11-02.jpg 1920w, img/p11-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2470" alt="Portfolio page 11 part 2" loading="lazy" decoding="async">
+<img src="img/p11-03.jpg" srcset="img/p11-03.jpg 1920w, img/p11-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2470" alt="Portfolio page 11 part 3" loading="lazy" decoding="async">
+<img src="img/p11-04.jpg" srcset="img/p11-04.jpg 1920w, img/p11-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2470" alt="Portfolio page 11 part 4" loading="lazy" decoding="async">
+</section>
+</main>
+
+<footer>
+  <strong>KWON YEJIN</strong> · UIUX / AI Design Portfolio 2023–2026<br>
+  <span class="mail">dpwls902717@gmail.com</span><br>
+  © 2026 Kwon Yejin. All rights reserved.
+</footer>
+<button id="top" aria-label="맨 위로" title="맨 위로">↑</button>
+
+<script>
+(function(){
+  var links = Array.prototype.slice.call(document.querySelectorAll('nav a[data-nav]'));
+  var secs = links.map(function(a){ return document.getElementById(a.getAttribute('data-nav')); });
+  function setActive(id){
+    links.forEach(function(a){
+      var on = a.getAttribute('data-nav') === id;
+      a.classList.toggle('active', on);
+      if(on){ try{ a.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'}); }catch(e){} }
+    });
+  }
+  var topBtn = document.getElementById('top');
+  var prog = document.getElementById('progress');
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (h > 0 ? Math.min(100, y / h * 100) : 0) + '%';
+    topBtn.classList.toggle('show', y > 600);
+    var cur = null, line = y + 120;
+    for (var i = 0; i < secs.length; i++) { if (secs[i] && secs[i].offsetTop <= line) cur = secs[i].id; }
+    if (cur) setActive(cur);
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+})();
+</script>
+</body>
+</html>
