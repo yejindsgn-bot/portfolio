@@ -486,6 +486,21 @@
     .mw-btn { font-size:12px; padding:7px 9px; }
   }
 
+  /* ===== v5: case intro wide (same 160 side margin as Selected) ===== */
+  .cs { padding:calc(var(--u)*120) calc(var(--u)*160) calc(var(--u)*110); }
+  .cs-head { grid-template-columns:calc(var(--u)*150) 1fr auto; gap:calc(var(--u)*24); row-gap:0; align-items:end; }
+  .cs-num { grid-row:auto; align-self:end; }
+  .cs-title, .cs-tags { grid-column:auto; }
+  .cs-tags { justify-content:flex-end; max-width:calc(var(--u)*640); }
+  .cs-grid { gap:calc(var(--u)*56); }
+  .fix-ttl { position:absolute; background:#fff; display:flex; align-items:center; font-family:var(--f-body); font-weight:700; color:#000; font-size:calc(var(--u)*28); line-height:1; letter-spacing:-.01em; white-space:nowrap; }
+  @media (max-width:860px) {
+    .cs { padding:56px 20px 48px; }
+    .cs-head { grid-template-columns:1fr; gap:12px; }
+    .cs-num, .cs-title, .cs-tags { grid-column:1; }
+    .cs-tags { justify-content:flex-start; max-width:none; }
+  }
+
 </style>
 </head>
 <body>
@@ -555,6 +570,7 @@
 <section class="page" data-group="case-st" aria-label="SmartThings Studio overview &amp; research">
 <img src="img/st-a-01.jpg" srcset="img/st-a-01.jpg 1920w, img/st-a-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2165" alt="SmartThings Studio overview &amp; research 1" loading="lazy" decoding="async">
 <img src="img/st-a-02.jpg" srcset="img/st-a-02.jpg 1920w, img/st-a-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2165" alt="SmartThings Studio overview &amp; research 2" loading="lazy" decoding="async">
+<div class="fix-ttl" style="left:35.8333%;top:42.1709%;width:29.1667%;height:1.0624%;padding-left:0.3125%">평균 대비 높은 이탈률, 짧은 체류시간</div>
 </section>
 <section class="page sheet" data-group="case-st" aria-label="SmartThings Studio AI workflow">
 <div class="sh">
