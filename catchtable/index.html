@@ -346,6 +346,93 @@
     .band img { width:100% !important; }
   }
 
+  /* ===== v3: unified 300 grid & typography ===== */
+  .sh { padding:calc(var(--u)*180) calc(var(--u)*300) calc(var(--u)*180); }
+  .sh-short { padding-bottom:calc(var(--u)*110) !important; }
+  .sh-head { grid-template-columns:calc(var(--u)*394) 1fr; column-gap:0; row-gap:calc(var(--u)*26); margin-bottom:calc(var(--u)*100); }
+  .sh-head .lbl { grid-column:1; grid-row:1 / span 4; font-size:max(13px, calc(var(--u)*24)); letter-spacing:0; line-height:1.2; text-transform:uppercase; }
+  .sh-head h2 { grid-column:2; font-size:max(17px, calc(var(--u)*28)); line-height:1.4; letter-spacing:-.01em; }
+  .sh-head h2 br { display:none; }
+  .sh-head p { grid-column:2; align-self:start; font-size:max(13px, calc(var(--u)*20)); line-height:1.45; color:#666; }
+  .sh-head p.en { font-family:var(--f-title); font-size:max(14px, calc(var(--u)*24)); color:#9a9a9a; margin-top:calc(var(--u)*-14); }
+  .sheet-top .sh, .sheet-tight .sh, .sheet-bottom .sh { padding-left:calc(var(--u)*300); padding-right:calc(var(--u)*300); }
+  .cs { padding:calc(var(--u)*140) calc(var(--u)*300) calc(var(--u)*120); }
+  .cs-head { grid-template-columns:calc(var(--u)*394) 1fr auto; gap:0; }
+  .cs-grid { gap:calc(var(--u)*48); }
+  .notes b, .cr-grid b { font-size:max(13px, calc(var(--u)*18)); }
+
+  /* SmartThings component cards (rounded) */
+  .cgrid { display:grid; grid-template-columns:1fr 1fr; gap:calc(var(--u)*28); }
+  .cc { border-radius:calc(var(--u)*24); overflow:hidden; background:#fff; border:1px solid #e6e6e6; display:flex; flex-direction:column; }
+  .cc.full { grid-column:1 / -1; }
+  .stage { background:#e8e8e8; display:flex; justify-content:center; align-items:center; gap:calc(var(--u)*80); padding:calc(var(--u)*64) calc(var(--u)*48); flex:1; }
+  .stage.v { flex-direction:column; gap:calc(var(--u)*36); }
+  .stage figure { margin:0; display:flex; flex-direction:column; align-items:center; gap:calc(var(--u)*14); }
+  .stage img { display:block; max-width:100%; height:auto; }
+  .stage figcaption, .rec-img figcaption { font-size:max(11px, calc(var(--u)*14)); color:#888; letter-spacing:.04em; }
+  .cbody { padding:calc(var(--u)*36) calc(var(--u)*44) calc(var(--u)*40); display:grid; grid-template-columns:calc(var(--u)*300) 1fr; gap:calc(var(--u)*16) calc(var(--u)*24); align-items:start; }
+  .cc:not(.full) .cbody { grid-template-columns:1fr; }
+  .cbody ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:calc(var(--u)*10); }
+  .cbody li { font-size:max(12px, calc(var(--u)*17)); color:#555; line-height:1.55; display:flex; gap:calc(var(--u)*12); }
+  .cbody li b { flex:none; width:calc(var(--u)*96); min-width:64px; color:#111; }
+  .cc.rec { flex-direction:row; }
+  .rec-img { margin:0; background:#f5f6f8; flex:1 1 56%; padding:calc(var(--u)*48); display:grid; place-items:center; }
+  .rec-img img { max-width:100%; height:auto; max-height:calc(var(--u)*700); width:auto; }
+  .rec-txt { flex:1 1 44%; padding:calc(var(--u)*56); align-self:center; }
+  .rec-txt p { margin:calc(var(--u)*12) 0 calc(var(--u)*24); font-size:max(12px, calc(var(--u)*17)); color:#666; }
+  .rec-txt ol { margin:0; padding-left:1.2em; display:flex; flex-direction:column; gap:calc(var(--u)*12); font-size:max(12px, calc(var(--u)*17)); color:#444; line-height:1.6; }
+  .rec-txt b { color:#111; }
+
+  /* end of project */
+  .endp { text-align:center; padding:calc(var(--u)*30) 0 calc(var(--u)*106); font-size:16px; line-height:1.3; }
+  .endp p { margin:0; font-size:max(12px, calc(var(--u)*20)); color:#313131; }
+
+  /* ACE library bands (full-bleed bg, content on 300 grid) */
+  .lband { font-size:16px; line-height:1.5; color:#111; }
+  .lb-in { padding:calc(var(--u)*150) calc(var(--u)*300); }
+  .blk { display:grid; grid-template-columns:calc(var(--u)*394) 1fr; align-items:start; }
+  .blk + .blk { margin-top:calc(var(--u)*130); }
+  .blk.wide { grid-template-columns:1fr; }
+  .blk.wide .blk-l { display:grid; grid-template-columns:calc(var(--u)*394) 1fr; margin-bottom:calc(var(--u)*48); align-items:baseline; }
+  .blk-l h4 { margin:0; font-size:max(14px, calc(var(--u)*24)); font-weight:700; letter-spacing:-.01em; }
+  .blk-l p { margin:calc(var(--u)*12) 0 0; max-width:calc(var(--u)*330); font-size:max(12px, calc(var(--u)*18)); line-height:1.55; color:#666; word-break:keep-all; }
+  .blk.wide .blk-l p { margin:0; max-width:calc(var(--u)*900); }
+  .blk-r img { display:block; max-width:100%; height:auto; }
+  .blk-r .sws { grid-template-columns:repeat(7, 1fr); }
+  .blk-r .sws.pt { margin-top:calc(var(--u)*28); grid-template-columns:repeat(7, 1fr); }
+  .lband .ts li { border-bottom-color:#e2e2e2; }
+  .pair { display:flex; gap:calc(var(--u)*100); align-items:flex-start; }
+  .gov-band code { display:block; background:#111; color:#e8e8e8; border-radius:6px; padding:.7em 1em; font-size:max(11px, calc(var(--u)*15)); margin-bottom:8px; overflow-x:auto; white-space:nowrap; }
+  .pub { margin:calc(var(--u)*32) 0 0; }
+  .pub img { width:100%; height:auto; display:block; border:1px solid #e5e5e5; }
+  .pub figcaption { margin-top:calc(var(--u)*14); font-size:max(11px, calc(var(--u)*15)); color:#777; }
+
+  @media (max-width:860px) {
+    .sh { padding:56px 20px 64px; }
+    .sh-head { grid-template-columns:1fr; row-gap:12px; margin-bottom:32px; }
+    .sh-head .lbl, .sh-head h2, .sh-head p { grid-column:1; grid-row:auto; }
+    .cs { padding:56px 20px 48px; }
+    .cs-head { grid-template-columns:1fr; gap:12px; }
+    .cgrid { grid-template-columns:1fr; }
+    .stage { flex-direction:column; gap:20px; padding:28px 20px; }
+    .stage img, .blk-r img { width:100% !important; }
+    .cbody { grid-template-columns:1fr; padding:22px 20px; }
+    .cc.rec { flex-direction:column; }
+    .rec-txt { padding:22px 20px; }
+    .lb-in { padding:56px 20px; }
+    .blk, .blk.wide .blk-l { grid-template-columns:1fr; }
+    .blk + .blk { margin-top:48px; }
+    .blk-l { margin-bottom:16px; }
+    .blk-r .sws, .blk-r .sws.pt { grid-template-columns:repeat(4, 1fr); }
+    .pair { flex-direction:column; gap:24px; }
+  }
+  .cs-head { grid-template-columns:calc(var(--u)*394) 1fr; align-items:end; row-gap:calc(var(--u)*26); }
+  .cs-num { grid-row:1 / span 2; align-self:start; }
+  .cs-title, .cs-tags { grid-column:2; }
+  .cs-tags { justify-content:flex-start; max-width:none; }
+  .cs-title h2 { white-space:nowrap; }
+  @media (max-width:860px) { .cs-head { grid-template-columns:1fr; } .cs-num, .cs-title, .cs-tags { grid-column:1; grid-row:auto; } .cs-title h2 { white-space:normal; } }
+
 </style>
 </head>
 <body>
@@ -415,13 +502,9 @@
 <img src="img/st-a-01.jpg" srcset="img/st-a-01.jpg 1920w, img/st-a-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2165" alt="SmartThings Studio overview &amp; research 1" loading="lazy" decoding="async">
 <img src="img/st-a-02.jpg" srcset="img/st-a-02.jpg 1920w, img/st-a-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2165" alt="SmartThings Studio overview &amp; research 2" loading="lazy" decoding="async">
 </section>
-<section class="page sheet sheet-tight" data-group="case-st" aria-label="SmartThings Studio problems">
+<section class="page sheet" data-group="case-st" aria-label="SmartThings Studio problems">
 <div class="sh">
-  <div class="sh-head">
-    <div class="lbl">PROBLEM</div>
-    <h2>기능 탐색과 구매가 끊기고, <br>같은 설명이 반복됐습니다</h2>
-    <p>리서치에서 확인한 이탈 원인을 운영 중인 페이지 구조에서 다시 짚어보니, 두 가지 문제가 겹쳐 있었습니다.</p>
-  </div>
+  <div class="sh-head"><div class="lbl">PROBLEM</div><h2>기능 탐색과 구매가 끊기고, 같은 설명이 반복됐습니다</h2><p>리서치에서 확인한 이탈 원인을 운영 중인 페이지 구조에서 다시 짚어보니, 두 가지 문제가 겹쳐 있었습니다.</p></div>
   <div class="prob">
     <div><span class="pn">Problem 1</span><h4>기능 탐색과 구매가 분리된 복잡한 경로</h4>
       <div class="big"><b>10</b><em>단계</em><b>7</b><em>회 페이지 이동</em></div>
@@ -481,45 +564,52 @@
 <img src="img/st-b-02.jpg" srcset="img/st-b-02.jpg 1920w, img/st-b-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1300" alt="SmartThings Studio concept &amp; landing 2" loading="lazy" decoding="async">
 </section>
 <section class="page" data-group="case-st" aria-label="SmartThings Studio final UI">
-<img src="img/st-c-01.jpg" srcset="img/st-c-01.jpg 1920w, img/st-c-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1992" alt="SmartThings Studio final UI 1" loading="lazy" decoding="async">
-<img src="img/st-c-02.jpg" srcset="img/st-c-02.jpg 1920w, img/st-c-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1992" alt="SmartThings Studio final UI 2" loading="lazy" decoding="async">
-<img src="img/st-c-03.jpg" srcset="img/st-c-03.jpg 1920w, img/st-c-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1991" alt="SmartThings Studio final UI 3" loading="lazy" decoding="async">
+<img src="img/st-c-01.jpg" srcset="img/st-c-01.jpg 1920w, img/st-c-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1939" alt="SmartThings Studio final UI 1" loading="lazy" decoding="async">
+<img src="img/st-c-02.jpg" srcset="img/st-c-02.jpg 1920w, img/st-c-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1939" alt="SmartThings Studio final UI 2" loading="lazy" decoding="async">
+<img src="img/st-c-03.jpg" srcset="img/st-c-03.jpg 1920w, img/st-c-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1937" alt="SmartThings Studio final UI 3" loading="lazy" decoding="async">
 </section>
-<section class="page sheet sheet-top" data-group="case-st" aria-label="SmartThings Studio UI components">
+<section class="page sheet" data-group="case-st" aria-label="SmartThings Studio UI components">
 <div class="sh">
-  <div class="sh-head">
-    <div class="lbl">UI COMPONENTS &amp; RULES</div>
-    <h2>체험 흐름을 이루는 컴포넌트와 <br>추천 규칙을 정의했습니다</h2>
-    <p>온보딩, 룸 뷰, 추천 단계에서 반복해 쓰이는 요소를 컴포넌트로 묶고, 상태와 사용 규칙을 함께 정리했습니다.</p>
+  <div class="sh-head"><div class="lbl">UI COMPONENTS</div><h2>체험 흐름을 이루는 컴포넌트와 추천 규칙을 정의했습니다</h2><p>온보딩, 룸 뷰, 추천 단계에서 반복해 쓰이는 요소를 컴포넌트로 묶고, 상태와 사용 규칙을 함께 정리했습니다.</p></div>
+  <div class="cgrid">
+    <article class="cc full">
+      <div class="stage"><figure><img class="" src="img/stc/ob-default.png" width="320" height="156" style="width:calc(var(--u)*464)" alt="Default" loading="lazy"><figcaption>Default</figcaption></figure><figure><img class="" src="img/stc/ob-selected.png" width="320" height="156" style="width:calc(var(--u)*464)" alt="Selected" loading="lazy"><figcaption>Selected</figcaption></figure></div>
+      <div class="cbody"><h4>Onboarding Button</h4>
+        <ul><li><b>Default</b>흰 배경 · 회색 라인</li><li><b>Selected</b>블루 라인 · 블루 텍스트 · 연한 블루 배경</li><li><b>Rule</b>아이콘 + 라벨 구성, 관심 경험(Q2)은 복수 선택</li></ul></div>
+    </article>
+    <article class="cc">
+      <div class="stage v"><figure><img class="" src="img/stc/fc-default.png" width="364" height="69" style="width:calc(var(--u)*473)" alt="Default" loading="lazy"><figcaption>Default</figcaption></figure><figure><img class="" src="img/stc/fc-selected.png" width="364" height="69" style="width:calc(var(--u)*473)" alt="Selected" loading="lazy"><figcaption>Selected</figcaption></figure></div>
+      <div class="cbody"><h4>Feature Card</h4>
+        <ul><li><b>Default</b>연한 회색 배경</li><li><b>Selected</b>블루 라인 · 연한 블루 배경</li><li><b>Rule</b>선택하면 룸 뷰가 해당 기능 장면으로 전환</li></ul></div>
+    </article>
+    <article class="cc">
+      <div class="stage v"><figure><img class="" src="img/stc/btn-icon.png" width="356" height="42" style="width:calc(var(--u)*463)" alt="Icon" loading="lazy"><figcaption>Icon</figcaption></figure><figure><img class="" src="img/stc/btn-cta.png" width="372" height="56" style="width:calc(var(--u)*484)" alt="CTA" loading="lazy"><figcaption>CTA</figcaption></figure></div>
+      <div class="cbody"><h4>Button</h4>
+        <ul><li><b>Icon</b>필터 · 화면 축소 · 일시정지, 룸 뷰 기기 핀</li><li><b>Primary</b>블랙 — 구매하기, 추천 결과 보기</li><li><b>Secondary</b>화이트 라인 — 장바구니</li></ul></div>
+    </article>
+    <article class="cc full">
+      <div class="stage"><figure><img class="" src="img/stc/card-space.png" width="180" height="160" style="width:calc(var(--u)*306)" alt="Space card" loading="lazy"><figcaption>Space</figcaption></figure>
+        <figure><img class="" src="img/stc/card-product.png" width="326" height="140" style="width:calc(var(--u)*554)" alt="Product card" loading="lazy"><figcaption>Product</figcaption></figure></div>
+      <div class="cbody"><h4>Card</h4>
+        <ul><li><b>Space</b>룸 이미지 + 배치된 제품 썸네일</li><li><b>Product</b>기능 타이틀 · 더 알아보기 → 제품명 · 모델명 → 할인율 · 가격 → 수량 스테퍼</li></ul></div>
+    </article>
+    <article class="cc full rec">
+      <figure class="rec-img"><img src="img/st/logic.jpg" alt="시나리오 추천 로직" loading="lazy" width="1200" height="1760"></figure>
+      <div class="rec-txt">
+        <h4>Recommendation Rules</h4>
+        <p>온보딩 답변을 추천 결과로 바꾸는 규칙입니다.</p>
+        <ol>
+          <li><b>Q2 관심 경험</b>으로 제품 후보 목록을 정합니다.</li>
+          <li><b>Q1 함께 사는 사람</b>으로 제품별 대표 기능을 고릅니다.</li>
+          <li><b>Q3 공간</b>에 맞는 제품만 남깁니다.</li>
+          <li>공간별 중복을 줄여 룸 뷰에 제품 3개를 배치하고, 나머지 기능은 하단 기능 칩으로 보여줍니다.</li>
+        </ol>
+      </div>
+    </article>
   </div>
 </div>
 </section>
-<section class="page band" style="background:#e8e8e8" data-group="case-st" aria-label="SmartThings Studio component sheet">
-<img src="img/st/components.jpg" srcset="img/st/components.jpg 1920w, img/st/components@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="795" style="width:100%" alt="SmartThings Studio 컴포넌트 시트: 온보딩 버튼, 기능 카드, 버튼, 카드" loading="lazy">
-</section>
-<section class="page sheet sheet-bottom" data-group="case-st" aria-label="SmartThings Studio component rules">
-<div class="sh">
-  <div class="spec4">
-    <div><h4>Onboarding Button</h4><ul><li><b>Default</b> 흰 배경 · 회색 라인</li><li><b>Selected</b> 블루 라인 · 블루 텍스트 · 연한 블루 배경</li><li>아이콘 + 라벨, 관심 경험(Q2)은 복수 선택</li></ul></div>
-    <div><h4>Feature Card</h4><ul><li><b>Default</b> 연한 회색 배경</li><li><b>Selected</b> 블루 라인 · 연한 블루 배경</li><li>선택하면 룸 뷰가 해당 기능 장면으로 전환</li></ul></div>
-    <div><h4>Button</h4><ul><li><b>Icon</b> 필터 · 화면 축소 · 일시정지, 룸 뷰 기기 핀</li><li><b>Primary</b> 블랙 — 구매하기, 추천 결과 보기</li><li><b>Secondary</b> 화이트 라인 — 장바구니</li></ul></div>
-    <div><h4>Card</h4><ul><li><b>Space</b> 룸 이미지 + 배치된 제품 썸네일</li><li><b>Product</b> 기능 타이틀 · 더 알아보기 → 제품명 · 모델명 → 할인율 · 가격 → 수량 스테퍼</li></ul></div>
-  </div>
-  <div class="rule-row">
-    <figure><img src="img/st/logic.jpg" alt="시나리오 추천 로직" loading="lazy" width="1200" height="1760"></figure>
-    <div class="rule-txt">
-      <div class="lbl">RECOMMENDATION RULES</div>
-      <h3>온보딩 답변을 <br>추천 결과로 바꾸는 규칙</h3>
-      <ol>
-        <li><b>Q2 관심 경험</b>으로 제품 후보 목록을 정합니다.</li>
-        <li><b>Q1 함께 사는 사람</b>으로 제품별 대표 기능을 고릅니다.</li>
-        <li><b>Q3 공간</b>에 맞는 제품만 남깁니다.</li>
-        <li>공간별 중복을 줄여 룸 뷰에 제품 3개를 배치하고, 나머지 기능은 하단 기능 칩으로 보여줍니다.</li>
-      </ol>
-    </div>
-  </div>
-</div>
-</section>
+<section class="page endp" style="background:#fff" aria-label="End of project"><p>End Of Project</p></section>
 <section id="case-ai" class="page case" data-group="case-ai" aria-label="AI Generation Rules">
 <div class="cs">
   <div class="cs-head">
@@ -568,54 +658,53 @@
 <img src="img/ace-b-02.jpg" srcset="img/ace-b-02.jpg 1920w, img/ace-b-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1774" alt="Samsung ACE direction &amp; design system 2" loading="lazy" decoding="async">
 <img src="img/ace-b-03.jpg" srcset="img/ace-b-03.jpg 1920w, img/ace-b-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1772" alt="Samsung ACE direction &amp; design system 3" loading="lazy" decoding="async">
 </section>
-<section class="page sheet sheet-top" data-group="case-ace" aria-label="ACE UI library">
-<div class="sh">
-  <div class="sh-head">
-    <div class="lbl">UI LIBRARY</div>
-    <h2>기존 운영 사이트에 없던 UI를 <br>공유 라이브러리로 정의했습니다</h2>
-    <p>PD 카드, 마이페이지, 성과 그래프처럼 ACE에 새로 필요한 UI를 XD 공유 라이브러리로 만들었습니다. <br>시안 단계부터 디자인·기획·퍼블리셔와 같은 라이브러리를 기준으로 작업하고, QA까지 진행했습니다.</p>
-  </div>
-  <p class="count-line">Color 17 &nbsp;·&nbsp; Type 9 scales &nbsp;·&nbsp; Components 179 &nbsp;·&nbsp; PC / MO / Fold</p>
+<section class="page sheet" data-group="case-ace" aria-label="ACE UI library">
+<div class="sh sh-short">
+  <div class="sh-head"><div class="lbl">UI LIBRARY</div><h2>기존 운영 사이트에 없던 UI를 공유 라이브러리로 정의했습니다</h2><p>PD 카드, 마이페이지, 성과 그래프처럼 ACE에 새로 필요한 UI를 XD 공유 라이브러리로 만들었습니다. 시안 단계부터 디자인·기획·퍼블리셔와 같은 라이브러리를 기준으로 작업하고, QA까지 진행했습니다.</p></div>
 </div>
 </section>
-<section class="page band" style="background:#ffffff" data-group="case-ace" aria-label="Font · Color"><img src="img/lib/asset.jpg" srcset="img/lib/asset.jpg 1x, img/lib/asset@2x.jpg 2x" width="920" height="694" style="width:calc(var(--u)*920)" alt="Font · Color" loading="lazy"></section>
-<section class="page band" style="background:#ebebeb" data-group="case-ace" aria-label="Grid"><img src="img/lib/grid.jpg" srcset="img/lib/grid.jpg 1x, img/lib/grid@2x.jpg 2x" width="1920" height="743" style="width:calc(var(--u)*1920)" alt="Grid" loading="lazy"></section>
-<section class="page band" style="background:#ebebeb" data-group="case-ace" aria-label="Spacing"><img src="img/lib/spacing.jpg" srcset="img/lib/spacing.jpg 1x, img/lib/spacing@2x.jpg 2x" width="1920" height="702" style="width:calc(var(--u)*1920)" alt="Spacing" loading="lazy"></section>
-<section class="page band" style="background:#ffffff" data-group="case-ace" aria-label="Icon"><img src="img/lib/icon.jpg" srcset="img/lib/icon.jpg 1x, img/lib/icon@2x.jpg 2x" width="1920" height="902" style="width:calc(var(--u)*1920)" alt="Icon" loading="lazy"></section>
-<section class="page band" style="background:#ffffff" data-group="case-ace" aria-label="Button"><img src="img/lib/button.jpg" srcset="img/lib/button.jpg 1x, img/lib/button@2x.jpg 2x" width="1920" height="1576" style="width:calc(var(--u)*1920)" alt="Button" loading="lazy"></section>
-<section class="page band" style="background:#ebebeb" data-group="case-ace" aria-label="Form"><img src="img/lib/form.jpg" srcset="img/lib/form.jpg 1x, img/lib/form@2x.jpg 2x" width="1920" height="1182" style="width:calc(var(--u)*1920)" alt="Form" loading="lazy"></section>
-<section class="page band" style="background:#ffffff" data-group="case-ace" aria-label="Card"><img src="img/lib/card.jpg" srcset="img/lib/card.jpg 1x, img/lib/card@2x.jpg 2x" width="1920" height="848" style="width:calc(var(--u)*1920)" alt="Card" loading="lazy"></section>
-<section class="page band" style="background:#ebebeb" data-group="case-ace" aria-label="GNB"><img src="img/lib/gnb.jpg" srcset="img/lib/gnb.jpg 1x, img/lib/gnb@2x.jpg 2x" width="1920" height="898" style="width:calc(var(--u)*1920)" alt="GNB" loading="lazy"></section>
-<section class="page band" style="background:#ebebeb" data-group="case-ace" aria-label="Popup PC"><img src="img/lib/popup-pc.jpg" srcset="img/lib/popup-pc.jpg 1x, img/lib/popup-pc@2x.jpg 2x" width="1920" height="781" style="width:calc(var(--u)*1920)" alt="Popup PC" loading="lazy"></section>
-<section class="page band" style="background:#ebebeb" data-group="case-ace" aria-label="Popup MO"><img src="img/lib/popup-mo.jpg" srcset="img/lib/popup-mo.jpg 1x, img/lib/popup-mo@2x.jpg 2x" width="1920" height="828" style="width:calc(var(--u)*1920)" alt="Popup MO" loading="lazy"></section>
-<section class="page sheet sheet-bottom" data-group="case-ace" aria-label="ACE library rules and governance">
-<div class="sh">
-  <div class="rules3">
-    <div><h4>Dropdown</h4><div class="kv"><span>Max height</span><b>208</b></div><div class="kv"><span>Max item</span><b>4</b></div><div class="kv"><span>Width</span><b>Flexible</b></div><p>항목이 4개를 넘으면 스크롤</p></div>
-    <div><h4>Popup</h4><div class="kv"><span>Width</span><b>448 – 684</b></div><div class="kv"><span>Max height</span><b>Viewport 80%</b></div><div class="kv"><span>Scrim</span><b>#000 · 60%</b></div><p>Filter · Scroll · Warning · Input · Input error · Date · Dropdown · No title</p></div>
-    <div><h4>GNB state</h4><ol class="st"><li>Before sign-up</li><li>After sign-up · 승인 대기</li><li>After log-in</li><li>Menu activated</li></ol><p>가입·승인 상태에 따라 메뉴 구성을 다르게</p></div>
-  </div>
-  <div class="gov">
-    <div class="gov-l">
-      <h4>Governance</h4>
-      <p class="fd-sub">화면 파일 이름 규칙</p>
-      <code>SEC_PC_삼성에이스_00_화면이름_화면특징</code>
-      <code>SEC_MO_삼성에이스_00_화면이름_화면특징</code>
-      <p class="fd-sub">공유 범위</p>
-      <p class="gov-p">디자인 · 기획 · 퍼블리셔 / 시안 → 구현 → QA</p>
-    </div>
-    <figure class="gov-r"><img src="img/ace/publish.jpg" alt="XD 라이브러리 업데이트 방법 안내" loading="lazy" width="2048" height="695">
-      <figcaption>팀 공유용 안내 — 에셋을 고치거나 새로 만들면 Publish → Update로 연결된 문서에 반영</figcaption></figure>
+<section class="page lband" style="background:#f7f7f7" data-group="case-ace" aria-label="ACE foundation">
+<div class="lb-in">
+  <div class="blk"><div class="blk-l"><h4>Color</h4><p>Grayscale 13단계와 포인트 · 상태 컬러로 구성했습니다.</p></div><div class="blk-r"><div class="sws"><div class="sw"><i style="background:#000000"></i><b>#000000</b></div><div class="sw"><i style="background:#1C1C1C"></i><b>#1C1C1C</b></div><div class="sw"><i style="background:#313131"></i><b>#313131</b></div><div class="sw"><i style="background:#555555"></i><b>#555555</b></div><div class="sw"><i style="background:#707070"></i><b>#707070</b></div><div class="sw"><i style="background:#757575"></i><b>#757575</b></div><div class="sw"><i style="background:#8F8F8F"></i><b>#8F8F8F</b></div><div class="sw"><i style="background:#AAAAAA"></i><b>#AAAAAA</b></div><div class="sw"><i style="background:#BBBBBB"></i><b>#BBBBBB</b></div><div class="sw lt"><i style="background:#DDDDDD"></i><b>#DDDDDD</b></div><div class="sw lt"><i style="background:#EEEEEE"></i><b>#EEEEEE</b></div><div class="sw lt"><i style="background:#F7F7F7"></i><b>#F7F7F7</b></div><div class="sw lt"><i style="background:#FFFFFF"></i><b>#FFFFFF</b></div></div><div class="sws pt"><div class="sw"><i style="background:#2189FF"></i><b>#2189FF</b><span>Blue</span></div><div class="sw"><i style="background:#016BEA"></i><b>#016BEA</b><span>Blue Dark</span></div><div class="sw"><i style="background:#D62E2E"></i><b>#D62E2E</b><span>Warning</span></div><div class="sw"><i style="background:#F66700"></i><b>#F66700</b><span>Orange</span></div></div></div></div>
+  <div class="blk"><div class="blk-l"><h4>Typography</h4><p>SamsungOneKoreanOTF Bold 9단계. 12/16은 모바일 전용입니다.</p></div><div class="blk-r"><ul class="ts"><li><span class="ts-k">48/62</span><span class="ts-s" style="font-size:calc(var(--u)*48)">삼성 에이스 Samsung ACE</span></li><li><span class="ts-k">36/48</span><span class="ts-s" style="font-size:calc(var(--u)*36)">삼성 에이스 Samsung ACE</span></li><li><span class="ts-k">24/32</span><span class="ts-s" style="font-size:calc(var(--u)*24)">삼성 에이스 Samsung ACE</span></li><li><span class="ts-k">22/29</span><span class="ts-s" style="font-size:calc(var(--u)*22)">삼성 에이스 Samsung ACE</span></li><li><span class="ts-k">20/27</span><span class="ts-s" style="font-size:calc(var(--u)*20)">삼성 에이스 Samsung ACE</span></li><li><span class="ts-k">18/24</span><span class="ts-s" style="font-size:calc(var(--u)*18)">삼성 에이스 Samsung ACE</span></li><li><span class="ts-k">16/22</span><span class="ts-s" style="font-size:calc(var(--u)*16)">삼성 에이스 Samsung ACE</span></li><li><span class="ts-k">14/19</span><span class="ts-s" style="font-size:calc(var(--u)*14)">삼성 에이스 Samsung ACE</span></li><li><span class="ts-k">12/16</span><span class="ts-s" style="font-size:calc(var(--u)*12)">삼성 에이스 Samsung ACE</span><em>MO only</em></li></ul></div></div>
+</div>
+</section>
+<section class="page lband" style="background:#ebebeb" data-group="case-ace" aria-label="ACE grid, form, popup">
+<div class="lb-in">
+  <div class="blk wide"><div class="blk-l"><h4>Grid</h4><p>PC 1920 프레임 · 콘텐츠 1440 · 12컬럼(94 / 거터 24), MO 360 · 4컬럼(66 / 거터 16), 폴드 801까지 대응했습니다.</p></div><div class="blk-r"><img class="" src="img/libc/grid.png" width="3680" height="1300" style="width:calc(var(--u)*1320)" alt="Grid PC MO Fold" loading="lazy"></div></div>
+  <div class="blk"><div class="blk-l"><h4>Text Field</h4><p>Default · Typing · Error 3가지 상태를 PC와 MO에 같은 규칙으로 적용했습니다.</p></div><div class="blk-r"><img class="" src="img/libc/form.png" width="830" height="370" style="width:calc(var(--u)*872)" alt="Text field states" loading="lazy"></div></div>
+  <div class="blk wide"><div class="blk-l"><h4>Popup</h4><p>너비 448–684, 최대 높이 뷰포트 80%, 스크림 #000 60%. 필터 · 경고 · 입력 · 날짜 등 8가지 유형으로 정리했습니다.</p></div><div class="blk-r"><img class="" src="img/libc/popup.png" width="2540" height="650" style="width:calc(var(--u)*1320)" alt="Popup types" loading="lazy"></div></div>
+</div>
+</section>
+<section class="page lband" style="background:#fff" data-group="case-ace" aria-label="ACE icon, button, card">
+<div class="lb-in">
+  <div class="blk"><div class="blk-l"><h4>Icon</h4><p>12 · 14 · 16 · 24px 4가지 크기로 나누고, 같은 아이콘은 크기별로 선 두께를 맞췄습니다.</p></div><div class="blk-r"><img class="" src="img/libc/icon.png" width="950" height="670" style="width:calc(var(--u)*922)" alt="Icons" loading="lazy"></div></div>
+  <div class="blk wide"><div class="blk-l"><h4>Button · Tab · Dropdown</h4><p>CTA는 36 · 40 · 46 높이로 나누고, Default · Hover/Selected · Disabled 상태를 공통으로 적용했습니다. 드롭다운은 최대 높이 208, 최대 4개 항목, 가변 너비입니다.</p></div><div class="blk-r"><div class="pair"><img class="" src="img/libc/cta.png" width="370" height="420" style="width:calc(var(--u)*500)" alt="CTA buttons" loading="lazy"><img class="" src="img/libc/tab.png" width="735" height="620" style="width:calc(var(--u)*735)" alt="Tab and dropdown" loading="lazy"></div></div></div>
+  <div class="blk"><div class="blk-l"><h4>Product Card</h4><p>이미지 · 제품명 · 모델명 · 가격 · 링크 생성 CTA로 구성한 ACE 전용 카드입니다.</p></div><div class="blk-r"><img class="" src="img/libc/card.png" width="720" height="560" style="width:calc(var(--u)*792)" alt="Product card" loading="lazy"></div></div>
+</div>
+</section>
+<section class="page lband" style="background:#fff" data-group="case-ace" aria-label="ACE governance">
+<div class="lb-in gov-band">
+  <div class="blk"><div class="blk-l"><h4>Governance</h4><p>화면 파일 이름 규칙과 라이브러리 업데이트 방법을 정해 디자인 · 기획 · 퍼블리셔가 같은 기준으로 작업했습니다.</p></div><div class="blk-r"><code>SEC_PC_삼성에이스_00_화면이름_화면특징</code><code>SEC_MO_삼성에이스_00_화면이름_화면특징</code><figure class="pub"><img src="img/ace/publish.jpg" alt="XD 라이브러리 업데이트 방법 안내" loading="lazy" width="2048" height="695"><figcaption>팀 공유용 안내 — 에셋을 고치거나 새로 만들면 Publish → Update로 연결된 문서에 반영</figcaption></figure></div></div>
+</div>
+</section>
+<section class="page sheet" data-group="case-ace" aria-label="ACE UX strategy">
+<div class="sh sh-short">
+  <div class="sh-head"><div class="lbl">UX STRATEGY</div>
+    <h2>이해부터 성과 확인까지 자연스럽게 이어지는 흐름을 설계했습니다</h2>
+    <p class="en">From Understanding To Action, In One Connected Flow.</p>
+    <p>ACE는 사용자의 상태에 따라 필요한 정보와 다음 행동이 달라지는 서비스입니다. 그래서 로그인 전에는 서비스 이해와 가입을, 로그인 후에는 제품 탐색 · 링크 생성 · 성과 확인을 빠르게 시작할 수 있도록 각 단계의 역할을 분명하게 나누고 자연스럽게 연결했습니다.</p>
   </div>
 </div>
 </section>
 <section class="page" data-group="case-ace" aria-label="Samsung ACE screens">
-<img src="img/ace-c-01.jpg" srcset="img/ace-c-01.jpg 1920w, img/ace-c-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2074" alt="Samsung ACE screens 1" loading="lazy" decoding="async">
-<img src="img/ace-c-02.jpg" srcset="img/ace-c-02.jpg 1920w, img/ace-c-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2074" alt="Samsung ACE screens 2" loading="lazy" decoding="async">
-<img src="img/ace-c-03.jpg" srcset="img/ace-c-03.jpg 1920w, img/ace-c-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2074" alt="Samsung ACE screens 3" loading="lazy" decoding="async">
-<img src="img/ace-c-04.jpg" srcset="img/ace-c-04.jpg 1920w, img/ace-c-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2074" alt="Samsung ACE screens 4" loading="lazy" decoding="async">
-<img src="img/ace-c-05.jpg" srcset="img/ace-c-05.jpg 1920w, img/ace-c-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2074" alt="Samsung ACE screens 5" loading="lazy" decoding="async">
+<img src="img/ace-c-01.jpg" srcset="img/ace-c-01.jpg 1920w, img/ace-c-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 1" loading="lazy" decoding="async">
+<img src="img/ace-c-02.jpg" srcset="img/ace-c-02.jpg 1920w, img/ace-c-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 2" loading="lazy" decoding="async">
+<img src="img/ace-c-03.jpg" srcset="img/ace-c-03.jpg 1920w, img/ace-c-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 3" loading="lazy" decoding="async">
+<img src="img/ace-c-04.jpg" srcset="img/ace-c-04.jpg 1920w, img/ace-c-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 4" loading="lazy" decoding="async">
+<img src="img/ace-c-05.jpg" srcset="img/ace-c-05.jpg 1920w, img/ace-c-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 5" loading="lazy" decoding="async">
 </section>
+<section class="page endp" style="background:#f9f9f9" aria-label="End of project"><p>End Of Project</p></section>
 <section id="case-ds" class="page case" data-group="case-ds" aria-label="Samsung.com Design System">
 <div class="cs">
   <div class="cs-head">
