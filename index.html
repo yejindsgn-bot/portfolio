@@ -7,66 +7,143 @@
 <meta name="description" content="권예진 UIUX / AI Design 포트폴리오 (2023–2026)">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
 <style>
-  :root { --bg:#0a0a0a; --fg:#f2f2f2; --muted:#8a8a8a; --accent:#2f6bff; --nav-h:56px; }
+  :root {
+    --u: calc(100cqw / 1920);
+    --bg:#000; --fg:#f2f2f2; --muted:#8c8c8c; --blue:#104EE3; --nav-h:56px;
+    --f-title: "Samsung Sharp Sans", "SamsungSharpSans", "Plus Jakarta Sans", "Pretendard Variable", Pretendard, sans-serif;
+    --f-body: "SamsungOneKorean", "Samsung One Korean", "SamsungOne", "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  }
   * { box-sizing:border-box; }
   html { scroll-behavior:smooth; scroll-padding-top:var(--nav-h); }
-  body { margin:0; background:var(--bg); color:var(--fg); font-family:Inter, "Noto Sans KR", -apple-system, "Apple SD Gothic Neo", "Pretendard", sans-serif; -webkit-font-smoothing:antialiased; }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:var(--f-body); -webkit-font-smoothing:antialiased; }
   a { color:inherit; text-decoration:none; }
+  button { font:inherit; color:inherit; }
 
-  header { position:fixed; inset:0 0 auto 0; height:var(--nav-h); z-index:50; display:flex; align-items:center; gap:24px; padding:0 24px;
-    background:rgba(10,10,10,.72); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); border-bottom:1px solid rgba(255,255,255,.08); }
-  .brand { font-weight:600; letter-spacing:.02em; font-size:14px; white-space:nowrap; }
-  .brand span { color:var(--muted); font-weight:400; margin-left:10px; }
-  nav { flex:1; display:flex; align-items:center; gap:2px; overflow-x:auto; scrollbar-width:none; -ms-overflow-style:none; }
-  nav::-webkit-scrollbar { display:none; }
-  nav a { font-size:13px; color:var(--muted); padding:8px 10px; border-radius:8px; white-space:nowrap; transition:color .15s, background .15s; }
-  nav a:hover { color:var(--fg); }
-  nav a.active { color:var(--fg); background:rgba(255,255,255,.08); }
-  nav .grp { font-size:10px; letter-spacing:.14em; color:#5a5a5a; font-weight:600; padding:0 8px 0 18px; white-space:nowrap; border-left:1px solid rgba(255,255,255,.1); margin-left:8px; }
+  /* header */
+  header { position:fixed; inset:0 0 auto 0; height:var(--nav-h); z-index:50; display:flex; align-items:center; gap:28px; padding:0 24px;
+    background:rgba(0,0,0,.72); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); border-bottom:1px solid rgba(255,255,255,.08); }
+  .brand { font-family:var(--f-title); font-weight:700; letter-spacing:.02em; font-size:14px; white-space:nowrap; }
+  .brand span { color:var(--muted); font-weight:500; margin-left:10px; font-family:var(--f-body); }
+  header nav { flex:1; display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; }
+  header nav::-webkit-scrollbar { display:none; }
+  header nav a { font-size:13px; color:var(--muted); padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .15s, background .15s; }
+  header nav a:hover { color:var(--fg); }
+  header nav a.active { color:var(--fg); background:rgba(255,255,255,.09); }
   .contact { font-size:13px; color:var(--muted); white-space:nowrap; }
   .contact:hover { color:var(--fg); }
-  #progress { position:fixed; top:0; left:0; height:2px; width:0; background:var(--accent); z-index:60; transition:width .1s linear; }
+  #progress { position:fixed; top:0; left:0; height:2px; width:0; background:var(--blue); z-index:60; }
 
   main { padding-top:var(--nav-h); }
-  .page { display:block; max-width:1920px; margin:0 auto; font-size:0; line-height:0; }
-  .page img { display:block; width:100%; height:auto; }
+  .page { display:block; position:relative; max-width:1920px; margin:0 auto; font-size:0; line-height:0; container-type:inline-size; }
+  .page > img { display:block; width:100%; height:auto; }
 
-  /* section dividers */
-  .page.dv { font-size:16px; line-height:1.5; background:#000; }
-  .divider { min-height:78vh; display:flex; align-items:center; padding:120px 6.25vw; border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08); }
-  .dv-in { width:100%; max-width:1200px; }
-  .dv-tag { display:flex; align-items:center; gap:14px; font-size:12px; letter-spacing:.22em; color:var(--muted); font-weight:600; }
-  .dv-tag .num { font-size:12px; color:var(--fg); padding:4px 8px; border:1px solid rgba(255,255,255,.25); border-radius:999px; letter-spacing:.08em; }
-  .divider h2 { font-size:clamp(44px, 7vw, 104px); font-weight:700; letter-spacing:-.03em; line-height:1; margin:28px 0 20px; }
-  .divider p { font-family:"Noto Sans KR", Inter, sans-serif; font-size:clamp(15px, 1.3vw, 19px); color:#b0b0b0; margin:0 0 56px; }
-  .pj-list { display:grid; grid-template-columns:1fr; border-top:1px solid rgba(255,255,255,.14); }
-  .pj { display:grid; grid-template-columns:56px 1fr auto 32px; align-items:center; gap:16px; padding:22px 0; border-bottom:1px solid rgba(255,255,255,.14); transition:padding-left .2s, color .2s; }
-  .pj:hover { padding-left:12px; }
-  .pj .n { font-size:13px; color:var(--muted); font-variant-numeric:tabular-nums; }
-  .pj .t { font-size:clamp(18px, 2vw, 26px); font-weight:500; letter-spacing:-.01em; }
-  .pj .s { font-size:13px; color:var(--muted); letter-spacing:.02em; }
-  .pj .arr { color:var(--muted); text-align:right; transition:transform .2s, color .2s; }
-  .pj:hover .arr { transform:translateX(4px); color:var(--fg); }
+  /* ---------- chapter pages ---------- */
+  .chap { background:#000; font-size:16px; line-height:1.5; }
+  .ch { padding:calc(var(--u)*160) calc(var(--u)*160) calc(var(--u)*150); min-height:calc(var(--u)*1240); }
+  .ch-top { display:grid; grid-template-columns:calc(var(--u)*784) 1fr; min-height:calc(var(--u)*553); }
+  .tag { display:flex; align-items:center; gap:calc(var(--u)*14); font-size:max(10px, calc(var(--u)*13)); letter-spacing:.2em; color:#9a9a9a; font-weight:600; height:calc(var(--u)*32); }
+  .tag .num { color:#fff; border:1px solid rgba(255,255,255,.4); border-radius:999px; padding:0 .7em; line-height:2em; letter-spacing:.06em; }
+  .ch h2 { margin:calc(var(--u)*34) 0 0; line-height:0; }
+  .ttl { height:calc(var(--u)*99); width:auto; display:block; }
+  .meta { display:flex; align-items:center; margin-top:calc(var(--u)*29); font-size:max(12px, calc(var(--u)*18)); color:#c9c9c9; line-height:1; }
+  .meta i { width:1px; height:1.1em; background:#777; margin:0 calc(var(--u)*20); }
+  .note { margin:calc(var(--u)*234) 0 0; font-size:max(11px, calc(var(--u)*18)); color:#a3a3a3; line-height:1.4; }
+  .ch-r { padding-top:calc(var(--u)*59); margin-right:calc(var(--u)*-120); word-break:keep-all; }
+  .ch-r h3 { margin:0 0 calc(var(--u)*24); font-size:max(13px, calc(var(--u)*18)); font-weight:700; color:#fff; line-height:1.2; }
+  .ch-r p { margin:0 0 calc(var(--u)*28); font-size:max(12px, calc(var(--u)*17)); line-height:1.56; color:var(--muted); font-weight:400; }
+  .list { border-top:1px solid #2c2c2c; }
+  .row { display:grid; grid-template-columns:calc(var(--u)*86) 1fr auto calc(var(--u)*48); align-items:center; height:calc(var(--u)*100); min-height:44px;
+    border-bottom:1px solid #2c2c2c; transition:padding-left .25s ease, background .25s; }
+  .row:hover { padding-left:calc(var(--u)*16); background:rgba(255,255,255,.02); }
+  .row .n { font-size:max(11px, calc(var(--u)*15)); color:#7a7a7a; font-variant-numeric:tabular-nums; }
+  .row .t { font-family:var(--f-title); font-size:max(15px, calc(var(--u)*30)); font-weight:500; letter-spacing:-.005em; color:#f2f2f2; }
+  .row .s { font-size:max(11px, calc(var(--u)*15)); color:#8a8a8a; letter-spacing:.02em; }
+  .row .arr { text-align:right; color:#8a8a8a; font-size:max(13px, calc(var(--u)*20)); transition:transform .25s, color .25s; }
+  .row:hover .arr { transform:translateX(4px); color:#fff; }
 
-  footer { padding:56px 24px 72px; text-align:center; color:var(--muted); font-size:13px; line-height:1.9; border-top:1px solid rgba(255,255,255,.08); }
-  footer strong { color:var(--fg); font-weight:600; }
+  /* ---------- video overlays ---------- */
+  .vid { position:absolute; overflow:hidden; background:#111; }
+  .vid video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .kvtext { position:absolute; left:6.06%; top:50%; transform:translateY(calc(-50% + 12px)); width:70%; opacity:0;
+    transition:opacity .9s ease .25s, transform .9s cubic-bezier(.2,.7,.2,1) .25s; line-height:normal; }
+  .vid.in .kvtext { opacity:1; transform:translateY(-50%); }
+  .kvtext h3 { margin:0 0 calc(var(--u)*24); font-family:var(--f-title); font-weight:700; font-size:calc(var(--u)*42.7); line-height:1.1; letter-spacing:-.012em; color:#000; }
+  .kvtext p { margin:0; font-family:var(--f-body); font-weight:400; font-size:calc(var(--u)*22); line-height:1.24; color:#1d1d1d; max-width:calc(var(--u)*640); }
+  .kvtext.light h3, .kvtext.light p { color:#fff; }
+  .snd { position:absolute; right:5%; bottom:3%; width:max(30px, calc(var(--u)*44)); height:max(30px, calc(var(--u)*44)); border-radius:50%; border:0; padding:0;
+    background:rgba(0,0,0,.45); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); cursor:pointer; display:grid; place-items:center; }
+  .snd svg { width:55%; height:55%; fill:none; stroke:#fff; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .snd .spk { fill:#fff; stroke:none; }
+  .snd .on { display:none; }
+  .snd[aria-pressed="true"] .on { display:inline; }
+  .snd[aria-pressed="true"] .off { display:none; }
+
+  /* ---------- operation carousels ---------- */
+  .opsec { background:#f7f7f7; color:#111; font-size:16px; line-height:1.5; padding:calc(var(--u)*159) 0 calc(var(--u)*253); }
+  .opg + .opg { margin-top:calc(var(--u)*373); }
+  .opg { position:relative; }
+  .op-head { display:grid; grid-template-columns:calc(var(--u)*394) 1fr; align-items:start; padding:0 calc(var(--u)*300); margin-bottom:calc(var(--u)*243); word-break:keep-all; }
+  .op-l h3 { margin:0; font-family:var(--f-title); font-size:max(15px, calc(var(--u)*24)); font-weight:700; color:var(--blue); line-height:1; letter-spacing:-.005em; }
+  .op-l span { display:block; margin-top:calc(var(--u)*29); font-size:max(12px, calc(var(--u)*22)); color:#555; line-height:1; }
+  .op-d { margin:calc(var(--u)*3) 0 0; font-size:max(12px, calc(var(--u)*20)); line-height:1.5; color:#6a6a6a; }
+  .op-ctl { position:absolute; right:calc(var(--u)*300); top:calc(var(--u)*175); display:flex; align-items:center; gap:calc(var(--u)*12); }
+  .op-ctl .cnt { font-size:max(11px, calc(var(--u)*15)); color:#888; margin-right:calc(var(--u)*12); font-variant-numeric:tabular-nums; letter-spacing:.04em; white-space:nowrap; }
+  .op-ctl .cnt b { color:#111; font-weight:600; }
+  .op-ctl button { width:max(34px, calc(var(--u)*52)); height:max(34px, calc(var(--u)*52)); border-radius:50%; border:1px solid #cfcfcf; background:#fff; color:#111; cursor:pointer;
+    font-size:max(13px, calc(var(--u)*18)); display:grid; place-items:center; transition:background .2s, color .2s, opacity .2s, border-color .2s; }
+  .op-ctl button:hover:not(:disabled) { background:#111; color:#fff; border-color:#111; }
+  .op-ctl button:disabled { opacity:.35; cursor:default; }
+  .track { list-style:none; margin:0; display:flex; gap:calc(var(--u)*60); overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory;
+    padding:0 calc(var(--u)*300); scroll-padding:0 calc(var(--u)*300); scrollbar-width:none; cursor:grab; outline:none; }
+  .track::-webkit-scrollbar { display:none; }
+  .track.drag { cursor:grabbing; scroll-snap-type:none; scroll-behavior:auto; }
+  .track.drag img { pointer-events:none; }
+  .slide { flex:0 0 auto; height:calc(var(--u)*var(--ch)); aspect-ratio:var(--w) / var(--h); scroll-snap-align:start; line-height:0; }
+  .slide img { width:100%; height:100%; object-fit:cover; display:block; user-select:none; -webkit-user-drag:none; }
+
+  footer { padding:64px 24px 80px; text-align:center; color:var(--muted); font-size:13px; line-height:1.9; border-top:1px solid rgba(255,255,255,.08); }
+  footer strong { color:var(--fg); font-weight:600; font-family:var(--f-title); }
   footer .mail { color:var(--fg); }
-  #top { position:fixed; right:20px; bottom:20px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.1); color:var(--fg); border:1px solid rgba(255,255,255,.15);
-    display:grid; place-items:center; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s; backdrop-filter:blur(8px); z-index:50; font-size:16px; }
+  #top { position:fixed; right:20px; bottom:20px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.18);
+    display:grid; place-items:center; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:50; font-size:16px; mix-blend-mode:difference; }
   #top.show { opacity:1; pointer-events:auto; }
 
-  @media (max-width:1560px) { .contact { display:none; } }
-  @media (max-width:720px) {
+  @media (max-width:1280px) { .contact { display:none; } }
+  @media (max-width:860px) {
     header { padding:0 14px; gap:12px; }
-    .brand span, .contact { display:none; }
-    nav a { font-size:12px; padding:7px 8px; }
-    nav .grp { padding-left:12px; }
-    .divider { min-height:60vh; padding:72px 20px; }
-    .pj { grid-template-columns:36px 1fr 20px; }
-    .pj .s { display:none; }
+    .brand span { display:none; }
+    header nav a { font-size:12px; padding:7px 9px; }
+    .ch { padding:64px 20px 56px; min-height:0; }
+    .ch-top { grid-template-columns:1fr; min-height:0; }
+    .tag { height:auto; gap:10px; }
+    .ch h2 { margin-top:22px; }
+    .ttl { height:40px; }
+    .meta { margin-top:16px; }
+    .meta i { margin:0 12px; }
+    .note { margin-top:18px; }
+    .ch-r { padding-top:32px; }
+    .ch-r h3 { margin-bottom:12px; }
+    .ch-r p { margin-bottom:14px; line-height:1.7; }
+    .ch-r p br, .op-d br { display:none; }
+    .list { margin-top:28px; }
+    .row { grid-template-columns:34px 1fr 22px; height:auto; padding:16px 0; }
+    .row .s { display:none; }
+    .opsec { padding:56px 0 64px; }
+    .opg + .opg { margin-top:56px; }
+    .op-head { grid-template-columns:1fr; padding:0 20px; margin-bottom:20px; row-gap:12px; }
+    .op-l span { margin-top:8px; }
+    .op-d { margin:0; }
+    .op-l { padding-right:150px; }
+    .op-ctl { right:20px; top:0; gap:8px; }
+    .op-ctl .cnt { margin-right:4px; }
+    .track { gap:12px; padding:0 20px; scroll-padding:0 20px; }
+    .slide { height:calc(var(--ch) * .34px); }
   }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .kvtext { transition:none; } }
 </style>
 </head>
 <body>
@@ -75,146 +152,368 @@
   <a class="brand" href="#cover">KWON YEJIN <span>UIUX / AI DESIGN</span></a>
   <nav aria-label="Sections">
 <a href="#about" data-nav="about">About</a>
-<span class="grp">01 UIUX</span>
-<a href="#tag-seoul" data-nav="tag-seoul">TAG SEOUL</a>
-<a href="#smartthings" data-nav="smartthings">SmartThings</a>
-<a href="#samsung-ace" data-nav="samsung-ace">Samsung ACE</a>
-<a href="#samsung-search" data-nav="samsung-search">Search</a>
-<span class="grp">02 AX</span>
-<a href="#ax-workflow" data-nav="ax-workflow">AX Workflow</a>
-<a href="#samsung-health" data-nav="samsung-health">Samsung Health</a>
-<a href="#ai-living" data-nav="ai-living">AI Living</a>
-<a href="#da-short-form" data-nav="da-short-form">Short-form</a>
+<a href="#uiux" data-nav="uiux">01 UIUX</a>
+<a href="#ax" data-nav="ax">02 AX</a>
+<a href="#operation" data-nav="operation">03 Operation</a>
   </nav>
   <a class="contact" href="mailto:dpwls902717@gmail.com">dpwls902717@gmail.com</a>
 </header>
 
 <main>
-<section id="cover" class="page" aria-label="Cover">
-<img src="img/p01-01.jpg" srcset="img/p01-01.jpg 1920w, img/p01-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Portfolio page 1 part 1">
+<section id="cover" class="page" data-group="cover" aria-label="Cover">
+<img src="img/p01-01.jpg" srcset="img/p01-01.jpg 1920w, img/p01-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Cover 1">
 </section>
-<section id="about" class="page" aria-label="About">
-<img src="img/p02-01.jpg" srcset="img/p02-01.jpg 1920w, img/p02-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Portfolio page 2 part 1" loading="lazy" decoding="async">
-<img src="img/p03-01.jpg" srcset="img/p03-01.jpg 1920w, img/p03-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Portfolio page 3 part 1" loading="lazy" decoding="async">
+<section id="about" class="page" data-group="about" aria-label="About">
+<img src="img/p02-01.jpg" srcset="img/p02-01.jpg 1920w, img/p02-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="About 1" loading="lazy" decoding="async">
 </section>
-<section id="uiux" class="page dv" aria-label="uiux">
-<div class="divider">
-  <div class="dv-in">
-    <div class="dv-tag"><span class="num">01</span>UIUX PROJECT</div>
-    <h2>UI/UX Design</h2>
-    <p>서비스 UX 설계부터 UI 디자인, 실제 런칭까지 참여한 프로젝트</p>
-    <div class="pj-list">
-<a class="pj" href="#tag-seoul"><span class="n">01</span><span class="t">TAG SEOUL</span><span class="s">iF Design Award 2026</span><span class="arr">→</span></a>
-<a class="pj" href="#smartthings"><span class="n">02</span><span class="t">SmartThings Studio</span><span class="s">Samsung</span><span class="arr">→</span></a>
-<a class="pj" href="#samsung-ace"><span class="n">03</span><span class="t">Samsung ACE</span><span class="s">Samsung</span><span class="arr">→</span></a>
-<a class="pj" href="#samsung-search"><span class="n">04</span><span class="t">Samsung.com Search</span><span class="s">Samsung</span><span class="arr">→</span></a>
+<section class="page" data-group="about" aria-label="Experience">
+<img src="img/p03-01.jpg" srcset="img/p03-01.jpg 1920w, img/p03-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Experience 1" loading="lazy" decoding="async">
+</section>
+<section id="uiux" class="page chap" data-group="uiux" aria-label="UI · UX Design">
+<div class="ch">
+  <div class="ch-top">
+    <div class="ch-l">
+      <div class="tag"><span class="num">01</span>UIUX PROJECT</div>
+      <h2><img src="img/title-uiux.png" alt="UI · UX Design" class="ttl ttl-uiux"></h2>
+      <div class="meta"><span>2023. 07 - 2025.11</span><i></i><span>PTKOREA - CRG</span></div>
+      
+    </div>
+    <div class="ch-r">
+      <h3>삼성닷컴 운영 및 UX/UI 개선</h3>
+      <p>삼성닷컴 리빙가전 및 스마트싱스 영역의 UI 디자인과 운영을 담당하며, 제품과 서비스의 특성을 소구하는 페이지를 제작했습니다. <br>운영과 병행해 검색·상품평 UX/UI 개선, ACE 신규 서비스 페이지 런칭 등 다양한 UI·UX 개선·구축 프로젝트에 참여했습니다.</p>
+<p>스마트싱스 스튜디오 제안에서는 제품과 서비스의 연결성을 체험할 수 있는 사용자 경험을 구체화했습니다. <br>TAG SEOUL 프로젝트에서는 서비스 제안부터 UI 디자인까지 참여하여 iF Design Award를 수상했습니다.</p>
     </div>
   </div>
+  <nav class="list" aria-label="UI · UX Design projects">
+<a class="row" href="#tag-seoul"><span class="n">01</span><span class="t">TAG SEOUL</span><span class="s">iF Design Award 2026</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#smartthings-studio"><span class="n">02</span><span class="t">SmartThings Studio</span><span class="s">Service Proposal</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#samsung-ace"><span class="n">03</span><span class="t">Samsung ACE</span><span class="s">Service Launch</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#samsung-search"><span class="n">04</span><span class="t">Samsung.com Search</span><span class="s">UX Improvement</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#design-system"><span class="n">05</span><span class="t">Samsung.com Design System</span><span class="s">Design Guide</span><span class="arr" aria-hidden="true">→</span></a>
+  </nav>
 </div>
 </section>
-<section id="tag-seoul" class="page" aria-label="TAG SEOUL">
-<img src="img/p04-01.jpg" srcset="img/p04-01.jpg 1920w, img/p04-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 1" loading="lazy" decoding="async">
-<img src="img/p04-02.jpg" srcset="img/p04-02.jpg 1920w, img/p04-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 2" loading="lazy" decoding="async">
-<img src="img/p04-03.jpg" srcset="img/p04-03.jpg 1920w, img/p04-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 3" loading="lazy" decoding="async">
-<img src="img/p04-04.jpg" srcset="img/p04-04.jpg 1920w, img/p04-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 4" loading="lazy" decoding="async">
-<img src="img/p04-05.jpg" srcset="img/p04-05.jpg 1920w, img/p04-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 5" loading="lazy" decoding="async">
-<img src="img/p04-06.jpg" srcset="img/p04-06.jpg 1920w, img/p04-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 6" loading="lazy" decoding="async">
-<img src="img/p04-07.jpg" srcset="img/p04-07.jpg 1920w, img/p04-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3015" alt="Portfolio page 4 part 7" loading="lazy" decoding="async">
-<img src="img/p04-08.jpg" srcset="img/p04-08.jpg 1920w, img/p04-08@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3010" alt="Portfolio page 4 part 8" loading="lazy" decoding="async">
+<section id="tag-seoul" class="page" data-group="uiux" aria-label="TAG SEOUL">
+<img src="img/p05-01.jpg" srcset="img/p05-01.jpg 1920w, img/p05-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 1" loading="lazy" decoding="async">
+<img src="img/p05-02.jpg" srcset="img/p05-02.jpg 1920w, img/p05-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 2" loading="lazy" decoding="async">
+<img src="img/p05-03.jpg" srcset="img/p05-03.jpg 1920w, img/p05-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 3" loading="lazy" decoding="async">
+<img src="img/p05-04.jpg" srcset="img/p05-04.jpg 1920w, img/p05-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 4" loading="lazy" decoding="async">
+<img src="img/p05-05.jpg" srcset="img/p05-05.jpg 1920w, img/p05-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 5" loading="lazy" decoding="async">
+<img src="img/p05-06.jpg" srcset="img/p05-06.jpg 1920w, img/p05-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 6" loading="lazy" decoding="async">
+<img src="img/p05-07.jpg" srcset="img/p05-07.jpg 1920w, img/p05-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 7" loading="lazy" decoding="async">
+<img src="img/p05-08.jpg" srcset="img/p05-08.jpg 1920w, img/p05-08@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 8" loading="lazy" decoding="async">
+<img src="img/p05-09.jpg" srcset="img/p05-09.jpg 1920w, img/p05-09@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 9" loading="lazy" decoding="async">
+<img src="img/p05-10.jpg" srcset="img/p05-10.jpg 1920w, img/p05-10@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 10" loading="lazy" decoding="async">
+<img src="img/p05-11.jpg" srcset="img/p05-11.jpg 1920w, img/p05-11@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2185" alt="TAG SEOUL 11" loading="lazy" decoding="async">
 </section>
-<section id="smartthings" class="page" aria-label="SmartThings">
-<img src="img/p05-01.jpg" srcset="img/p05-01.jpg 1920w, img/p05-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3178" alt="Portfolio page 5 part 1" loading="lazy" decoding="async">
-<img src="img/p05-02.jpg" srcset="img/p05-02.jpg 1920w, img/p05-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3178" alt="Portfolio page 5 part 2" loading="lazy" decoding="async">
-<img src="img/p05-03.jpg" srcset="img/p05-03.jpg 1920w, img/p05-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3178" alt="Portfolio page 5 part 3" loading="lazy" decoding="async">
-<img src="img/p05-04.jpg" srcset="img/p05-04.jpg 1920w, img/p05-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3178" alt="Portfolio page 5 part 4" loading="lazy" decoding="async">
-<img src="img/p05-05.jpg" srcset="img/p05-05.jpg 1920w, img/p05-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3174" alt="Portfolio page 5 part 5" loading="lazy" decoding="async">
+<section id="smartthings-studio" class="page" data-group="uiux" aria-label="SmartThings Studio">
+<img src="img/p06-01.jpg" srcset="img/p06-01.jpg 1920w, img/p06-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2157" alt="SmartThings Studio 1" loading="lazy" decoding="async">
+<img src="img/p06-02.jpg" srcset="img/p06-02.jpg 1920w, img/p06-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2157" alt="SmartThings Studio 2" loading="lazy" decoding="async">
+<img src="img/p06-03.jpg" srcset="img/p06-03.jpg 1920w, img/p06-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2157" alt="SmartThings Studio 3" loading="lazy" decoding="async">
+<img src="img/p06-04.jpg" srcset="img/p06-04.jpg 1920w, img/p06-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2157" alt="SmartThings Studio 4" loading="lazy" decoding="async">
+<img src="img/p06-05.jpg" srcset="img/p06-05.jpg 1920w, img/p06-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2157" alt="SmartThings Studio 5" loading="lazy" decoding="async">
+<img src="img/p06-06.jpg" srcset="img/p06-06.jpg 1920w, img/p06-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2157" alt="SmartThings Studio 6" loading="lazy" decoding="async">
+<img src="img/p06-07.jpg" srcset="img/p06-07.jpg 1920w, img/p06-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2157" alt="SmartThings Studio 7" loading="lazy" decoding="async">
+<img src="img/p06-08.jpg" srcset="img/p06-08.jpg 1920w, img/p06-08@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2156" alt="SmartThings Studio 8" loading="lazy" decoding="async">
 </section>
-<section id="samsung-ace" class="page" aria-label="Samsung ACE">
-<img src="img/p06-01.jpg" srcset="img/p06-01.jpg 1920w, img/p06-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 1" loading="lazy" decoding="async">
-<img src="img/p06-02.jpg" srcset="img/p06-02.jpg 1920w, img/p06-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 2" loading="lazy" decoding="async">
-<img src="img/p06-03.jpg" srcset="img/p06-03.jpg 1920w, img/p06-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 3" loading="lazy" decoding="async">
-<img src="img/p06-04.jpg" srcset="img/p06-04.jpg 1920w, img/p06-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 4" loading="lazy" decoding="async">
-<img src="img/p06-05.jpg" srcset="img/p06-05.jpg 1920w, img/p06-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 5" loading="lazy" decoding="async">
-<img src="img/p06-06.jpg" srcset="img/p06-06.jpg 1920w, img/p06-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3145" alt="Portfolio page 6 part 6" loading="lazy" decoding="async">
+<section id="samsung-ace" class="page" data-group="uiux" aria-label="Samsung ACE">
+<img src="img/p07-01.jpg" srcset="img/p07-01.jpg 1920w, img/p07-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2230" alt="Samsung ACE 1" loading="lazy" decoding="async">
+<img src="img/p07-02.jpg" srcset="img/p07-02.jpg 1920w, img/p07-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2230" alt="Samsung ACE 2" loading="lazy" decoding="async">
+<img src="img/p07-03.jpg" srcset="img/p07-03.jpg 1920w, img/p07-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2230" alt="Samsung ACE 3" loading="lazy" decoding="async">
+<img src="img/p07-04.jpg" srcset="img/p07-04.jpg 1920w, img/p07-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2230" alt="Samsung ACE 4" loading="lazy" decoding="async">
+<img src="img/p07-05.jpg" srcset="img/p07-05.jpg 1920w, img/p07-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2230" alt="Samsung ACE 5" loading="lazy" decoding="async">
+<img src="img/p07-06.jpg" srcset="img/p07-06.jpg 1920w, img/p07-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2230" alt="Samsung ACE 6" loading="lazy" decoding="async">
+<img src="img/p07-07.jpg" srcset="img/p07-07.jpg 1920w, img/p07-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2230" alt="Samsung ACE 7" loading="lazy" decoding="async">
+<img src="img/p07-08.jpg" srcset="img/p07-08.jpg 1920w, img/p07-08@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2230" alt="Samsung ACE 8" loading="lazy" decoding="async">
+<img src="img/p07-09.jpg" srcset="img/p07-09.jpg 1920w, img/p07-09@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2230" alt="Samsung ACE 9" loading="lazy" decoding="async">
 </section>
-<section id="samsung-search" class="page" aria-label="Search">
-<img src="img/p07-01.jpg" srcset="img/p07-01.jpg 1920w, img/p07-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2575" alt="Portfolio page 7 part 1" loading="lazy" decoding="async">
-<img src="img/p07-02.jpg" srcset="img/p07-02.jpg 1920w, img/p07-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2575" alt="Portfolio page 7 part 2" loading="lazy" decoding="async">
-<img src="img/p07-03.jpg" srcset="img/p07-03.jpg 1920w, img/p07-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2575" alt="Portfolio page 7 part 3" loading="lazy" decoding="async">
-<img src="img/p07-04.jpg" srcset="img/p07-04.jpg 1920w, img/p07-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2575" alt="Portfolio page 7 part 4" loading="lazy" decoding="async">
+<section id="samsung-search" class="page" data-group="uiux" aria-label="Samsung.com Search">
+<img src="img/p08-01.jpg" srcset="img/p08-01.jpg 1920w, img/p08-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 1" loading="lazy" decoding="async">
+<img src="img/p08-02.jpg" srcset="img/p08-02.jpg 1920w, img/p08-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 2" loading="lazy" decoding="async">
+<img src="img/p08-03.jpg" srcset="img/p08-03.jpg 1920w, img/p08-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 3" loading="lazy" decoding="async">
+<img src="img/p08-04.jpg" srcset="img/p08-04.jpg 1920w, img/p08-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 4" loading="lazy" decoding="async">
+<img src="img/p08-05.jpg" srcset="img/p08-05.jpg 1920w, img/p08-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 5" loading="lazy" decoding="async">
 </section>
-<section id="ax" class="page dv" aria-label="ax">
-<div class="divider">
-  <div class="dv-in">
-    <div class="dv-tag"><span class="num">02</span>AX PROJECT</div>
-    <h2>AI Transformation</h2>
-    <p>생성형 AI 워크플로우를 설계하고 콘텐츠 제작에 적용한 프로젝트</p>
-    <div class="pj-list">
-<a class="pj" href="#ax-workflow"><span class="n">01</span><span class="t">AX Workflow</span><span class="s">Process</span><span class="arr">→</span></a>
-<a class="pj" href="#samsung-health"><span class="n">02</span><span class="t">Samsung Health</span><span class="s">AI Art Direction</span><span class="arr">→</span></a>
-<a class="pj" href="#ai-living"><span class="n">03</span><span class="t">AI Living</span><span class="s">AI Art Direction</span><span class="arr">→</span></a>
-<a class="pj" href="#da-short-form"><span class="n">04</span><span class="t">DA Short-form</span><span class="s">AI Art Direction</span><span class="arr">→</span></a>
+<section id="design-system" class="page" data-group="uiux" aria-label="Samsung.com Design System">
+<img src="img/p09-01.jpg" srcset="img/p09-01.jpg 1920w, img/p09-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2347" alt="Samsung.com Design System 1" loading="lazy" decoding="async">
+<img src="img/p09-02.jpg" srcset="img/p09-02.jpg 1920w, img/p09-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2347" alt="Samsung.com Design System 2" loading="lazy" decoding="async">
+<img src="img/p09-03.jpg" srcset="img/p09-03.jpg 1920w, img/p09-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2347" alt="Samsung.com Design System 3" loading="lazy" decoding="async">
+<img src="img/p09-04.jpg" srcset="img/p09-04.jpg 1920w, img/p09-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2347" alt="Samsung.com Design System 4" loading="lazy" decoding="async">
+<img src="img/p09-05.jpg" srcset="img/p09-05.jpg 1920w, img/p09-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2347" alt="Samsung.com Design System 5" loading="lazy" decoding="async">
+<img src="img/p09-06.jpg" srcset="img/p09-06.jpg 1920w, img/p09-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2347" alt="Samsung.com Design System 6" loading="lazy" decoding="async">
+<img src="img/p09-07.jpg" srcset="img/p09-07.jpg 1920w, img/p09-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2347" alt="Samsung.com Design System 7" loading="lazy" decoding="async">
+<img src="img/p09-08.jpg" srcset="img/p09-08.jpg 1920w, img/p09-08@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2347" alt="Samsung.com Design System 8" loading="lazy" decoding="async">
+<img src="img/p09-09.jpg" srcset="img/p09-09.jpg 1920w, img/p09-09@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2347" alt="Samsung.com Design System 9" loading="lazy" decoding="async">
+<img src="img/p09-10.jpg" srcset="img/p09-10.jpg 1920w, img/p09-10@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2339" alt="Samsung.com Design System 10" loading="lazy" decoding="async">
+</section>
+<section id="ax" class="page chap" data-group="ax" aria-label="AX">
+<div class="ch">
+  <div class="ch-top">
+    <div class="ch-l">
+      <div class="tag"><span class="num">02</span>AX PROJECT</div>
+      <h2><img src="img/title-ax.png" alt="AX" class="ttl ttl-ax"></h2>
+      <div class="meta"><span>2025. 11 - 2026.09</span><i></i><span>PTKOREA - CYLNDR AX</span></div>
+      <p class="note">* 해당 파트의 모든 이미지는 생성형 AI 기반으로 제작되었습니다.</p>
+    </div>
+    <div class="ch-r">
+      <h3>AI 콘텐츠 디자인 및 가이드 구축</h3>
+      <p>생성형 AI를 활용한 이미지·영상 콘텐츠의 기획과 아트 디렉션, 제작을 담당했습니다. 삼성닷컴의 무빙 키비주얼과 <br>삼성 MX·DA 숏폼을 제작하며, 제품의 기능과 브랜드 메시지를 전달하는 비주얼 콘셉트 및 영상 시나리오를 구체화했습니다.</p>
+<p>제작 노하우와 품질 기준을 AI 활용 가이드라인으로 정리해 글로벌 지사에 배포하여 일관된 콘텐츠 제작을 지원했습니다. <br>삼성화재·삼성증권 등 경쟁 PT의 콘셉트를 시각화하는 비주얼을 제작하며 수주에 기여했습니다.</p>
     </div>
   </div>
+  <nav class="list" aria-label="AX projects">
+<a class="row" href="#ax-workflow"><span class="n">01</span><span class="t">AX Workflow</span><span class="s">Process</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#samsung-health"><span class="n">02</span><span class="t">Samsung Health</span><span class="s">AI Character System</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#ai-living"><span class="n">03</span><span class="t">S.com AI Living</span><span class="s">Moving Key Visual</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#holiday"><span class="n">04</span><span class="t">S.com Holiday / Black Friday</span><span class="s">Key Visual</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#da-short-form"><span class="n">05</span><span class="t">Samsung DA Short-form</span><span class="s">Short-form</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#family-hub"><span class="n">06</span><span class="t">Family Hub AI Food Manager</span><span class="s">Concept Visual</span><span class="arr" aria-hidden="true">→</span></a>
+  </nav>
 </div>
 </section>
-<section id="ax-workflow" class="page" aria-label="AX Workflow">
-<img src="img/p08-01.jpg" srcset="img/p08-01.jpg 1920w, img/p08-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Portfolio page 8 part 1" loading="lazy" decoding="async">
+<section id="ax-workflow" class="page" data-group="ax" aria-label="AX Workflow">
+<img src="img/p12-01.jpg" srcset="img/p12-01.jpg 1920w, img/p12-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="AX Workflow 1" loading="lazy" decoding="async">
 </section>
-<section id="samsung-health" class="page" aria-label="Samsung Health">
-<img src="img/p09-01.jpg" srcset="img/p09-01.jpg 1920w, img/p09-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 1" loading="lazy" decoding="async">
-<img src="img/p09-02.jpg" srcset="img/p09-02.jpg 1920w, img/p09-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 2" loading="lazy" decoding="async">
-<img src="img/p09-03.jpg" srcset="img/p09-03.jpg 1920w, img/p09-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 3" loading="lazy" decoding="async">
-<img src="img/p09-04.jpg" srcset="img/p09-04.jpg 1920w, img/p09-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 4" loading="lazy" decoding="async">
-<img src="img/p09-05.jpg" srcset="img/p09-05.jpg 1920w, img/p09-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3056" alt="Portfolio page 9 part 5" loading="lazy" decoding="async">
+<section id="samsung-health" class="page" data-group="ax" aria-label="Samsung Health">
+<img src="img/p13-01.jpg" srcset="img/p13-01.jpg 1920w, img/p13-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 1" loading="lazy" decoding="async">
+<img src="img/p13-02.jpg" srcset="img/p13-02.jpg 1920w, img/p13-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 2" loading="lazy" decoding="async">
+<img src="img/p13-03.jpg" srcset="img/p13-03.jpg 1920w, img/p13-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 3" loading="lazy" decoding="async">
+<img src="img/p13-04.jpg" srcset="img/p13-04.jpg 1920w, img/p13-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 4" loading="lazy" decoding="async">
+<img src="img/p13-05.jpg" srcset="img/p13-05.jpg 1920w, img/p13-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 5" loading="lazy" decoding="async">
+<img src="img/p13-06.jpg" srcset="img/p13-06.jpg 1920w, img/p13-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 6" loading="lazy" decoding="async">
+<img src="img/p13-07.jpg" srcset="img/p13-07.jpg 1920w, img/p13-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2264" alt="Samsung Health 7" loading="lazy" decoding="async">
 </section>
-<section id="ai-living" class="page" aria-label="AI Living">
-<img src="img/p10-01.jpg" srcset="img/p10-01.jpg 1920w, img/p10-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3070" alt="Portfolio page 10 part 1" loading="lazy" decoding="async">
-<img src="img/p10-02.jpg" srcset="img/p10-02.jpg 1920w, img/p10-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3070" alt="Portfolio page 10 part 2" loading="lazy" decoding="async">
-<img src="img/p10-03.jpg" srcset="img/p10-03.jpg 1920w, img/p10-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3070" alt="Portfolio page 10 part 3" loading="lazy" decoding="async">
-<img src="img/p10-04.jpg" srcset="img/p10-04.jpg 1920w, img/p10-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="3070" alt="Portfolio page 10 part 4" loading="lazy" decoding="async">
+<section id="ai-living" class="page" data-group="ax" aria-label="S.com AI Living">
+<img src="img/p14-01.jpg" srcset="img/p14-01.jpg 1920w, img/p14-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 1" loading="lazy" decoding="async">
+<img src="img/p14-02.jpg" srcset="img/p14-02.jpg 1920w, img/p14-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 2" loading="lazy" decoding="async">
+<img src="img/p14-03.jpg" srcset="img/p14-03.jpg 1920w, img/p14-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 3" loading="lazy" decoding="async">
+<img src="img/p14-04.jpg" srcset="img/p14-04.jpg 1920w, img/p14-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 4" loading="lazy" decoding="async">
+<img src="img/p14-05.jpg" srcset="img/p14-05.jpg 1920w, img/p14-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 5" loading="lazy" decoding="async">
+<img src="img/p14-06.jpg" srcset="img/p14-06.jpg 1920w, img/p14-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2302" alt="S.com AI Living 6" loading="lazy" decoding="async">
+<div class="vid kv" style="left:8.3333%;top:47.5130%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="video/ail-1.jpg" data-src="video/ail-1.mp4"></video><div class="kvtext"><h3>Feel your best every day</h3><p>Your devices analyze data and offer <br>ways to improve your wellbeing</p></div></div>
+<div class="vid kv" style="left:8.3333%;top:56.0440%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="video/ail-2.jpg" data-src="video/ail-2.mp4"></video><div class="kvtext"><h3>Reach out to family <br>from anywhere</h3><p>Send reminders or alerts to care for your loved ones.</p></div></div>
+<div class="vid kv" style="left:8.3333%;top:64.5749%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="video/ail-3.jpg" data-src="video/ail-3.mp4"></video><div class="kvtext"><h3>Keep your pets comfortable <br>anytime</h3><p>Provide an optimal climate and entertainment when you leave your pet at home</p></div></div>
+<div class="vid kv" style="left:8.3333%;top:73.1058%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="video/ail-4.jpg" data-src="video/ail-4.mp4"></video><div class="kvtext"><h3>Your entertainment, <br>elevated</h3><p>Make every view personal. With intuitive recommendations and commands, your home tunes into mood, giving you room to smile and rest easy.</p></div></div>
+<div class="vid kv" style="left:8.3333%;top:81.6368%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="video/ail-5.jpg" data-src="video/ail-5.mp4"></video><div class="kvtext light"><h3>Consume smart, <br>meet energy goals</h3><p>Let AI figure out your power patterns and make home more efficient.</p></div></div>
+<div class="vid kv" style="left:8.3333%;top:90.1677%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="video/ail-6.jpg" data-src="video/ail-6.mp4"></video><div class="kvtext"><h3>Protect what matters, <br>whenever, wherever</h3><p>Home sweet home is now home safe home.</p></div></div>
 </section>
-<section id="da-short-form" class="page" aria-label="Short-form">
-<img src="img/p11-01.jpg" srcset="img/p11-01.jpg 1920w, img/p11-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2470" alt="Portfolio page 11 part 1" loading="lazy" decoding="async">
-<img src="img/p11-02.jpg" srcset="img/p11-02.jpg 1920w, img/p11-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2470" alt="Portfolio page 11 part 2" loading="lazy" decoding="async">
-<img src="img/p11-03.jpg" srcset="img/p11-03.jpg 1920w, img/p11-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2470" alt="Portfolio page 11 part 3" loading="lazy" decoding="async">
-<img src="img/p11-04.jpg" srcset="img/p11-04.jpg 1920w, img/p11-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2470" alt="Portfolio page 11 part 4" loading="lazy" decoding="async">
+<section id="holiday" class="page" data-group="ax" aria-label="S.com Holiday / Black Friday">
+<img src="img/p15-01.jpg" srcset="img/p15-01.jpg 1920w, img/p15-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2125" alt="S.com Holiday / Black Friday 1" loading="lazy" decoding="async">
+<img src="img/p15-02.jpg" srcset="img/p15-02.jpg 1920w, img/p15-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2125" alt="S.com Holiday / Black Friday 2" loading="lazy" decoding="async">
+<img src="img/p15-03.jpg" srcset="img/p15-03.jpg 1920w, img/p15-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2125" alt="S.com Holiday / Black Friday 3" loading="lazy" decoding="async">
+<img src="img/p15-04.jpg" srcset="img/p15-04.jpg 1920w, img/p15-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2125" alt="S.com Holiday / Black Friday 4" loading="lazy" decoding="async">
+<img src="img/p15-05.jpg" srcset="img/p15-05.jpg 1920w, img/p15-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2123" alt="S.com Holiday / Black Friday 5" loading="lazy" decoding="async">
+</section>
+<section id="da-short-form" class="page" data-group="ax" aria-label="Samsung DA Short-form">
+<img src="img/p16-01.jpg" srcset="img/p16-01.jpg 1920w, img/p16-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1775" alt="Samsung DA Short-form 1" loading="lazy" decoding="async">
+<img src="img/p16-02.jpg" srcset="img/p16-02.jpg 1920w, img/p16-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1775" alt="Samsung DA Short-form 2" loading="lazy" decoding="async">
+<img src="img/p16-03.jpg" srcset="img/p16-03.jpg 1920w, img/p16-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1774" alt="Samsung DA Short-form 3" loading="lazy" decoding="async">
+<div class="vid tall" style="left:10.4167%;top:59.2036%;width:21.0938%;height:13.5237%"><video muted loop playsinline preload="none" poster="video/da-knitting.jpg" data-src="video/da-knitting.mp4"></video><button class="snd" type="button" aria-label="소리 켜기" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="off" d="M16 9l5 6M21 9l-5 6"/><path class="on" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
+<div class="vid tall" style="left:10.4167%;top:79.4891%;width:21.0938%;height:13.5237%"><video muted loop playsinline preload="none" poster="video/da-painting.jpg" data-src="video/da-painting.mp4"></video><button class="snd" type="button" aria-label="소리 켜기" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path class="spk" d="M4 9h4l5-4v14l-5-4H4z"/><path class="off" d="M16 9l5 6M21 9l-5 6"/><path class="on" d="M16 8.5a5 5 0 0 1 0 7M18.5 6a8.5 8.5 0 0 1 0 12"/></svg></button></div>
+</section>
+<section id="family-hub" class="page" data-group="ax" aria-label="Family Hub AI Food Manager">
+<img src="img/p17-01.jpg" srcset="img/p17-01.jpg 1920w, img/p17-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1705" alt="Family Hub AI Food Manager 1" loading="lazy" decoding="async">
+<img src="img/p17-02.jpg" srcset="img/p17-02.jpg 1920w, img/p17-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1705" alt="Family Hub AI Food Manager 2" loading="lazy" decoding="async">
+<img src="img/p17-03.jpg" srcset="img/p17-03.jpg 1920w, img/p17-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1705" alt="Family Hub AI Food Manager 3" loading="lazy" decoding="async">
+<div class="vid tall" style="left:10.4167%;top:57.5367%;width:21.0938%;height:14.0762%"><video muted loop playsinline preload="none" poster="video/fh-taco.jpg" data-src="video/fh-taco.mp4"></video></div>
+<div class="vid tall" style="left:10.4167%;top:78.6510%;width:21.0938%;height:14.0762%"><video muted loop playsinline preload="none" poster="video/fh-sushi.jpg" data-src="video/fh-sushi.mp4"></video></div>
+</section>
+<section id="operation" class="page chap" data-group="operation" aria-label="Operation">
+<div class="ch">
+  <div class="ch-top">
+    <div class="ch-l">
+      <div class="tag"><span class="num">03</span>OPERATION</div>
+      <h2><img src="img/title-operation.png" alt="Operation" class="ttl ttl-operation"></h2>
+      <div class="meta"><span>2023. 07 - 2025.11</span><i></i><span>PTKOREA - CRG</span></div>
+      
+    </div>
+    <div class="ch-r">
+      <h3>삼성닷컴 리빙가전 · SmartThings 운영</h3>
+      <p>삼성닷컴 리빙가전과 SmartThings 영역의 키비주얼, 기획전, 서비스 소개 페이지를 운영했습니다. <br>시즌과 신제품 출시에 맞춰 제품의 핵심 기능을 소구하는 페이지를 제작했습니다.</p>
+<p>운영 과정에서 얻은 인사이트를 바탕으로 에너지 계산기 UI를 설계하고, <br>SmartThings Studio 프로젝트로 확장했습니다.</p>
+    </div>
+  </div>
+  <nav class="list" aria-label="Operation projects">
+<a class="row" href="#op-living"><span class="n">01</span><span class="t">삼성닷컴 리빙가전 운영</span><span class="s">Key Visual · 기획전</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#op-smartthings"><span class="n">02</span><span class="t">SmartThings 운영</span><span class="s">Service Page</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#op-energy"><span class="n">03</span><span class="t">Energy Calculator</span><span class="s">UI Design</span><span class="arr" aria-hidden="true">→</span></a>
+  </nav>
+</div>
+</section>
+<section class="page opsec" data-group="operation" aria-label="Operation projects">
+<div class="opg" id="op-living" data-group="operation">
+  <div class="op-head">
+    <div class="op-l"><h3>삼성 닷컴 리빙가전 운영</h3><span>2023.07 - 2025.11</span></div>
+    <p class="op-d">에어컨 · 공기청정기 등 리빙가전 카테고리의 키비주얼과 기획전 페이지를 운영했습니다. <br>시즌과 신제품 출시에 맞춰 제품의 핵심 기능을 소구하는 상세페이지로 제작했습니다.</p>
+    <div class="op-ctl">
+      <span class="cnt"><b>01</b> / 05</span>
+      <button type="button" class="prev" aria-label="이전">←</button>
+      <button type="button" class="next" aria-label="다음">→</button>
+    </div>
+  </div>
+  <ul class="track" style="--ch:600" tabindex="0" aria-label="삼성 닷컴 리빙가전 운영 슬라이드">
+<li class="slide" style="--w:1114;--h:600"><img src="img/op/living-1.jpg" srcset="img/op/living-1.jpg 1x, img/op/living-1@2x.jpg 2x" width="1114" height="600" alt="삼성 닷컴 리빙가전 운영 1" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1116;--h:600"><img src="img/op/living-2.jpg" srcset="img/op/living-2.jpg 1x, img/op/living-2@2x.jpg 2x" width="1116" height="600" alt="삼성 닷컴 리빙가전 운영 2" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1110;--h:600"><img src="img/op/living-3.jpg" srcset="img/op/living-3.jpg 1x, img/op/living-3@2x.jpg 2x" width="1110" height="600" alt="삼성 닷컴 리빙가전 운영 3" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1254;--h:600"><img src="img/op/living-4.jpg" srcset="img/op/living-4.jpg 1x, img/op/living-4@2x.jpg 2x" width="1254" height="600" alt="삼성 닷컴 리빙가전 운영 4" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1254;--h:600"><img src="img/op/living-5.jpg" srcset="img/op/living-5.jpg 1x, img/op/living-5@2x.jpg 2x" width="1254" height="600" alt="삼성 닷컴 리빙가전 운영 5" loading="lazy" decoding="async" draggable="false"></li>
+  </ul>
+</div>
+<div class="opg" id="op-smartthings" data-group="operation">
+  <div class="op-head">
+    <div class="op-l"><h3>SmartThings 운영</h3><span>2023.07 - 2025.11</span></div>
+    <p class="op-d">삼성닷컴 SmartThings 페이지를 운영하며 키비주얼과 서비스 소개 페이지를 제작했습니다. <br>이 과정에서 얻은 인사이트가 SmartThings Studio 프로젝트의 출발점이 되었습니다.</p>
+    <div class="op-ctl">
+      <span class="cnt"><b>01</b> / 04</span>
+      <button type="button" class="prev" aria-label="이전">←</button>
+      <button type="button" class="next" aria-label="다음">→</button>
+    </div>
+  </div>
+  <ul class="track" style="--ch:600" tabindex="0" aria-label="SmartThings 운영 슬라이드">
+<li class="slide" style="--w:1350;--h:601"><img src="img/op/smartthings-1.jpg" srcset="img/op/smartthings-1.jpg 1x, img/op/smartthings-1@2x.jpg 2x" width="1350" height="601" alt="SmartThings 운영 1" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1115;--h:601"><img src="img/op/smartthings-2.jpg" srcset="img/op/smartthings-2.jpg 1x, img/op/smartthings-2@2x.jpg 2x" width="1115" height="601" alt="SmartThings 운영 2" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1116;--h:601"><img src="img/op/smartthings-3.jpg" srcset="img/op/smartthings-3.jpg 1x, img/op/smartthings-3@2x.jpg 2x" width="1116" height="601" alt="SmartThings 운영 3" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1116;--h:601"><img src="img/op/smartthings-4.jpg" srcset="img/op/smartthings-4.jpg 1x, img/op/smartthings-4@2x.jpg 2x" width="1116" height="601" alt="SmartThings 운영 4" loading="lazy" decoding="async" draggable="false"></li>
+  </ul>
+</div>
+<div class="opg" id="op-energy" data-group="operation">
+  <div class="op-head">
+    <div class="op-l"><h3>Energy Calculator</h3><span>2024.11 - 2024.12</span></div>
+    <p class="op-d">삼성닷컴 제품의 에너지 사용량을 확인하는 에너지 계산기 UI를 설계했습니다. <br>에너지 단가와 가전 종류를 단계별로 입력하도록 구성해, 복잡한 계산을 쉽게 체험할 수 있도록 했습니다.</p>
+    <div class="op-ctl">
+      <span class="cnt"><b>01</b> / 04</span>
+      <button type="button" class="prev" aria-label="이전">←</button>
+      <button type="button" class="next" aria-label="다음">→</button>
+    </div>
+  </div>
+  <ul class="track" style="--ch:800" tabindex="0" aria-label="Energy Calculator 슬라이드">
+<li class="slide" style="--w:1147;--h:800"><img src="img/op/energy-1.jpg" srcset="img/op/energy-1.jpg 1x, img/op/energy-1@2x.jpg 2x" width="1147" height="800" alt="Energy Calculator 1" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1147;--h:800"><img src="img/op/energy-2.jpg" srcset="img/op/energy-2.jpg 1x, img/op/energy-2@2x.jpg 2x" width="1147" height="800" alt="Energy Calculator 2" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1147;--h:800"><img src="img/op/energy-3.jpg" srcset="img/op/energy-3.jpg 1x, img/op/energy-3@2x.jpg 2x" width="1147" height="800" alt="Energy Calculator 3" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1147;--h:800"><img src="img/op/energy-4.jpg" srcset="img/op/energy-4.jpg 1x, img/op/energy-4@2x.jpg 2x" width="1147" height="800" alt="Energy Calculator 4" loading="lazy" decoding="async" draggable="false"></li>
+  </ul>
+</div>
 </section>
 </main>
 
 <footer>
-  <strong>KWON YEJIN</strong> · UIUX / AI Design Portfolio 2023–2026<br>
-  <span class="mail">dpwls902717@gmail.com</span><br>
+  <strong>KWON YEJIN</strong> · UIUX / AI Design Portfolio 2023–2026 <br>
+  <span class="mail">dpwls902717@gmail.com</span> <br>
   © 2026 Kwon Yejin. All rights reserved.
 </footer>
 <button id="top" aria-label="맨 위로" title="맨 위로">↑</button>
 
 <script>
 (function(){
-  var links = Array.prototype.slice.call(document.querySelectorAll('nav a[data-nav]'));
-  var secs = links.map(function(a){ return document.getElementById(a.getAttribute('data-nav')); });
-  function setActive(id){
-    links.forEach(function(a){
-      var on = a.getAttribute('data-nav') === id;
-      a.classList.toggle('active', on);
-      if(on){ try{ a.scrollIntoView({block:'nearest', inline:'center', behavior:'smooth'}); }catch(e){} }
-    });
-  }
-  var topBtn = document.getElementById('top');
-  var prog = document.getElementById('progress');
+  /* ---- nav state, progress ---- */
+  var links = [].slice.call(document.querySelectorAll('header nav a[data-nav]'));
+  var secs = [].slice.call(document.querySelectorAll('main > section'));
+  var topBtn = document.getElementById('top'), prog = document.getElementById('progress');
+  var curGroup = null;
   function onScroll(){
     var y = window.scrollY || document.documentElement.scrollTop;
     var h = document.documentElement.scrollHeight - window.innerHeight;
     prog.style.width = (h > 0 ? Math.min(100, y / h * 100) : 0) + '%';
     topBtn.classList.toggle('show', y > 600);
-    var cur = null, line = y + 120;
-    for (var i = 0; i < secs.length; i++) { if (secs[i] && secs[i].offsetTop <= line) cur = secs[i].id; }
-    if (cur) setActive(cur);
+    var line = y + 140, g = null;
+    for (var i = 0; i < secs.length; i++) { if (secs[i].offsetTop <= line) g = secs[i].getAttribute('data-group'); }
+    if (g !== curGroup) {
+      curGroup = g;
+      links.forEach(function(a){
+        var on = a.getAttribute('data-nav') === g;
+        a.classList.toggle('active', on);
+        if (on) { try { a.scrollIntoView({block:'nearest', inline:'center'}); } catch(e){} }
+      });
+    }
   }
   window.addEventListener('scroll', onScroll, {passive:true});
   window.addEventListener('resize', onScroll);
   onScroll();
   topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  /* ---- videos: lazy load, play only in view ---- */
+  var vids = [].slice.call(document.querySelectorAll('.vid video'));
+  function load(v){ if (!v.getAttribute('src')) { v.src = v.getAttribute('data-src'); } }
+  if ('IntersectionObserver' in window) {
+    var near = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { load(e.target); near.unobserve(e.target); } }); }, {rootMargin:'800px 0px'});
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v = e.target, box = v.parentNode;
+        if (e.isIntersecting) { load(v); box.classList.add('in'); var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+        else { v.pause(); }
+      });
+    }, {threshold:0.3});
+    vids.forEach(function(v){ near.observe(v); io.observe(v); });
+  } else {
+    vids.forEach(function(v){ load(v); v.parentNode.classList.add('in'); v.autoplay = true; });
+  }
+  [].forEach.call(document.querySelectorAll('.snd'), function(b){
+    b.addEventListener('click', function(){
+      var v = b.parentNode.querySelector('video');
+      var turnOn = v.muted;
+      vids.forEach(function(o){ o.muted = true; });
+      [].forEach.call(document.querySelectorAll('.snd'), function(o){ o.setAttribute('aria-pressed','false'); o.setAttribute('aria-label','소리 켜기'); });
+      if (turnOn) { v.muted = false; b.setAttribute('aria-pressed','true'); b.setAttribute('aria-label','소리 끄기'); var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+    });
+  });
+
+  /* ---- carousels ---- */
+  [].forEach.call(document.querySelectorAll('.opg'), function(g){
+    var track = g.querySelector('.track');
+    var slides = [].slice.call(track.children);
+    var prev = g.querySelector('.prev'), next = g.querySelector('.next'), cnt = g.querySelector('.cnt b');
+    function padL(){ return parseFloat(getComputedStyle(track).paddingLeft) || 0; }
+    function index(){
+      var x = track.scrollLeft, best = 0, bd = Infinity;
+      slides.forEach(function(s, i){ var d = Math.abs(s.offsetLeft - padL() - x); if (d < bd) { bd = d; best = i; } });
+      return best;
+    }
+    function maxScroll(){ return track.scrollWidth - track.clientWidth; }
+    function update(){
+      var i = index();
+      if (track.scrollLeft >= maxScroll() - 4) i = slides.length - 1;
+      cnt.textContent = (i + 1 < 10 ? '0' : '') + (i + 1);
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft >= maxScroll() - 4;
+    }
+    function go(i){
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({left: Math.min(maxScroll(), slides[i].offsetLeft - padL()), behavior:'smooth'});
+    }
+    prev.addEventListener('click', function(){ go(index() - 1); });
+    next.addEventListener('click', function(){ go(index() + 1); });
+    track.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
+    });
+    var raf = 0;
+    track.addEventListener('scroll', function(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(update); }, {passive:true});
+    window.addEventListener('resize', update);
+    /* mouse drag */
+    var down = false, sx = 0, sl = 0, moved = false;
+    track.addEventListener('pointerdown', function(e){
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; sx = e.clientX; sl = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', function(e){
+      if (!down) return;
+      var dx = e.clientX - sx;
+      if (!moved && Math.abs(dx) > 4) { moved = true; track.classList.add('drag'); }
+      if (moved) track.scrollLeft = sl - dx;
+    });
+    window.addEventListener('pointerup', function(e){
+      if (!down) return; down = false;
+      if (moved) {
+        var dir = (e.clientX - sx) < 0 ? 1 : -1, i = index();
+        track.classList.remove('drag');
+        var cur = slides[i].offsetLeft - padL();
+        if (dir > 0 && cur < track.scrollLeft - 20) i += 1;
+        if (dir < 0 && cur > track.scrollLeft + 20) i -= 1;
+        go(i);
+      }
+    });
+    update();
+  });
 })();
 </script>
 </body>
