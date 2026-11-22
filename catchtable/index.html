@@ -502,6 +502,12 @@
   }
 
   /* v6 */
+  .cmp.wide-r { grid-template-columns:1fr calc(var(--u)*64) 2fr; }
+  .cmp-final { display:grid; grid-template-columns:1.25fr 1fr; gap:calc(var(--u)*36); align-items:start; }
+  .cmp-col.cmp-final .shot + .notes { margin-top:0; }
+  .cmp-final .shot.mock { padding:calc(var(--u)*40) calc(var(--u)*20) calc(var(--u)*24); }
+  .cmp-final .shot.mock img { max-height:none; width:88%; }
+  .cmp.wide-r .prompt { font-size:max(11px, calc(var(--u)*14)); }
   .flow5 { grid-template-columns:repeat(5, 1fr); }
   .flow5 h4 { font-size:max(13px, calc(var(--u)*20)); }
   .fps { gap:calc(var(--u)*28); align-items:flex-start; flex-wrap:wrap; padding:calc(var(--u)*64) calc(var(--u)*56); background:#f2f2f2; }
@@ -579,7 +585,13 @@
   .xp-tools span { font-size:max(11px, calc(var(--u)*14)); letter-spacing:.14em; color:#6f8fd9; font-weight:700; margin-right:calc(var(--u)*10); text-transform:uppercase; }
   .xp-tools b { font-weight:500; font-size:max(12px, calc(var(--u)*15)); color:#ddd; border:1px solid #333; border-radius:999px; padding:calc(var(--u)*7) calc(var(--u)*16); }
   @media (max-width: 760px) {
-    .flow5 { grid-template-columns:1fr 1fr; }
+    .cmp.wide-r { grid-template-columns:1fr calc(var(--u)*64) 2fr; }
+  .cmp-final { display:grid; grid-template-columns:1.25fr 1fr; gap:calc(var(--u)*36); align-items:start; }
+  .cmp-col.cmp-final .shot + .notes { margin-top:0; }
+  .cmp-final .shot.mock { padding:calc(var(--u)*40) calc(var(--u)*20) calc(var(--u)*24); }
+  .cmp-final .shot.mock img { max-height:none; width:88%; }
+  .cmp.wide-r .prompt { font-size:max(11px, calc(var(--u)*14)); }
+  .flow5 { grid-template-columns:1fr 1fr; }
     .fps { flex-direction:column; align-items:stretch; padding:24px 16px; }
     .fp { width:auto; }
     .specw { padding:20px 12px; overflow-x:auto; display:block; }
@@ -695,14 +707,14 @@
     <li><b>03 · AI</b><h4>AI Visual</h4><p>공간·생활 시나리오별 3D 룸 뷰 시안 이미지를 AI로 제작</p><span class="tool">Higgsfield</span></li>
     <li><b>04</b><h4>Systemize</h4><p>Component Property로 등록한 컴포넌트 세트로 최종 화면 완성</p><span class="tool">Figma</span></li>
   </ol>
-  <div class="cmp">
+  <div class="cmp wide-r">
     <div class="cmp-col">
       <div class="prompt"><span>Input · Prompt</span>A smart home experience service for Samsung.com, built around an interactive 3D room view. Users explore each room and control connected devices ...</div>
       <figure class="shot dark"><img src="img/st/uizard.jpg" alt="Uizard로 생성한 SmartThings Studio 와이어프레임 초안 2종" loading="lazy" width="1600" height="2640"><figcaption>AI Draft · Uizard</figcaption></figure>
     </div>
     <div class="cmp-mid" aria-hidden="true">→</div>
-    <div class="cmp-col">
-      <figure class="shot mock"><img src="img/st/mockup.png" srcset="img/st/mockup.png 1x, img/st/mockup@2x.png 2x" alt="SmartThings Studio 최종 메인 화면" loading="lazy" width="560" height="977"><figcaption>Final · Figma  ·  3D Room View · AI Generated</figcaption></figure>
+    <div class="cmp-col cmp-final">
+      <figure class="shot mock"><img src="img/st/mockup.png" srcset="img/st/mockup.png 1x, img/st/mockup@2x.png 2x" alt="SmartThings Studio 최종 메인 화면" loading="lazy" width="560" height="977"><figcaption>Final · Figma</figcaption></figure>
       <ul class="notes">
         <li><em class="k">KEEP</em><b>3D 룸 뷰를 첫 화면의 중심으로</b><span>공간 안에서 기기를 보여주는 구조는 체험 서비스의 핵심이라 유지했습니다. 공간·시나리오별 룸 이미지는 AI로 제작했습니다.</span></li>
         <li><em class="c">CHANGE</em><b>상품 그리드 → 생활 기능 카드</b><span>리서치에서 상품 탭을 떠난 사용자가 83%였기에, 상품 나열 대신 라이프스타일에 맞는 기능을 먼저 보여주도록 바꿨습니다.</span></li>
