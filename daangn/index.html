@@ -666,6 +666,69 @@
     .mg-strip em { margin-left:0; flex-basis:100%; }
   }
 
+  /* steps */
+  .stp .sh { padding-top:calc(var(--u)*150); padding-bottom:calc(var(--u)*150); }
+  .stp.stp-tight .sh { padding-bottom:calc(var(--u)*90); }
+  .stp .sh-head { margin-bottom:0; display:grid !important; grid-template-columns:calc(var(--u)*394) 1fr !important; column-gap:0 !important; row-gap:calc(var(--u)*20) !important; }
+  .stp .sh-head .lbl { grid-column:1 !important; grid-row:1 / span 6 !important; align-self:start; }
+  .stp .sh-head h2 { grid-column:2 !important; font-size:max(18px, calc(var(--u)*32)) !important; line-height:1.4 !important; margin-bottom:calc(var(--u)*6) !important; }
+  .stp .sh-head p { grid-column:2 !important; align-self:start !important; max-width:calc(var(--u)*1000); font-size:max(13px, calc(var(--u)*19)) !important; line-height:1.7 !important; color:#555 !important; }
+  .stp .sh-head .lbl { display:flex; flex-direction:column; gap:calc(var(--u)*8); }
+  .stp .sh-head .lbl em { font-style:normal; font-size:max(11px, calc(var(--u)*14)); color:var(--blue); letter-spacing:.14em; font-weight:700; }
+  .stp .sh-head .lbl small { font-size:max(11px, calc(var(--u)*15)); color:#999; font-weight:500; text-transform:none; letter-spacing:0; }
+  .stp .sh-head .lbl { color:#111; }
+  .stp .sh-head h2 br { display:inline; }
+  .stp .sh-head p + p { margin-top:calc(var(--u)*-8); }
+  .stp-x { margin:calc(var(--u)*36) 0 0 calc(var(--u)*394); word-break:keep-all; }
+  .sts { display:grid; grid-template-columns:repeat(auto-fit, minmax(calc(var(--u)*240), 1fr)); gap:calc(var(--u)*16); }
+  .sts > div { background:#f5f6f8; border-radius:calc(var(--u)*16); padding:calc(var(--u)*28) calc(var(--u)*28) calc(var(--u)*24); display:flex; flex-direction:column; gap:calc(var(--u)*8); }
+  .sts b { font-family:var(--f-title); font-size:max(26px, calc(var(--u)*52)); line-height:1; color:#111; letter-spacing:-.02em; }
+  .sts b i { font-style:normal; font-size:.45em; margin-left:4px; color:#111; }
+  .sts span { font-size:max(12px, calc(var(--u)*16)); color:#444; line-height:1.55; }
+  .sts em { font-style:normal; font-size:max(10px, calc(var(--u)*13)); color:#999; }
+  .fl { display:flex; flex-wrap:wrap; align-items:center; gap:calc(var(--u)*10); }
+  .fc { font-size:max(12px, calc(var(--u)*17)); padding:calc(var(--u)*10) calc(var(--u)*18); border-radius:999px; background:#f2f2f2; color:#333; font-weight:500; }
+  .fc.on { background:var(--blue); color:#fff; font-weight:600; }
+  .fa { color:#bbb; font-size:max(12px, calc(var(--u)*16)); }
+  .fl-loop { margin-left:calc(var(--u)*10); font-size:max(12px, calc(var(--u)*16)); color:var(--blue); font-weight:600; border:1px dashed #9db8ff; border-radius:999px; padding:calc(var(--u)*9) calc(var(--u)*16); }
+  .bg2 { display:flex; flex-direction:column; gap:calc(var(--u)*18); }
+  .bg2 > div { display:grid; grid-template-columns:calc(var(--u)*150) 1fr; align-items:center; }
+  .bg2 em { font-style:normal; font-size:max(11px, calc(var(--u)*15)); color:#888; font-weight:600; }
+  .cmp2w, .ev2w { border-top:1.5px solid #111; }
+  .cmp2, .ev2 { display:grid; grid-template-columns:1fr 1.3fr 1.2fr; gap:calc(var(--u)*24); padding:calc(var(--u)*22) 0; border-bottom:1px solid #e6e6e6; font-size:max(12px, calc(var(--u)*16)); line-height:1.6; color:#555; }
+  .cmp2.hd, .ev2.hd { font-size:max(10px, calc(var(--u)*13)); color:#999; font-weight:600; letter-spacing:.04em; padding:calc(var(--u)*12) 0; }
+  .cmp2 .a { color:#999; text-decoration:line-through; text-decoration-color:#ccc; }
+  .cmp2 .b, .ev2 .b { color:#111; }
+  .cmp2 .b b, .ev2 .b b { color:#111; }
+  .cmp2 .c { color:#666; font-size:.94em; }
+  .ev2 { grid-template-columns:calc(var(--u)*110) 1fr 1.25fr; }
+  .ev2 .k { align-self:start; font-size:max(10px, calc(var(--u)*12)); font-weight:700; letter-spacing:.08em; text-align:center; padding:.35em 0; border-radius:4px; }
+  .ev2 .k.data { background:#e6eeff; color:var(--blue); }
+  .ev2 .k.judgment { background:#111; color:#fff; }
+  .pics { display:grid; grid-template-columns:1fr 1fr; gap:calc(var(--u)*20); margin-top:calc(var(--u)*48); }
+  .pics figure { margin:0; background:#f2f2f2; border-radius:calc(var(--u)*16); padding:calc(var(--u)*32); display:flex; flex-direction:column; align-items:center; gap:calc(var(--u)*14); }
+  .pics img { max-width:100%; max-height:calc(var(--u)*620); width:auto; height:auto; }
+  .pics figcaption { font-size:max(11px, calc(var(--u)*14)); color:#888; }
+  .nx { margin-top:calc(var(--u)*40); border-top:1.5px solid #111; padding-top:calc(var(--u)*20); }
+  .nx h4 { margin:0 0 calc(var(--u)*8); font-size:max(12px, calc(var(--u)*15)); color:var(--blue); letter-spacing:.04em; }
+  .nx ul { list-style:none; margin:0; padding:0; }
+  .nx li { display:grid; grid-template-columns:calc(var(--u)*360) 1fr; gap:calc(var(--u)*20); padding:calc(var(--u)*14) 0; border-bottom:1px solid #eee; font-size:max(12px, calc(var(--u)*16)); line-height:1.6; }
+  .nx li b { color:#111; }
+  .nx li span { color:#666; }
+  .uf2 { margin:0 0 calc(var(--u)*16); border-radius:calc(var(--u)*16); padding:calc(var(--u)*36) calc(var(--u)*40); }
+  .uf2.asis { border:1px solid #eee; background:#fff; }
+  .uf2.tobe { background:#f6f6f6; }
+  .uf2 img { width:100%; height:auto; display:block; }
+  @media (max-width: 760px) {
+    .stp-x { margin-left:0; margin-top:28px; }
+    .stp .sh-head { grid-template-columns:1fr !important; }
+    .stp .sh-head .lbl, .stp .sh-head h2, .stp .sh-head p { grid-column:1 !important; grid-row:auto !important; }
+    .cmp2, .ev2 { grid-template-columns:1fr; gap:6px; }
+    .cmp2.hd, .ev2.hd { display:none; }
+    .nx li, .bg2 > div { grid-template-columns:1fr; }
+    .pics { grid-template-columns:1fr; }
+  }
+
 </style>
 </head>
 <body>
@@ -754,19 +817,16 @@
 <section class="page" data-group="case-ace" aria-label="Samsung ACE intro">
 <img src="img/ace-a-01.jpg" srcset="img/ace-a-01.jpg 1920w, img/ace-a-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1300" alt="Samsung ACE intro 1" loading="lazy" decoding="async">
 </section>
-<section class="page" data-group="case-ace" aria-label="Samsung ACE direction &amp; design system">
-<img src="img/ace-b-01.jpg" srcset="img/ace-b-01.jpg 1920w, img/ace-b-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2041" alt="Samsung ACE direction &amp; design system 1" loading="lazy" decoding="async">
-<img src="img/ace-b-02.jpg" srcset="img/ace-b-02.jpg 1920w, img/ace-b-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1080" alt="Samsung ACE direction &amp; design system 2" loading="lazy" decoding="async">
+<section class="page sheet stp stp-tight" data-group="case-ace" style="background:#fff" aria-label="Step 1 User Problem"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 01</em>User Problem<small>사용자가 어디서 멈췄나</small></div><h2>가입 후 홍보가 한 번으로 끝나면, <br>제휴 마케팅은 성과를 내지 못합니다</h2><p>클라이언트가 원한 것은 가입 수가 아니라, 가입한 사용자가 홍보를 계속 이어가는 구조였습니다. 그래서 사용자가 어디서, 왜 활동을 멈추는지부터 확인했습니다.</p><p>제휴 활동자에게 홍보는 곧 수익 활동입니다. 수익이 언제, 어떻게 생기는지 보이지 않으면 활동을 이어갈 이유도 흐려집니다.</p></div><div class=stp-x><div class="sts"><div><b>92<i>%</i></b><span>제휴 활동자가 지급 현황을 즉시 확인하는 것을 활동에서 가장 중요하다고 응답</span><em>Tipalti, 전 세계 퍼블리셔·제휴자 조사</em></div></div></div></div></section>
+<section class="page" data-group="case-ace" aria-label="Samsung ACE user data">
+<img src="img/ace-92-01.jpg" srcset="img/ace-92-01.jpg 1920w, img/ace-92-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="391" alt="Samsung ACE user data 1" loading="lazy" decoding="async">
 </section>
-<section class="page sheet" data-group="case-ace" aria-label="ACE UX strategy">
-<div class="sh sh-short">
-  <div class="sh-head"><div class="lbl">UX STRATEGY</div>
-    <h2>이해부터 성과 확인까지 <br>자연스럽게 이어지는 흐름을 설계했습니다</h2>
-    <div class="sh-r"><p class="en">From Understanding To Action, In One Connected Flow.</p>
-    <p>ACE는 사용자의 상태에 따라 필요한 정보와 다음 행동이 달라지는 서비스입니다. 그래서 로그인 전에는 서비스 이해와 가입을, 로그인 후에는 제품 탐색 · 링크 생성 · 성과 확인을 빠르게 시작할 수 있도록 각 단계의 역할을 분명하게 나누고 자연스럽게 연결했습니다.</p></div>
-  </div>
-</div>
+<section class="page sheet stp stp-tight" data-group="case-ace" style="background:#fff" aria-label="Step 2 Behavior Goal"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 02</em>Behavior Goal<small>어떤 행동으로 바꾸고 싶었나</small></div><h2>성과를 확인한 순간이 <br>다음 홍보의 시작점이 되도록</h2><p>가입 전에는 수익 구조와 지급 흐름을 충분히 이해시키고, 가입 후에는 링크 생성부터 성과 확인까지 끊기지 않게 잇는 것. 클라이언트가 말한 "지속"을 이 두 지점의 마찰을 줄이는 일로 정의했습니다.</p></div><div class=stp-x><div class="bg2"><div><em>Before Login</em><div class="fl"><span class="fc">서비스 이해</span><span class="fa">→</span><span class="fc">혜택 확인</span><span class="fa">→</span><span class="fc">이용 방법</span><span class="fa">→</span><span class="fc on">가입</span></div></div><div><em>After Login</em><div class="fl"><span class="fc">제품 선택</span><span class="fa">→</span><span class="fc">링크 생성</span><span class="fa">→</span><span class="fc">공유</span><span class="fa">→</span><span class="fc on">성과 확인</span><span class=fl-loop>↺ 다음 제품 선택</span></div></div></div></div></div></section>
+<section class="page" data-group="case-ace" aria-label="Samsung ACE hypothesis flow">
+<img src="img/ace-hyp-01.jpg" srcset="img/ace-hyp-01.jpg 1920w, img/ace-hyp-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="340" alt="Samsung ACE hypothesis flow 1" loading="lazy" decoding="async">
 </section>
+<section class="page sheet stp" data-group="case-ace" style="background:#fff" aria-label="Step 3 Decision"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 03</em>Decision<small>데이터와 판단이 만난 지점</small></div><h2>"지속"을 만드는 건 혜택 강조가 아니라, <br>사용자 상태에 맞는 시작점과 루프였습니다</h2><p>신규 서비스인 만큼 모든 사용자에게 같은 정보를 보여주기보다, 서비스 이해도와 활동 단계에 맞춰 경험의 시작점을 다르게 주는 것이 효과적이라고 판단했습니다.</p></div><div class=stp-x><div class="cmp2w"><div class="cmp2 hd"><span>흔한 방식</span><span>선택한 방식</span><span>근거</span></div><div class="cmp2"><span class="a">모든 사용자에게 같은 메인, 혜택 위주로 노출</span><span class="b"><b>상태별 메인</b> — 로그인 전은 이해와 가입, 로그인 후는 다음 활동</span><span class="c">처음 온 사용자와 활동 중인 회원은 필요한 정보와 다음 행동이 다름</span></div><div class="cmp2"><span class="a">성과는 별도 리포트 메뉴에서 확인</span><span class="b"><b>메인에서 성과 확인 → 바로 다음 제품 선택</b></span><span class="c">지급 · 성과를 즉시 확인하는 것이 가장 중요하다는 응답 92%</span></div><div class="cmp2"><span class="a">제품 탐색 · 링크 · 공유 · 성과를 각각의 기능으로</span><span class="b"><b>하나의 활동 흐름</b>으로 연결 (Task Continuity)</span><span class="c">홍보가 반복되려면 각 단계가 다음 행동으로 자연스럽게 이어져야 함</span></div></div></div></div></section>
+<section class="page sheet stp stp-tight" data-group="case-ace" style="background:#fff" aria-label="Step 4 Flow"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 04</em>Flow<small>화면보다 전후 연결</small></div><h2>이해 → 가입 → 제품 선택 → 링크 → 공유 → 성과 확인을 <br>끊기지 않는 하나의 흐름으로 설계했습니다</h2><p>로그인 전 메인은 혜택 · 회원 등급별 수익 구조 · 이용 방법을 순서대로 보여 가입을 결정하도록 했고, 로그인 후 메인은 활동 기반 추천 제품과 성과 대시보드로 다음 홍보를 바로 시작하도록 했습니다.</p></div><div class=stp-x><div class="fl"><span class="fc">이해</span><span class="fa">→</span><span class="fc">가입</span><span class="fa">→</span><span class="fc">제품 선택</span><span class="fa">→</span><span class="fc">링크 생성</span><span class="fa">→</span><span class="fc">공유</span><span class="fa">→</span><span class="fc on">성과 확인</span><span class=fl-loop>↺ 다음 제품 선택</span></div></div></div></section>
 <section class="page" data-group="case-ace" aria-label="Samsung ACE screens">
 <img src="img/ace-c-01.jpg" srcset="img/ace-c-01.jpg 1920w, img/ace-c-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 1" loading="lazy" decoding="async">
 <img src="img/ace-c-02.jpg" srcset="img/ace-c-02.jpg 1920w, img/ace-c-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 2" loading="lazy" decoding="async">
@@ -775,6 +835,7 @@
 <img src="img/ace-c-05.jpg" srcset="img/ace-c-05.jpg 1920w, img/ace-c-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 5" loading="lazy" decoding="async">
 <div class="fix-ttl af" style="left:17.9167%;top:24.4616%;width:5.7292%;height:0.3091%;padding-left:0.2083%">After Login</div>
 </section>
+<section class="page sheet stp" data-group="case-ace" style="background:#fff" aria-label="Step 5 Impact / Next"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 05</em>Impact / Next<small>결과와 다음에 볼 지표</small></div><h2>런칭 후 ACE뿐 아니라 <br>기존 판매 채널에서도 방문이 늘었습니다</h2><p>런칭 후 3개월간 ACE 페이지 방문과 함께, 삼성닷컴 · 삼성 비즈 사이트의 관련 페이지 방문도 증가했습니다. 세부 활동 지표는 대외비라, 다음에 확인할 지표를 함께 정리했습니다.</p></div><div class=stp-x><div class="sts"><div><b>22.0<i>K</i></b><span>ACE 런칭 후 3개월간 방문수</span><em>samsung.com/sec/ace, Jun–Aug 2025</em></div><div><b>3.63<i>%</i></b><span>삼성 비즈 사이트 내 ACE 진입 페이지 트래픽 비중</span><em>samsungebiz.com/sohomall/ace/gate</em></div><div><b>+483.66<i>%</i></b><span>삼성닷컴 · 삼성 비즈 관련 페이지 방문 증가율</span><em>Mar–May 10,127 → Jun–Aug 59,107</em></div></div><div class="nx"><h4>Next · 다음에 볼 지표</h4><ul><li><b>성과 확인 후 재홍보율</b><span>대시보드를 본 회원이 7일 안에 새 링크를 만드는 비율 — 루프가 작동하는지</span></li><li><b>첫 링크 생성까지 걸린 시간</b><span>가입 후 첫 활동까지의 마찰</span></li><li><b>회원당 월 링크 생성 수</b><span>홍보가 한 번으로 끝나지 않고 이어지는지</span></li><li><b>추천 제품 경유 링크 비중</b><span>활동 기반 추천이 다음 선택을 돕는지</span></li></ul></div></div></div></section>
 <section class="page endp" style="background:#f9f9f9" aria-label="End of project"><p>End Of Project</p></section>
 <section id="case-tag" class="page case" data-group="case-tag" aria-label="TAG SEOUL">
 <div class="cs">
@@ -790,19 +851,38 @@
   </div>
 </div>
 </section>
-<section id="tag-seoul" class="page" data-group="case-tag" aria-label="TAG SEOUL">
-<img src="../img/p05-01.jpg" srcset="../img/p05-01.jpg 1920w, ../img/p05-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 1" loading="lazy" decoding="async">
-<img src="../img/p05-02.jpg" srcset="../img/p05-02.jpg 1920w, ../img/p05-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 2" loading="lazy" decoding="async">
-<img src="../img/p05-03.jpg" srcset="../img/p05-03.jpg 1920w, ../img/p05-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 3" loading="lazy" decoding="async">
-<img src="../img/p05-04.jpg" srcset="../img/p05-04.jpg 1920w, ../img/p05-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 4" loading="lazy" decoding="async">
-<img src="../img/p05-05.jpg" srcset="../img/p05-05.jpg 1920w, ../img/p05-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 5" loading="lazy" decoding="async">
-<img src="../img/p05-06.jpg" srcset="../img/p05-06.jpg 1920w, ../img/p05-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 6" loading="lazy" decoding="async">
-<img src="../img/p05-07.jpg" srcset="../img/p05-07.jpg 1920w, ../img/p05-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 7" loading="lazy" decoding="async">
-<img src="../img/p05-08.jpg" srcset="../img/p05-08.jpg 1920w, ../img/p05-08@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 8" loading="lazy" decoding="async">
-<img src="../img/p05-09.jpg" srcset="../img/p05-09.jpg 1920w, ../img/p05-09@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 9" loading="lazy" decoding="async">
-<img src="../img/p05-10.jpg" srcset="../img/p05-10.jpg 1920w, ../img/p05-10@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 10" loading="lazy" decoding="async">
-<img src="../img/p05-11.jpg" srcset="../img/p05-11.jpg 1920w, ../img/p05-11@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2185" alt="TAG SEOUL 11" loading="lazy" decoding="async"><div class="cover-box" style="left:7.8125%;top:4.6693%;width:23.9583%;height:0.1410%;background:#f7f7f7"></div>
+<section class="page" data-group="case-tag" aria-label="TAG SEOUL intro">
+<img src="img/tag-hero-01.jpg" srcset="img/tag-hero-01.jpg 1920w, img/tag-hero-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1350" alt="TAG SEOUL intro 1" loading="lazy" decoding="async">
+<div class="cover-box" style="left:7.8125%;top:83.4074%;width:23.9583%;height:2.5185%;background:#f7f7f7"></div>
 </section>
+<section class="page sheet stp stp-tight" data-group="case-tag" style="background:#fff" aria-label="Step 1 User Problem"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 01</em>User Problem<small>사용자가 어디서 멈췄나</small></div><h2>새로운 곳을 몰라서가 아니라, <br>가는 과정에서 막힙니다</h2><p>외국인 관광객은 일부 지역에 몰려 주민의 일상을 침해하고, 새로운 지역을 찾는 재방문 여행자는 가입 · 결제 · 길찾기 같은 디지털 진입 단계에서 멈춥니다.</p></div><div class=stp-x><div class="sts"><div><b>6.6<i>M</i></b><span>북촌 한옥마을 연간 방문자 수 (거주자 약 6,000명)</span></div><div><b>12.1<i>%</i></b><span>북촌 거주 인구 감소율 — 서울 평균 3.1%의 네 배</span></div><div><b>27.8<i>%</i></b><span>방한 여행 불편 중 디지털 영역 (가입 · 인증 13.1%)</span><em>야놀자리서치, 2026</em></div><div><b>53.6<i>%</i></b><span>2025년 서울 방문 외국인 재방문율</span></div></div></div></div></section>
+<section class="page" data-group="case-tag" aria-label="TAG SEOUL problem 1 data">
+<img src="img/tag-p1-01.jpg" srcset="img/tag-p1-01.jpg 1920w, img/tag-p1-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="858" alt="TAG SEOUL problem 1 data 1" loading="lazy" decoding="async">
+</section>
+<section class="page" data-group="case-tag" aria-label="TAG SEOUL problem 2 data">
+<img src="img/tag-p2-01.jpg" srcset="img/tag-p2-01.jpg 1920w, img/tag-p2-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="830" alt="TAG SEOUL problem 2 data 1" loading="lazy" decoding="async">
+</section>
+<section class="page sheet stp stp-tight" data-group="case-tag" style="background:#fff" aria-label="Step 2 Behavior Goal"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 02</em>Behavior Goal<small>어떤 행동으로 바꾸고 싶었나</small></div><h2>익숙한 명소 밖을 발견하고, 부담 없이 이동하고, <br>다음 지역으로 이어가도록</h2><p>관광객을 줄이는 대신 서울을 넓게 쓰는 방향을 택했습니다. 여행자가 낯선 지역을 발견하고 쉽게 방문할 수 있다면, 여행의 범위를 넓히는 동시에 관광 수요를 분산할 수 있습니다.</p></div><div class=stp-x><div class="fl"><span class="fc">발견</span><span class="fa">→</span><span class="fc">이동 · 결제</span><span class="fa">→</span><span class="fc">현장 경험</span><span class="fa">→</span><span class="fc on">지역 해금</span><span class=fl-loop>↺ 다음 지역 탐색</span></div></div></div></section>
+<section class="page" data-group="case-tag" aria-label="TAG SEOUL seoul map">
+<img src="img/tag-map-01.jpg" srcset="img/tag-map-01.jpg 1920w, img/tag-map-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="911" alt="TAG SEOUL seoul map 1" loading="lazy" decoding="async">
+</section>
+<section class="page sheet stp stp-tight" data-group="case-tag" style="background:#fff" aria-label="Step 3 Decision"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 03</em>Decision<small>데이터와 판단이 만난 지점</small></div><h2>추천만으로는 동선이 바뀌지 않습니다. <br>시작 장벽과 다음 탐색 동기를 함께 설계했습니다</h2><p>새로운 장소를 추천하는 것만으로는 여행자의 동선이 달라지지 않는다고 판단했습니다. 발견 · 이동 · 다음 탐색이 하나로 이어져야 했습니다.</p></div><div class=stp-x><div class="cmp2w"><div class="cmp2 hd"><span>흔한 방식</span><span>선택한 방식</span><span>근거</span></div><div class="cmp2"><span class="a">앱 설치 · 가입 후 시작</span><span class="b"><b>NFC 키링 태그 한 번으로 시작</b> — 별도 앱 설치 없이</span><span class="c">방한 여행 불편 27.8%가 디지털 영역, 그중 가입 · 인증 13.1%</span></div><div class="cmp2"><span class="a">목적지 검색 · 리스트 추천</span><span class="b"><b>AI 채팅으로 취향 · 상황을 묻고 추천</b>, 혼잡한 명소 대신 지금 가기 좋은 곳</span><span class="c">익숙한 관광지를 넘어 새로운 지역까지 탐색 범위를 넓히기 위해</span></div><div class="cmp2"><span class="a">교통 · 결제 · 통역을 각각의 앱으로</span><span class="b"><b>하나의 키링으로 교통 · 결제 · 실시간 통역</b></span><span class="c">낯선 지역일수록 준비와 조작이 부담</span></div><div class="cmp2"><span class="a">정보 제공형 관광 가이드</span><span class="b"><b>지역 해금 · AR 가이드 · 도착 알림</b>으로 다음 방문 동기</span><span class="c">방문할수록 지도가 채워지는 성취감으로 새 지역 이동을 유도</span></div></div></div></div></section>
+<section class="page" data-group="case-tag" aria-label="TAG SEOUL keyring">
+<img src="img/tag-key-01.jpg" srcset="img/tag-key-01.jpg 1920w, img/tag-key-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1278" alt="TAG SEOUL keyring 1" loading="lazy" decoding="async">
+</section>
+<section class="page sheet stp stp-tight" data-group="case-tag" style="background:#fff" aria-label="Step 4 Flow"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 04</em>Flow<small>화면보다 전후 연결</small></div><h2>태그 한 번으로 발견 → 이동 → 현장 경험 → 다음 탐색까지 <br>하나의 순환으로 연결했습니다</h2><p>처음 태그하면 AI 채팅으로 장소를 추천받고, 이동하며 주변 명소를 발견하고, 도착하면 키링 알림과 함께 지역이 해금됩니다. 결제와 통역, 주변 가게 쿠폰까지 키링 하나로 이어져 현장 경험이 다음 탐색으로 돌아옵니다.</p></div><div class=stp-x><div class="fl"><span class="fc">태그</span><span class="fa">→</span><span class="fc">AI 채팅 추천</span><span class="fa">→</span><span class="fc">경로 선택</span><span class="fa">→</span><span class="fc">도착 알림 · 해금</span><span class="fa">→</span><span class="fc">AR · 통역 · 결제</span><span class="fa">→</span><span class="fc on">주변 쿠폰</span><span class=fl-loop>↺ 다음 지역 추천</span></div></div></div></section>
+<section class="page" data-group="case-tag" aria-label="TAG SEOUL UX strategy">
+<img src="img/tag-flow-01.jpg" srcset="img/tag-flow-01.jpg 1920w, img/tag-flow-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1315" alt="TAG SEOUL UX strategy 1" loading="lazy" decoding="async">
+<img src="img/tag-flow-02.jpg" srcset="img/tag-flow-02.jpg 1920w, img/tag-flow-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1315" alt="TAG SEOUL UX strategy 2" loading="lazy" decoding="async">
+</section>
+<section class="page" data-group="case-tag" aria-label="TAG SEOUL GUI">
+<img src="img/tag-gui-01.jpg" srcset="img/tag-gui-01.jpg 1920w, img/tag-gui-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2105" alt="TAG SEOUL GUI 1" loading="lazy" decoding="async">
+<img src="img/tag-gui-02.jpg" srcset="img/tag-gui-02.jpg 1920w, img/tag-gui-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2105" alt="TAG SEOUL GUI 2" loading="lazy" decoding="async">
+<img src="img/tag-gui-03.jpg" srcset="img/tag-gui-03.jpg 1920w, img/tag-gui-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2105" alt="TAG SEOUL GUI 3" loading="lazy" decoding="async">
+<img src="img/tag-gui-04.jpg" srcset="img/tag-gui-04.jpg 1920w, img/tag-gui-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2105" alt="TAG SEOUL GUI 4" loading="lazy" decoding="async">
+</section>
+<section class="page sheet stp" data-group="case-tag" style="background:#fff" aria-label="Step 5 Impact / Next"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 05</em>Impact / Next<small>결과와 다음에 볼 지표</small></div><h2>발견부터 다음 탐색까지 이어지는 구조로 <br>iF Design Award 2026을 수상했습니다</h2><p>콘셉트 프로젝트라 실사용 데이터는 없습니다. 서비스로 운영한다면 아래 지표로 "서울을 넓게 쓰는가"를 확인하겠습니다.</p></div><div class=stp-x><div class="sts"><div><b>iF<i></i></b><span>iF Design Award 2026 · Concept Design</span></div></div><div class="nx"><h4>Next · 다음에 볼 지표</h4><ul><li><b>주요 관광지 외 지역 방문 비율</b><span>추천이 실제로 동선을 분산시키는지</span></li><li><b>여행자당 해금 지역 수</b><span>다음 탐색 동기가 작동하는지</span></li><li><b>도착 알림 → 태그 전환율</b><span>알림이 현장 경험으로 이어지는지</span></li><li><b>주변 쿠폰 사용률</b><span>발견이 지역 소비로 연결되는지</span></li></ul></div></div></div></section>
+<section class="page endp" style="background:#fff" aria-label="End of project"><p>End Of Project</p></section>
 <section id="case-st" class="page case" data-group="case-st" aria-label="SmartThings Studio">
 <div class="cs">
   <div class="cs-head">
@@ -817,58 +897,16 @@
   </div>
 </div>
 </section>
-<section class="page" data-group="case-st" aria-label="SmartThings Studio overview &amp; research">
-<img src="img/st-a-01.jpg" srcset="img/st-a-01.jpg 1920w, img/st-a-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2165" alt="SmartThings Studio overview &amp; research 1" loading="lazy" decoding="async">
-<img src="img/st-a-02.jpg" srcset="img/st-a-02.jpg 1920w, img/st-a-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2165" alt="SmartThings Studio overview &amp; research 2" loading="lazy" decoding="async">
-<div class="fix-ttl" style="left:35.8333%;top:42.1709%;width:29.1667%;height:1.0624%;padding-left:0.3125%">평균 대비 높은 이탈률, 짧은 체류시간</div>
+<section class="page" data-group="case-st" aria-label="SmartThings Studio intro">
+<img src="img/st-hero-01.jpg" srcset="img/st-hero-01.jpg 1920w, img/st-hero-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1260" alt="SmartThings Studio intro 1" loading="lazy" decoding="async">
 </section>
-<section class="page" data-group="case-st" aria-label="SmartThings Studio problems">
-<img src="img/st-prob-01.jpg" srcset="img/st-prob-01.jpg 1920w, img/st-prob-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2370" alt="SmartThings Studio problems 1" loading="lazy" decoding="async">
+<section class="page sheet stp stp-tight" data-group="case-st" style="background:#fff" aria-label="Step 1 User Problem"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 01</em>User Problem<small>사용자가 어디서 멈췄나</small></div><h2>콘텐츠는 많았지만, <br>사용자는 상품 탭에서 길을 잃었습니다</h2><p>운영하던 SmartThings 페이지는 삼성닷컴 평균 대비 이탈률이 높고 체류시간이 짧았습니다. 운영 데이터로는 이유를 알 수 없어, Maze로 비대면 사용성 테스트를 진행했습니다.</p><p>기대 경로대로 구매를 마친 사용자는 12명 중 2명뿐이었고, 나머지는 상품 탭을 벗어나 GNB로 이동했습니다. 상품 탭에는 본품이 없어, 본품을 찾는 사용자는 다른 메뉴에서 다시 검색해야 했습니다.</p></div><div class=stp-x><div class="sts"><div><b>83<i>%</i></b><span>예상 경로를 벗어난 사용자 (12명 중 10명)</span><em>Maze 비대면 사용성 테스트</em></div><div><b>9<i>/ 12</i></b><span>상품 탭에서 본품을 찾을 수 없음</span><em>AI 요약 테마 → 원문 대조</em></div><div><b>5<i>/ 12</i></b><span>비슷한 기능 설명이 여러 곳에 반복됨</span><em>AI 요약 테마 → 원문 대조</em></div></div></div></div></section>
+<section class="page" data-group="case-st" aria-label="SmartThings Studio usability test">
+<img src="img/st-ut-01.jpg" srcset="img/st-ut-01.jpg 1920w, img/st-ut-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1515" alt="SmartThings Studio usability test 1" loading="lazy" decoding="async">
 </section>
-<section class="page" data-group="case-st" aria-label="SmartThings Studio UX strategy">
-<img src="img/st-strat-01.jpg" srcset="img/st-strat-01.jpg 1920w, img/st-strat-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2000" alt="SmartThings Studio UX strategy 1" loading="lazy" decoding="async">
-</section>
-<section class="page sheet" data-group="case-st" aria-label="SmartThings Studio AI workflow">
-<div class="sh">
-  <div class="sh-head">
-    <div class="lbl">AI-INTEGRATED UX WORKFLOW</div>
-    <h2>UX 워크플로우 단계별로 AI를 적용하고, <br>방향은 리서치 근거로 정했습니다</h2>
-    <p>사용성 테스트, 화면 초안, 3D 룸 뷰 시안을 AI로 만들었습니다. 결과물은 리서치에서 확인한 문제를 기준으로 검수하고, Figma 컴포넌트 세트로 정리해 최종 화면을 완성했습니다.</p>
-  </div>
-  <ol class="flow">
-    <li><b>01 · AI</b><h4>AI Usability Test</h4><p>비대면 테스트 12명, AI 후속 질문과 AI 요약 → 원문과 대조해 이탈 원인 확정</p><span class="tool">Maze AI</span></li>
-    <li><b>02 · AI</b><h4>AI Draft &amp; Review</h4><p>서비스 설명으로 화면 초안을 생성하고, 4가지 검수 기준으로 유지할 것과 바꿀 것을 판단</p><span class="tool">Uizard</span></li>
-    <li><b>03 · AI</b><h4>AI Visual</h4><p>공간·생활 시나리오별 3D 룸 뷰 시안 이미지를 AI로 제작</p><span class="tool">Higgsfield</span></li>
-    <li><b>04</b><h4>Systemize</h4><p>Component Property로 등록한 컴포넌트 세트로 최종 화면 완성</p><span class="tool">Figma</span></li>
-  </ol>
-  <div class="cmp wide-r">
-    <div class="cmp-col">
-      <div class="prompt"><span>Input · Prompt</span>A smart home experience service for Samsung.com, built around an interactive 3D room view. Users explore each room and control connected devices ...</div>
-      <figure class="shot dark"><img src="img/st/uizard.jpg" alt="Uizard로 생성한 SmartThings Studio 와이어프레임 초안 2종" loading="lazy" width="1600" height="2640"><figcaption>AI Draft · Uizard</figcaption></figure>
-    </div>
-    <div class="cmp-mid" aria-hidden="true">→</div>
-    <div class="cmp-col cmp-final">
-      <figure class="shot mock"><img src="img/st/mockup.png" srcset="img/st/mockup.png 1x, img/st/mockup@2x.png 2x" alt="SmartThings Studio 최종 메인 화면" loading="lazy" width="560" height="977"><figcaption>Final · Figma</figcaption></figure>
-    </div>
-  <ul class="notes wide">
-        <li><em class="k">KEEP</em><b>3D 룸 뷰를 첫 화면의 중심으로</b><span>공간 안에서 기기를 보여주는 구조는 체험 서비스의 핵심이라 유지했습니다. 공간·시나리오별 룸 이미지는 AI로 제작했습니다.</span></li>
-        <li><em class="c">CHANGE</em><b>상품 그리드 → 생활 기능 카드</b><span>리서치에서 상품 탭을 떠난 사용자가 83%였기에, 상품 나열 대신 라이프스타일에 맞는 기능을 먼저 보여주도록 바꿨습니다.</span></li>
-        <li><em class="c">CHANGE</em><b>번들 가격 요약 → 추천 단계로 분리</b><span>체험 화면에서는 구매 정보를 덜어내고, 공간별 추천 목록에서 수량과 가격을 조정하도록 나눴습니다.</span></li>
-        <li><em class="a">ADD</em><b>3가지 질문 온보딩과 필터</b><span>초안에는 개인화가 없었습니다. 함께 사는 사람·관심 경험·공간을 묻고, 답에 맞춰 룸 뷰를 다시 구성했습니다.</span></li>
-        <li><em class="c">CHANGE</em><b>범용 다크 UI → 삼성닷컴 톤</b><span>흰 배경, 블랙 CTA, SamsungOne 서체 등 삼성닷컴 화면 기준으로 정리했습니다.</span></li>
-      </ul>
-  </div>
-  <div class="criteria">
-    <h4>AI 초안 검수 기준</h4>
-    <div class="cr-grid">
-      <div><b>리서치 근거</b><span>이탈 원인(본품 부재, 반복 설명)을 해결하는가</span></div>
-      <div><b>흐름</b><span>탐색 → 체험 → 구매가 끊기지 않는가</span></div>
-      <div><b>개인화</b><span>사용자의 생활 맥락이 반영되는가</span></div>
-      <div><b>브랜드 · 시스템</b><span>삼성닷컴 UI 규칙과 컴포넌트로 만들 수 있는가</span></div>
-    </div>
-  </div>
-</div>
-</section>
+<section class="page sheet stp" data-group="case-st" style="background:#fff" aria-label="Step 2 Behavior Goal"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 02</em>Behavior Goal<small>어떤 행동으로 바꾸고 싶었나</small></div><h2>기능을 읽고 찾아다니는 대신, <br>내 공간에서 체험하고 그 자리에서 구매하도록</h2><p>기능을 이해하려면 여러 콘텐츠 페이지를 거치고, 제품을 사려면 다시 상품 목록으로 가야 했습니다. 구매까지 최대 10단계, 페이지 이동 7회. 이 분리된 경로를 체험에서 구매까지 하나로 잇는 것을 목표로 했습니다.</p></div><div class=stp-x><figure class="uf2 asis"><img src="img/st/flow-asis.png" alt="AS-IS 유저 플로우" loading="lazy"></figure><figure class="uf2 tobe"><img src="img/st/flow-tobe.png" alt="TO-BE 유저 플로우" loading="lazy"></figure></div></div></section>
+<section class="page sheet stp" data-group="case-st" style="background:#fff" aria-label="Step 3 Decision"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 03</em>Decision<small>데이터와 판단이 만난 지점</small></div><h2>데이터가 가리킨 것은 바꾸고, <br>체험의 핵심은 판단으로 지켰습니다</h2><p>AI로 빠르게 만든 화면 초안을 리서치 데이터와 서비스 목적에 비춰 검수했습니다. 데이터가 분명한 지점은 근거대로 바꾸고, 데이터로 말할 수 없는 경험의 핵심은 디자이너 판단으로 결정했습니다.</p></div><div class=stp-x><div class="ev2w"><div class="ev2 hd"><span></span><span>무엇을 봤나</span><span>무엇을 택했나</span></div><div class="ev2"><span class="k data">DATA</span><span>83%가 상품 탭을 떠났고, 9/12가 본품을 찾지 못함</span><span class="b"><b>상품 나열 대신 생활 기능 카드로 시작</b> — 라이프스타일에 맞는 기능을 먼저</span></div><div class="ev2"><span class="k data">DATA</span><span>5/12가 비슷한 설명이 반복된다고 응답, 5개 탭에 중복 콘텐츠</span><span class="b"><b>5개 메뉴 → 3개로 통합</b> — 소개 · Studio · FAQ 역할 분리</span></div><div class="ev2"><span class="k judgment">JUDGMENT</span><span>공간 안에서 기기가 함께 작동하는 장면이 체험 서비스의 핵심</span><span class="b"><b>3D 룸 뷰를 첫 화면 중심으로 유지</b>, 공간 · 시나리오별 이미지는 AI로 제작</span></div><div class="ev2"><span class="k judgment">JUDGMENT</span><span>AI 초안에는 개인화가 없었고, 생활 맥락 없는 추천은 와닿지 않음</span><span class="b"><b>3문항 온보딩 추가</b> — 함께 사는 사람 · 관심 경험 · 공간으로 추천 구성</span></div><div class="ev2"><span class="k judgment">JUDGMENT</span><span>체험 화면에 가격 정보가 섞이면 체험이 끊김</span><span class="b"><b>구매 정보는 추천 단계로 분리</b> — 공간별 목록에서 수량 · 가격 조정</span></div></div><div class="pics"><figure><img src="img/st/uizard.jpg" alt="AI Draft · Uizard" loading="lazy"><figcaption>AI Draft · Uizard</figcaption></figure><figure><img src="img/st/mockup.png" alt="Final · Figma" loading="lazy"><figcaption>Final · Figma</figcaption></figure></div></div></div></section>
+<section class="page sheet stp stp-tight" data-group="case-st" style="background:#fff" aria-label="Step 4 Flow"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 04</em>Flow<small>화면보다 전후 연결</small></div><h2>온보딩 → 3D 룸 뷰 체험 → 공간별 추천 → 구매를 <br>한 흐름으로 설계했습니다</h2><p>세 가지 질문으로 생활 맥락을 받고, 추천 로직으로 공간마다 제품 3개를 배치했습니다. 기기를 직접 조작하며 체험한 뒤, 체험한 기능과 연결된 추천 목록에서 바로 구매로 이어집니다.</p></div><div class=stp-x><div class="fl"><span class="fc">3문항 온보딩</span><span class="fa">→</span><span class="fc">개인화 룸 뷰</span><span class="fa">→</span><span class="fc">기기 조작 체험</span><span class="fa">→</span><span class="fc">공간별 추천 목록</span><span class="fa">→</span><span class="fc on">장바구니 · 구매</span></div></div></div></section>
 <section class="page" data-group="case-st" aria-label="SmartThings Studio concept &amp; landing">
 <img src="img/st-b-01.jpg" srcset="img/st-b-01.jpg 1920w, img/st-b-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1300" alt="SmartThings Studio concept &amp; landing 1" loading="lazy" decoding="async">
 <img src="img/st-b-02.jpg" srcset="img/st-b-02.jpg 1920w, img/st-b-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1300" alt="SmartThings Studio concept &amp; landing 2" loading="lazy" decoding="async">
@@ -879,6 +917,7 @@
 <img src="img/st-c-03.jpg" srcset="img/st-c-03.jpg 1920w, img/st-c-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1937" alt="SmartThings Studio final UI 3" loading="lazy" decoding="async">
 <div class="rv-badge" style="left:7.8125%;top:45.5718%">AI Generated · 3D Room View</div>
 </section>
+<section class="page sheet stp" data-group="case-st" style="background:#fff" aria-label="Step 5 Impact / Next"><div class="sh"><div class="sh-head"><div class="lbl"><em>STEP 05</em>Impact / Next<small>결과와 다음에 볼 지표</small></div><h2>제안 단계에서 끝난 프로젝트라, <br>측정 계획까지 설계했습니다</h2><p>실제 런칭 데이터는 없지만, 운영하던 페이지의 기준 지표가 있어 같은 기준으로 비교할 수 있도록 측정 계획을 정리했습니다.</p></div><div class=stp-x><div class="sts"><div><b>10 → 1<i></i></b><span>구매까지 최대 10단계 · 페이지 이동 7회를 하나의 흐름으로</span><em>제안</em></div><div><b>5 → 3<i></i></b><span>중복 콘텐츠가 있던 5개 메뉴를 3개로 정리</span><em>제안</em></div></div><div class="nx"><h4>Next · 다음에 볼 지표</h4><ul><li><b>SmartThings 페이지 이탈률 · 체류시간</b><span>운영 중 확인한 기준 지표와 직접 비교</span></li><li><b>온보딩 완료율</b><span>3문항이 부담 없이 개인화 입력으로 이어지는지</span></li><li><b>룸 뷰 체험 → 추천 목록 진입률</b><span>체험이 제품 관심으로 이어지는지</span></li><li><b>추천 목록 → 장바구니 전환율</b><span>체험한 기능과 제품 연결이 구매를 돕는지</span></li></ul></div></div></div></section>
 <section class="page endp" style="background:#fff" aria-label="End of project"><p>End Of Project</p></section>
 <section id="more" class="page chap" data-group="more" aria-label="More Works">
 <div class="ch ch-short">
