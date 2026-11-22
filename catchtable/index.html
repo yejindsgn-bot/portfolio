@@ -570,6 +570,11 @@
   .uf.asis { border:1px solid #eee; background:#fff; }
   .uf.tobe { background:#f6f6f6; margin-bottom:0; }
   .uf img { display:block; width:100%; height:auto; }
+  .uf figcaption { display:flex; align-items:center; gap:calc(var(--u)*14); margin:0 0 calc(var(--u)*24); font-size:max(13px, calc(var(--u)*18)); color:#666; }
+  .uf figcaption b { font-size:max(14px, calc(var(--u)*22)); color:#111; letter-spacing:.02em; }
+  .uf figcaption i { width:1px; height:1em; background:#ccc; }
+  .uf.tobe figcaption, .uf.tobe figcaption b { color:var(--blue); }
+  .uf.tobe figcaption i { background:#9db8ff; }
   .cmp.wide-r { align-items:stretch; }
   .cmp-final { display:flex; flex-direction:column; }
   .cmp-final .shot.mock { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; }
@@ -726,7 +731,7 @@
 <div class="sh">
   <div class="sh-head">
     <div class="lbl">AI-INTEGRATED UX WORKFLOW</div>
-    <h2>UX 워크플로우의 단계마다 AI를 도구로 넣고, <br>방향은 리서치 근거로 정했습니다</h2>
+    <h2>UX 워크플로우의 단계마다 AI를 넣고, <br>방향은 리서치 근거로 정했습니다</h2>
     <p>사용성 테스트, 화면 초안, 3D 룸 뷰 시안을 AI로 만들었습니다. 결과물은 리서치에서 확인한 문제를 기준으로 검수하고, Figma 컴포넌트 세트로 정리해 최종 화면을 완성했습니다.</p>
   </div>
   <ol class="flow">
@@ -837,7 +842,7 @@
 </section>
 <section class="page sheet" data-group="case-st" aria-label="SmartThings Studio result">
 <div class="sh">
-  <div class="sh-head"><div class="lbl">RESULT</div><h2>AI를 도구로 다루고, <br>설계 방향은 디자이너가 정했습니다</h2><p>리서치 · 초안 · 비주얼 단계마다 AI에 맡길 일과 직접 판단할 일을 나눴습니다. AI 결과물은 리서치 근거와 검수 기준으로 걸러 실제 화면과 컴포넌트로 만들었습니다.</p></div>
+  <div class="sh-head"><div class="lbl">RESULT</div><h2>AI를 활용하되, <br>설계 방향은 디자이너가 정했습니다</h2><p>리서치 · 초안 · 비주얼 단계마다 AI에 맡길 일과 직접 판단할 일을 나눴습니다. AI 결과물은 리서치 근거와 검수 기준으로 걸러 실제 화면과 컴포넌트로 만들었습니다.</p></div>
   <div class="res3">
     <div><span class="rk">01 · Research</span><h4>AI Usability Test</h4><p class="rt">Maze AI</p>
       <p class="rd">AI 후속 질문과 요약 기능으로 정성 응답을 빠르게 정리하고, 요약은 원문과 대조해 이탈 원인을 확정했습니다.</p></div>
@@ -849,8 +854,8 @@
   <div class="res-flow">
     <h4>그 결과, 구매까지의 흐름을 다시 설계했습니다</h4>
     <p>기능 탐색과 구매가 나뉘어 있던 경로를 SmartThings Studio 안의 진단 → 공간 체험 → 추천 구성 구매로 묶어, 끊김 없는 하나의 흐름으로 제안했습니다.</p>
-    <figure class="uf asis"><img src="img/st/flow-asis.jpg" width="2760" height="1220" alt="AS-IS 유저 플로우 — 구매까지 최대 10단계, 페이지 이동 7회" loading="lazy"></figure>
-    <figure class="uf tobe"><img src="img/st/flow-tobe.jpg" width="2760" height="1060" alt="TO-BE 유저 플로우 — SmartThings Studio 중심의 단일 플로우" loading="lazy"></figure>
+    <figure class="uf asis"><figcaption><b>AS-IS</b><i></i>구매까지 최대 10단계 · 페이지 이동 7회</figcaption><img src="img/st/flow-asis.jpg" width="2760" height="1020" alt="AS-IS 유저 플로우 — 구매까지 최대 10단계, 페이지 이동 7회" loading="lazy"></figure>
+    <figure class="uf tobe"><figcaption><b>TO-BE</b><i></i>이탈 없는 단일 플로우</figcaption><img src="img/st/flow-tobe.jpg" width="2760" height="890" alt="TO-BE 유저 플로우 — SmartThings Studio 중심의 단일 플로우" loading="lazy"></figure>
   </div>
 </div>
 </section>
