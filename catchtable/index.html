@@ -690,12 +690,12 @@
   <ol class="flow">
     <li><b>01 · AI</b><h4>AI Usability Test</h4><p>비대면 테스트 12명, AI 후속 질문과 AI 요약 → 원문과 대조해 이탈 원인 확정</p><span class="tool">Maze AI</span></li>
     <li><b>02 · AI</b><h4>AI Draft → Review</h4><p>서비스 설명으로 화면 초안을 생성하고, 4가지 검수 기준으로 유지할 것과 바꿀 것을 판단</p><span class="tool">Uizard</span></li>
-    <li><b>03 · AI</b><h4>AI Visual</h4><p>공간·생활 시나리오별 3D 룸 뷰 시안 이미지를 AI로 제작</p><span class="tool">Image AI</span></li>
+    <li><b>03 · AI</b><h4>AI Visual</h4><p>공간·생활 시나리오별 3D 룸 뷰 시안 이미지를 AI로 제작</p><span class="tool">Higgsfield</span></li>
     <li><b>04</b><h4>Systemize</h4><p>Component Property로 등록한 컴포넌트 세트로 최종 화면 완성</p><span class="tool">Figma</span></li>
   </ol>
   <div class="cmp">
     <div class="cmp-col">
-      <div class="prompt"><span>Input · Prompt</span>A smart home experience service for Samsung.com, built around an interactive 3D room view. Users switch between rooms (living room, kitchen, bedroom) and control connected devices such as TV, air conditioner, lighting and speaker to see how SmartThings works together in daily life. Each room lists the devices in the scene with prices, recommends products that fit the setup, and lets users add the whole bundle to cart in one step.</div>
+      <div class="prompt"><span>Input · Prompt</span>A smart home experience service for Samsung.com, built around an interactive 3D room view. Users switch between rooms and control connected devices such as TV, air conditioner and lighting to see how SmartThings works in daily life ...</div>
       <figure class="shot dark"><img src="img/st/uizard.jpg" alt="Uizard로 생성한 SmartThings Studio 와이어프레임 초안 2종" loading="lazy" width="1600" height="2640"><figcaption>AI Draft · Uizard</figcaption></figure>
     </div>
     <div class="cmp-mid" aria-hidden="true">→</div>
@@ -737,12 +737,12 @@
   <div class="cgrid">
     <article class="cc full figma">
       <div class="stage fps">
-        <div class="fp"><div class="fp-h"><i aria-hidden="true">◆</i>Onboarding Button<span>Component set</span></div><div class="fp-row"><b>State</b><em>Default · Selected</em><small>Variant</small></div><div class="fp-row"><b>Icon</b><em>3D 아이콘 6종</em><small>Instance swap</small></div><div class="fp-row"><b>Label</b><em>혼자 · 파트너와 · 반려동물과 …</em><small>Text</small></div></div>
+        <div class="fp"><div class="fp-h"><i aria-hidden="true">◆</i>Onboarding Button<span>Component set</span></div><div class="fp-row"><b>State</b><em>Default · Selected</em><small>Variant</small></div><div class="fp-row"><b>Icon</b><em>3D 아이콘 6종</em><small>Variant</small></div><div class="fp-row"><b>Label</b><em>혼자 · 파트너와 · 반려동물과 …</em><small>Text</small></div></div>
         <div class="fp"><div class="fp-h"><i aria-hidden="true">◆</i>Feature Card<span>Component set</span></div><div class="fp-row"><b>State</b><em>Default · Selected</em><small>Variant</small></div><div class="fp-row"><b>Title</b><em>기능 이름</em><small>Text</small></div></div>
         <div class="fp"><div class="fp-h"><i aria-hidden="true">◆</i>Card<span>Component set</span></div><div class="fp-row"><b>Type</b><em>Space · Product</em><small>Variant</small></div></div>
       </div>
       <div class="cbody"><h4>Figma · Component Set</h4>
-        <ul><li><b>Property</b>상태는 Variant, 아이콘과 라벨은 Component Property로 등록해 하나의 세트에서 교체</li><li><b>Benefit</b>질문과 선택지가 바뀌어도 컴포넌트를 새로 만들지 않고 속성만 바꿔 화면에 적용</li><li><b>Rule</b>Selected 상태는 컴포넌트가 달라도 같은 색상 값을 공유</li></ul></div>
+        <ul><li><b>Property</b>상태와 아이콘은 Variant, 라벨은 Text 속성으로 등록해 하나의 세트에서 교체</li><li><b>Benefit</b>질문과 선택지가 바뀌어도 컴포넌트를 새로 만들지 않고 속성만 바꿔 화면에 적용</li><li><b>Rule</b>Selected 상태는 컴포넌트가 달라도 같은 색상 값을 공유</li></ul></div>
     </article>
     <article class="cc full">
       <div class="stage"><figure><img class="" src="img/stc/ob-default.png" width="320" height="156" style="width:calc(var(--u)*464)" alt="Default" loading="lazy"><figcaption>Default</figcaption></figure><figure><img class="" src="img/stc/ob-selected.png" width="320" height="156" style="width:calc(var(--u)*464)" alt="Selected" loading="lazy"><figcaption>Selected</figcaption></figure></div>
@@ -752,7 +752,7 @@
     <article class="cc full">
       <div class="stage icons"><ul class="ico3d"><li><img src="img/st/ico-1.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-2.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-3.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-4.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-5.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-6.png" width="200" height="200" alt="" loading="lazy"></li></ul></div>
       <div class="cbody"><h4>Onboarding Icon · 3D</h4>
-        <ul><li><b>Usage</b>온보딩 질문의 선택지마다 3D 아이콘을 짝지어, 텍스트를 읽기 전에 의미가 먼저 보이도록 했습니다.</li><li><b>Set</b>6종을 같은 시점·질감·조명으로 맞추고, 버튼 컴포넌트의 Icon 속성으로 교체</li></ul></div>
+        <ul><li><b>Usage</b>온보딩 질문의 선택지마다 3D 아이콘을 짝지어, 텍스트를 읽기 전에 의미가 먼저 보이도록 했습니다.</li><li><b>Set</b>6종을 Icon Variant로 등록해, 버튼 컴포넌트 안에서 선택지에 맞게 교체</li></ul></div>
     </article>
     <article class="cc">
       <div class="stage v"><figure><img class="" src="img/stc/fc-default.png" width="364" height="69" style="width:calc(var(--u)*473)" alt="Default" loading="lazy"><figcaption>Default</figcaption></figure><figure><img class="" src="img/stc/fc-selected.png" width="364" height="69" style="width:calc(var(--u)*473)" alt="Selected" loading="lazy"><figcaption>Selected</figcaption></figure></div>
@@ -801,7 +801,7 @@
     <div><span class="rk">02 · Draft</span><h4>AI Wireframe</h4><p class="rt">Uizard</p>
       <dl><dt>AI</dt><dd>서비스 설명 텍스트로 화면 구조 초안 생성</dd>
       <dt>Me</dt><dd>4가지 검수 기준으로 판단 — KEEP 1 · CHANGE 3 · ADD 1</dd></dl></div>
-    <div><span class="rk">03 · Visual</span><h4>AI 3D Room View</h4><p class="rt">Image AI</p>
+    <div><span class="rk">03 · Visual</span><h4>AI 3D Room View</h4><p class="rt">Higgsfield</p>
       <dl><dt>AI</dt><dd>거실 · 주방 · 침실 등 공간과 생활 시나리오별 3D 룸 이미지 제작</dd>
       <dt>Me</dt><dd>추천 로직에 맞춰 제품 배치와 시나리오를 구성하고 UI에 결합</dd></dl></div>
   </div>
