@@ -504,7 +504,7 @@
   /* v6 */
   .flow5 { grid-template-columns:repeat(5, 1fr); }
   .flow5 h4 { font-size:max(13px, calc(var(--u)*20)); }
-  .fps { gap:calc(var(--u)*28); align-items:flex-start; flex-wrap:wrap; padding:calc(var(--u)*64) calc(var(--u)*56); background:#f7f7f7; }
+  .fps { gap:calc(var(--u)*28); align-items:flex-start; flex-wrap:wrap; padding:calc(var(--u)*64) calc(var(--u)*56); background:#eeeeee; }
   .fp { background:#fff; border:1px solid #e3e3e3; border-radius:calc(var(--u)*12); width:calc(var(--u)*380); min-width:220px; font-size:max(11px, calc(var(--u)*15)); box-shadow:0 2px 12px rgba(0,0,0,.04); overflow:hidden; }
   .fp-h { display:flex; align-items:center; gap:8px; padding:calc(var(--u)*16) calc(var(--u)*20); font-weight:700; border-bottom:1px solid #eee; color:#111; }
   .fp-h i { font-style:normal; color:#9747ff; font-size:.85em; }
@@ -518,7 +518,8 @@
   .ico3d { list-style:none; margin:0; padding:0; display:flex; gap:calc(var(--u)*28); flex-wrap:wrap; justify-content:center; }
   .ico3d li { width:calc(var(--u)*120); min-width:52px; aspect-ratio:1; background:#fff; border-radius:calc(var(--u)*20); display:grid; place-items:center; }
   .ico3d img { width:72%; height:auto; display:block; }
-  .specw { padding:calc(var(--u)*56) calc(var(--u)*64); background:#f7f7f7; }
+  .specw { padding:calc(var(--u)*56) calc(var(--u)*64); background:#eeeeee; }
+  .stui .stage { background:#eeeeee; }
   .spec { border-collapse:collapse; width:100%; max-width:calc(var(--u)*1100); font-size:max(11px, calc(var(--u)*16)); background:#fff; border-radius:calc(var(--u)*12); overflow:hidden; }
   .spec th, .spec td { text-align:left; padding:calc(var(--u)*16) calc(var(--u)*20); border-bottom:1px solid #eee; white-space:nowrap; }
   .spec thead th { font-size:.85em; color:#888; font-weight:500; letter-spacing:.04em; }
@@ -603,7 +604,7 @@
 <a href="#case-ds" data-nav="case-ds">04 Design System</a>
 <button type="button" class="mw-btn" data-nav="more" aria-haspopup="true" aria-expanded="false">More Works <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
   </nav>
-  <div class="mw-menu" role="menu" aria-label="More Works projects"><a href="#more" role="menuitem" class="mw-all">More Works 전체</a><div class="mw-g">UI · UX</div><a href="#tag-seoul" role="menuitem"><span>01</span>TAG SEOUL</a><a href="#samsung-search" role="menuitem"><span>02</span>Samsung.com Search</a><div class="mw-g">AX</div><a href="#ai-living" role="menuitem"><span>03</span>AI Living</a><a href="#holiday" role="menuitem"><span>04</span>Holiday · Black Friday</a><a href="#family-hub" role="menuitem"><span>05</span>Family Hub</a><a href="#da-short-form" role="menuitem"><span>06</span>DA Short-form</a><div class="mw-g">Operation</div><a href="#operation" role="menuitem"><span>07</span>Operation</a></div>
+  <div class="mw-menu" role="menu" aria-label="More Works projects"><a href="#more" role="menuitem" class="mw-all">More Works 전체</a><div class="mw-g">UI · UX</div><a href="#tag-seoul" role="menuitem"><span>01</span>TAG SEOUL</a><a href="#samsung-search" role="menuitem"><span>02</span>Samsung.com Search</a><div class="mw-g">AX · AI Design</div><a href="#ai-living" role="menuitem"><span>03</span>AI Living</a><a href="#holiday" role="menuitem"><span>04</span>Holiday · Black Friday</a><a href="#family-hub" role="menuitem"><span>05</span>Family Hub</a><a href="#da-short-form" role="menuitem"><span>06</span>DA Short-form</a><div class="mw-g">Operation</div><a href="#operation" role="menuitem"><span>07</span>Operation</a></div>
   <a class="contact" href="mailto:dpwls902717@gmail.com">dpwls902717@gmail.com</a>
 </header>
 
@@ -624,7 +625,7 @@
   </div>
 </div>
 <div class="xp-band b2">
-  <div class="xp-l"><h2>AX</h2><p>2025. 11 - 2026. 09<i></i>PTKOREA - CYLNDR AX</p></div>
+  <div class="xp-l"><h2>AX · AI Design</h2><p>2025. 11 - 2026. 09<i></i>PTKOREA - CYLNDR AX</p></div>
   <div class="xp-r"><h3>AI 생성 규칙 · 품질 기준 · 가이드 배포</h3>
     <p>생성형 AI 제작에서 반복되는 오류를 생성 규칙과 품질 기준으로 정리하고, 가이드라인으로 문서화해 64개국 지사에 배포했습니다.</p>
     <p>리서치부터 시안 · 영상까지 AI 툴을 연결한 워크플로우를 만들어 삼성닷컴 무빙 키비주얼, 삼성 MX · DA 숏폼 제작에 적용했습니다.</p>
@@ -731,7 +732,7 @@
 <img src="img/st-c-03.jpg" srcset="img/st-c-03.jpg 1920w, img/st-c-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1937" alt="SmartThings Studio final UI 3" loading="lazy" decoding="async">
 <div class="rv-badge" style="left:7.8125%;top:45.5718%">AI Generated · 3D Room View</div>
 </section>
-<section class="page sheet" data-group="case-st" aria-label="SmartThings Studio UI components">
+<section class="page sheet stui" data-group="case-st" aria-label="SmartThings Studio UI components">
 <div class="sh">
   <div class="sh-head"><div class="lbl">UI COMPONENTS</div><h2>반복되는 요소를 <br>Figma 컴포넌트 세트로 정리했습니다</h2><p>온보딩, 룸 뷰, 추천 단계에서 반복되는 요소를 Component Property로 등록해 컴포넌트 세트로 관리했습니다. 상태별 색상 값과 사용 규칙을 함께 정의해, AI 초안에서 출발한 화면을 같은 기준으로 완성했습니다.</p></div>
   <div class="cgrid">
@@ -752,7 +753,7 @@
     <article class="cc full">
       <div class="stage icons"><ul class="ico3d"><li><img src="img/st/ico-1.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-2.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-3.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-4.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-5.png" width="200" height="200" alt="" loading="lazy"></li><li><img src="img/st/ico-6.png" width="200" height="200" alt="" loading="lazy"></li></ul></div>
       <div class="cbody"><h4>Onboarding Icon · 3D</h4>
-        <ul><li><b>Usage</b>온보딩 질문의 선택지마다 3D 아이콘을 짝지어, 텍스트를 읽기 전에 의미가 먼저 보이도록 했습니다.</li><li><b>Set</b>6종을 Icon Variant로 등록해, 버튼 컴포넌트 안에서 선택지에 맞게 교체</li></ul></div>
+        <ul><li><b>Usage</b>온보딩 질문의 선택지마다 3D 아이콘을 짝지어, 텍스트를 읽기 전에 의미가 먼저 보이도록 했습니다.</li></ul></div>
     </article>
     <article class="cc">
       <div class="stage v"><figure><img class="" src="img/stc/fc-default.png" width="364" height="69" style="width:calc(var(--u)*473)" alt="Default" loading="lazy"><figcaption>Default</figcaption></figure><figure><img class="" src="img/stc/fc-selected.png" width="364" height="69" style="width:calc(var(--u)*473)" alt="Selected" loading="lazy"><figcaption>Selected</figcaption></figure></div>
@@ -760,9 +761,11 @@
         <ul><li><b>Default</b>BG #F7F7F7 · Stroke #DDDDDD · Font #313131</li><li><b>Selected</b>BG #F2F8FF · Stroke #006BEA · Font #2189FF</li><li><b>Rule</b>선택하면 룸 뷰가 해당 기능 장면으로 전환</li></ul></div>
     </article>
     <article class="cc">
-      <div class="stage v"><figure><img class="" src="img/stc/btn-icon.png" width="356" height="42" style="width:calc(var(--u)*463)" alt="Icon" loading="lazy"><figcaption>Icon</figcaption></figure><figure><img class="" src="img/stc/btn-cta.png" width="372" height="56" style="width:calc(var(--u)*484)" alt="CTA" loading="lazy"><figcaption>CTA</figcaption></figure></div>
-      <div class="cbody"><h4>Button</h4>
-        <ul><li><b>Icon</b>필터 · 화면 축소 · 일시정지, 룸 뷰 기기 핀</li><li><b>Primary</b>블랙 — 구매하기, 추천 결과 보기</li><li><b>Secondary</b>화이트 라인 — 장바구니</li></ul></div>
+      <div class="stage v"><figure><img class="" src="img/stc/btn-cta.png" width="372" height="56" style="width:calc(var(--u)*484)" alt="CTA buttons" loading="lazy"><figcaption>CTA Button</figcaption></figure>
+        <figure><img class="" src="img/stc/btn-iconbtn.png" width="177" height="42" style="width:calc(var(--u)*230)" alt="Icon buttons" loading="lazy"><figcaption>Icon Button</figcaption></figure>
+        <figure><img class="" src="img/stc/pin.png" width="159" height="42" style="width:calc(var(--u)*207)" alt="Device pins" loading="lazy"><figcaption>Device Pin</figcaption></figure></div>
+      <div class="cbody"><h4>Button · Pin</h4>
+        <ul><li><b>Primary</b>블랙 — 구매하기, 추천 결과 보기</li><li><b>Secondary</b>화이트 라인 — 장바구니</li><li><b>Icon Button</b>룸 뷰 위 필터 · 화면 축소 · 일시정지</li><li><b>Device Pin</b>룸 뷰 안 기기 위치 표시, 누르면 해당 기기 제어 장면으로 확대</li></ul></div>
     </article>
     <article class="cc full">
       <div class="stage specw"><table class="spec"><thead><tr><th>State</th><th>Background</th><th>Stroke</th><th>Font</th><th>Radius</th></tr></thead><tbody><tr><th>Onboarding · Default</th><td><span class="hx"><i class="lt" style="background:#FFFFFF"></i>#FFFFFF</span></td><td><span class="hx"><i class="lt" style="background:#DDDDDD"></i>#DDDDDD</span></td><td><span class="hx"><i class="" style="background:#000000"></i>#000000</span></td><td>8</td></tr><tr><th>Feature · Default</th><td><span class="hx"><i class="lt" style="background:#F7F7F7"></i>#F7F7F7</span></td><td><span class="hx"><i class="lt" style="background:#DDDDDD"></i>#DDDDDD</span></td><td><span class="hx"><i class="" style="background:#313131"></i>#313131</span></td><td>8</td></tr><tr class=sel><th>Selected · 공통</th><td><span class="hx"><i class="lt" style="background:#F2F8FF"></i>#F2F8FF</span></td><td><span class="hx"><i class="" style="background:#006BEA"></i>#006BEA</span></td><td><span class="hx"><i class="" style="background:#2189FF"></i>#2189FF</span></td><td>8</td></tr></tbody></table></div>
@@ -954,7 +957,7 @@
     <div class="ch-l">
       <div class="tag"><span class="num">MW</span>MORE WORKS</div>
       <h2 class="ttl-text">More Works</h2>
-      <div class="meta"><span>UI · UX</span><i></i><span>AX</span><i></i><span>Operation</span></div>
+      <div class="meta"><span>UI · UX</span><i></i><span>AX · AI Design</span><i></i><span>Operation</span></div>
     </div>
     <div class="ch-r">
       <h3>화면 설계와 AI 비주얼, 운영까지</h3>
@@ -965,7 +968,7 @@
 <div class="mg-h"><b>UI · UX</b><span>02</span></div>
 <a class="row" href="#tag-seoul"><span class="n">01</span><span class="t">TAG SEOUL</span><span class="s">iF Design Award 2026</span><span class="arr" aria-hidden="true">→</span></a>
 <a class="row" href="#samsung-search"><span class="n">02</span><span class="t">Samsung.com Search</span><span class="s">UX Improvement</span><span class="arr" aria-hidden="true">→</span></a>
-<div class="mg-h"><b>AX</b><span>04</span></div>
+<div class="mg-h"><b>AX · AI Design</b><span>04</span></div>
 <a class="row" href="#ai-living"><span class="n">03</span><span class="t">S.com AI Living</span><span class="s">Moving Key Visual</span><span class="arr" aria-hidden="true">→</span></a>
 <a class="row" href="#holiday"><span class="n">04</span><span class="t">S.com Holiday / Black Friday</span><span class="s">Key Visual</span><span class="arr" aria-hidden="true">→</span></a>
 <a class="row" href="#family-hub"><span class="n">05</span><span class="t">Family Hub AI Food Manager</span><span class="s">Concept Visual</span><span class="arr" aria-hidden="true">→</span></a>
@@ -996,7 +999,7 @@
 <img src="../img/p08-04.jpg" srcset="../img/p08-04.jpg 1920w, ../img/p08-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 4" loading="lazy" decoding="async">
 <img src="../img/p08-05.jpg" srcset="../img/p08-05.jpg 1920w, ../img/p08-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 5" loading="lazy" decoding="async">
 </section>
-<section class="page mg-strip" data-group="more" aria-label="More Works AX"><div><b>More Works</b><i></i><span>AX</span><em>AI Living · Holiday / Black Friday · Family Hub · DA Short-form</em></div></section>
+<section class="page mg-strip" data-group="more" aria-label="More Works AX · AI Design"><div><b>More Works</b><i></i><span>AX · AI Design</span><em>AI Living · Holiday / Black Friday · Family Hub · DA Short-form</em></div></section>
 <section id="ai-living" class="page" data-group="more" aria-label="S.com AI Living">
 <img src="../img/p14-01.jpg" srcset="../img/p14-01.jpg 1920w, ../img/p14-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 1" loading="lazy" decoding="async">
 <img src="../img/p14-02.jpg" srcset="../img/p14-02.jpg 1920w, ../img/p14-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 2" loading="lazy" decoding="async">
