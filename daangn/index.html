@@ -1,0 +1,1144 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kwon Yejin — UIUX / AI Design Portfolio</title>
+<meta name="description" content="권예진 UIUX / AI Design 포트폴리오 (2023–2026)">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;700&display=swap" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css" rel="stylesheet">
+<style>
+  :root {
+    --u: calc(100cqw / 1920);
+    --bg:#000; --fg:#f2f2f2; --muted:#8c8c8c; --blue:#104EE3; --nav-h:56px;
+    --f-title: "Samsung Sharp Sans", "SamsungSharpSans", "Plus Jakarta Sans", "Pretendard Variable", Pretendard, sans-serif;
+    --f-body: "SamsungOneKorean", "Samsung One Korean", "SamsungOne", "Pretendard Variable", Pretendard, -apple-system, "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  }
+  * { box-sizing:border-box; }
+  html { scroll-behavior:smooth; scroll-padding-top:var(--nav-h); }
+  body { margin:0; background:var(--bg); color:var(--fg); font-family:var(--f-body); -webkit-font-smoothing:antialiased; }
+  a { color:inherit; text-decoration:none; }
+  button { font:inherit; color:inherit; }
+
+  /* header */
+  header { position:fixed; inset:0 0 auto 0; height:var(--nav-h); z-index:50; display:flex; align-items:center; gap:28px; padding:0 24px;
+    background:rgba(0,0,0,.72); backdrop-filter:saturate(160%) blur(14px); -webkit-backdrop-filter:saturate(160%) blur(14px); border-bottom:1px solid rgba(255,255,255,.08); }
+  .brand { font-family:var(--f-title); font-weight:700; letter-spacing:.02em; font-size:14px; white-space:nowrap; }
+  .brand span { color:var(--muted); font-weight:500; margin-left:10px; font-family:var(--f-body); }
+  header nav { flex:1; display:flex; gap:2px; overflow-x:auto; scrollbar-width:none; }
+  header nav::-webkit-scrollbar { display:none; }
+  header nav a { font-size:13px; color:var(--muted); padding:8px 12px; border-radius:8px; white-space:nowrap; transition:color .15s, background .15s; }
+  header nav a:hover { color:var(--fg); }
+  header nav a.active { color:var(--fg); background:rgba(255,255,255,.09); }
+  .contact { font-size:13px; color:var(--muted); white-space:nowrap; }
+  .contact:hover { color:var(--fg); }
+  #progress { position:fixed; top:0; left:0; height:2px; width:0; background:var(--blue); z-index:60; }
+
+  main { padding-top:var(--nav-h); }
+  .page { display:block; position:relative; max-width:1920px; margin:0 auto; font-size:0; line-height:0; container-type:inline-size; }
+  .page > img { display:block; width:100%; height:auto; }
+
+  /* ---------- chapter pages ---------- */
+  .chap { background:#000; font-size:16px; line-height:1.5; }
+  .ch { padding:calc(var(--u)*160) calc(var(--u)*160) calc(var(--u)*150); min-height:calc(var(--u)*1240); }
+  .ch-top { display:grid; grid-template-columns:calc(var(--u)*784) 1fr; min-height:calc(var(--u)*553); }
+  .tag { display:flex; align-items:center; gap:calc(var(--u)*14); font-size:max(10px, calc(var(--u)*13)); letter-spacing:.2em; color:#9a9a9a; font-weight:600; height:calc(var(--u)*32); }
+  .tag .num { color:#fff; border:1px solid rgba(255,255,255,.4); border-radius:999px; padding:0 .7em; line-height:2em; letter-spacing:.06em; }
+  .ch h2 { margin:calc(var(--u)*34) 0 0; line-height:0; }
+  .ttl { height:calc(var(--u)*99); width:auto; display:block; }
+  .meta { display:flex; align-items:center; margin-top:calc(var(--u)*29); font-size:max(12px, calc(var(--u)*18)); color:#c9c9c9; line-height:1; }
+  .meta i { width:1px; height:1.1em; background:#777; margin:0 calc(var(--u)*20); }
+  .note { margin:calc(var(--u)*234) 0 0; font-size:max(11px, calc(var(--u)*18)); color:#a3a3a3; line-height:1.4; }
+  .ch-r { padding-top:calc(var(--u)*59); margin-right:calc(var(--u)*-120); word-break:keep-all; }
+  .ch-r h3 { margin:0 0 calc(var(--u)*24); font-size:max(13px, calc(var(--u)*18)); font-weight:700; color:#fff; line-height:1.2; }
+  .ch-r p { margin:0 0 calc(var(--u)*28); font-size:max(12px, calc(var(--u)*17)); line-height:1.56; color:var(--muted); font-weight:400; }
+  .list { border-top:1px solid #2c2c2c; }
+  .row { display:grid; grid-template-columns:calc(var(--u)*86) 1fr auto calc(var(--u)*48); align-items:center; height:calc(var(--u)*100); min-height:44px;
+    border-bottom:1px solid #2c2c2c; transition:padding-left .25s ease, background .25s; }
+  .row:hover { padding-left:calc(var(--u)*16); background:rgba(255,255,255,.02); }
+  .row .n { font-size:max(11px, calc(var(--u)*15)); color:#7a7a7a; font-variant-numeric:tabular-nums; }
+  .row .t { font-family:var(--f-title); font-size:max(15px, calc(var(--u)*30)); font-weight:500; letter-spacing:-.005em; color:#f2f2f2; }
+  .row .s { font-size:max(11px, calc(var(--u)*15)); color:#8a8a8a; letter-spacing:.02em; }
+  .row .arr { text-align:right; color:#8a8a8a; font-size:max(13px, calc(var(--u)*20)); transition:transform .25s, color .25s; }
+  .row:hover .arr { transform:translateX(4px); color:#fff; }
+
+  /* ---------- video overlays ---------- */
+  .vid { position:absolute; overflow:hidden; background:#111; }
+  .vid video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+  .kvtext { position:absolute; left:6.06%; top:50%; transform:translateY(calc(-50% + 12px)); width:70%; opacity:0;
+    transition:opacity .9s ease .25s, transform .9s cubic-bezier(.2,.7,.2,1) .25s; line-height:normal; }
+  .vid.in .kvtext { opacity:1; transform:translateY(-50%); }
+  .kvtext h3 { margin:0 0 calc(var(--u)*24); font-family:var(--f-title); font-weight:700; font-size:calc(var(--u)*42.7); line-height:1.1; letter-spacing:-.012em; color:#000; }
+  .kvtext p { margin:0; font-family:var(--f-body); font-weight:400; font-size:calc(var(--u)*22); line-height:1.24; color:#1d1d1d; max-width:calc(var(--u)*640); }
+  .kvtext.light h3, .kvtext.light p { color:#fff; }
+  .snd { position:absolute; right:5%; bottom:3%; width:max(30px, calc(var(--u)*44)); height:max(30px, calc(var(--u)*44)); border-radius:50%; border:0; padding:0;
+    background:rgba(0,0,0,.45); backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px); cursor:pointer; display:grid; place-items:center; }
+  .snd svg { width:55%; height:55%; fill:none; stroke:#fff; stroke-width:1.8; stroke-linecap:round; stroke-linejoin:round; }
+  .snd .spk { fill:#fff; stroke:none; }
+  .snd .on { display:none; }
+  .snd[aria-pressed="true"] .on { display:inline; }
+  .snd[aria-pressed="true"] .off { display:none; }
+
+  /* ---------- operation carousels ---------- */
+  .opsec { background:#f7f7f7; color:#111; font-size:16px; line-height:1.5; padding:calc(var(--u)*159) 0 calc(var(--u)*253); }
+  .opg + .opg { margin-top:calc(var(--u)*373); }
+  .opg { position:relative; }
+  .op-head { display:grid; grid-template-columns:calc(var(--u)*394) 1fr; align-items:start; padding:0 calc(var(--u)*300); margin-bottom:calc(var(--u)*243); word-break:keep-all; }
+  .op-l h3 { margin:0; font-family:var(--f-title); font-size:max(15px, calc(var(--u)*24)); font-weight:700; color:var(--blue); line-height:1; letter-spacing:-.005em; }
+  .op-l span { display:block; margin-top:calc(var(--u)*29); font-size:max(12px, calc(var(--u)*22)); color:#555; line-height:1; }
+  .op-d { margin:calc(var(--u)*3) 0 0; font-size:max(12px, calc(var(--u)*20)); line-height:1.5; color:#6a6a6a; }
+  .op-ctl { position:absolute; right:calc(var(--u)*300); top:calc(var(--u)*175); display:flex; align-items:center; gap:calc(var(--u)*12); }
+  .op-ctl .cnt { font-size:max(11px, calc(var(--u)*15)); color:#888; margin-right:calc(var(--u)*12); font-variant-numeric:tabular-nums; letter-spacing:.04em; white-space:nowrap; }
+  .op-ctl .cnt b { color:#111; font-weight:600; }
+  .op-ctl button { width:max(34px, calc(var(--u)*52)); height:max(34px, calc(var(--u)*52)); border-radius:50%; border:1px solid #cfcfcf; background:#fff; color:#111; cursor:pointer;
+    font-size:max(13px, calc(var(--u)*18)); display:grid; place-items:center; transition:background .2s, color .2s, opacity .2s, border-color .2s; }
+  .op-ctl button:hover:not(:disabled) { background:#111; color:#fff; border-color:#111; }
+  .op-ctl button:disabled { opacity:.35; cursor:default; }
+  .track { list-style:none; margin:0; display:flex; gap:calc(var(--u)*60); overflow-x:auto; overscroll-behavior-x:contain; scroll-snap-type:x mandatory;
+    padding:0 calc(var(--u)*300); scroll-padding:0 calc(var(--u)*300); scrollbar-width:none; cursor:grab; outline:none; }
+  .track::-webkit-scrollbar { display:none; }
+  .track.drag { cursor:grabbing; scroll-snap-type:none; scroll-behavior:auto; }
+  .track.drag img { pointer-events:none; }
+  .slide { flex:0 0 auto; height:calc(var(--u)*var(--ch)); aspect-ratio:var(--w) / var(--h); scroll-snap-align:start; line-height:0; }
+  .slide img { width:100%; height:100%; object-fit:cover; display:block; user-select:none; -webkit-user-drag:none; }
+
+  footer { padding:64px 24px 80px; text-align:center; color:var(--muted); font-size:13px; line-height:1.9; border-top:1px solid rgba(255,255,255,.08); }
+  footer strong { color:var(--fg); font-weight:600; font-family:var(--f-title); }
+  footer .mail { color:var(--fg); }
+  #top { position:fixed; right:20px; bottom:20px; width:40px; height:40px; border-radius:50%; background:rgba(255,255,255,.12); color:#fff; border:1px solid rgba(255,255,255,.18);
+    display:grid; place-items:center; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s; backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px); z-index:50; font-size:16px; mix-blend-mode:difference; }
+  #top.show { opacity:1; pointer-events:auto; }
+
+  @media (max-width:1280px) { .contact { display:none; } }
+  @media (max-width:860px) {
+    header { padding:0 14px; gap:12px; }
+    .brand span { display:none; }
+    header nav a { font-size:12px; padding:7px 9px; }
+    .ch { padding:64px 20px 56px; min-height:0; }
+    .ch-top { grid-template-columns:1fr; min-height:0; }
+    .tag { height:auto; gap:10px; }
+    .ch h2 { margin-top:22px; }
+    .ttl { height:40px; }
+    .meta { margin-top:16px; }
+    .meta i { margin:0 12px; }
+    .note { margin-top:18px; }
+    .ch-r { padding-top:32px; }
+    .ch-r h3 { margin-bottom:12px; }
+    .ch-r p { margin-bottom:14px; line-height:1.7; }
+    .ch-r p br, .op-d br { display:none; }
+    .list { margin-top:28px; }
+    .row { grid-template-columns:34px 1fr 22px; height:auto; padding:16px 0; }
+    .row .s { display:none; }
+    .opsec { padding:56px 0 64px; }
+    .opg + .opg { margin-top:56px; }
+    .op-head { grid-template-columns:1fr; padding:0 20px; margin-bottom:20px; row-gap:12px; }
+    .op-l span { margin-top:8px; }
+    .op-d { margin:0; }
+    .op-l { padding-right:150px; }
+    .op-ctl { right:20px; top:0; gap:8px; }
+    .op-ctl .cnt { margin-right:4px; }
+    .track { gap:12px; padding:0 20px; scroll-padding:0 20px; }
+    .slide { height:calc(var(--ch) * .34px); }
+  }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior:auto; } .kvtext { transition:none; } }
+  /* ===== Catchtable version additions ===== */
+  .ch h2.ttl-text { line-height:1.1; }
+  .ttl-text { font-family:var(--f-title); font-weight:700; font-size:max(34px, calc(var(--u)*90)); line-height:1.1; letter-spacing:-.02em; color:#fff; margin:calc(var(--u)*30) 0 0 !important; }
+  .ch-short { min-height:0; }
+  .ch-short .ch-top { min-height:calc(var(--u)*420); }
+
+  /* competency matrix */
+  .mx { margin-top:calc(var(--u)*90); }
+  .mx table { width:100%; border-collapse:collapse; font-size:max(11px, calc(var(--u)*16)); }
+  .mx th, .mx td { border-bottom:1px solid #2c2c2c; padding:calc(var(--u)*20) calc(var(--u)*12); text-align:center; font-weight:400; color:#9a9a9a; }
+  .mx thead th { color:#cfcfcf; font-size:max(10px, calc(var(--u)*14)); letter-spacing:.02em; border-bottom-color:#555; }
+  .mx tbody th { text-align:left; color:#f2f2f2; font-family:var(--f-title); font-weight:500; font-size:max(12px, calc(var(--u)*18)); padding-left:0; white-space:nowrap; }
+  .d { display:inline-block; width:max(10px, calc(var(--u)*16)); height:max(10px, calc(var(--u)*16)); border-radius:50%; vertical-align:middle; }
+  .d.full { background:var(--blue); }
+  .d.half { border:2px solid var(--blue); }
+  .mx-legend { margin:calc(var(--u)*20) 0 0; font-size:max(11px, calc(var(--u)*14)); color:#8a8a8a; display:flex; align-items:center; gap:8px; }
+  .mx-legend .d { margin-left:12px; } .mx-legend .d:first-child { margin-left:0; }
+
+  /* case intro strip */
+  .case { background:#0b0b0b; font-size:16px; line-height:1.5; border-top:1px solid #1e1e1e; }
+  .cs { padding:calc(var(--u)*120) calc(var(--u)*160) calc(var(--u)*110); }
+  .cs-head { display:grid; grid-template-columns:calc(var(--u)*150) 1fr auto; align-items:end; gap:calc(var(--u)*24); padding-bottom:calc(var(--u)*48); border-bottom:1px solid #2c2c2c; }
+  .cs-num { font-family:var(--f-title); font-weight:700; font-size:max(28px, calc(var(--u)*72)); color:var(--blue); line-height:.9; }
+  .cs-title h2 { margin:0; font-family:var(--f-title); font-weight:700; font-size:max(26px, calc(var(--u)*56)); letter-spacing:-.015em; color:#fff; line-height:1.05; }
+  .cs-meta { margin-top:calc(var(--u)*16); display:flex; align-items:center; font-size:max(12px, calc(var(--u)*17)); color:#a9a9a9; }
+  .cs-meta i { width:1px; height:1em; background:#555; margin:0 calc(var(--u)*16); }
+  .cs-tags { display:flex; flex-wrap:wrap; justify-content:flex-end; gap:calc(var(--u)*8); max-width:calc(var(--u)*640); }
+  .cs-tags span { font-size:max(11px, calc(var(--u)*14)); color:#cfe0ff; border:1px solid rgba(16,78,227,.7); background:rgba(16,78,227,.16); border-radius:999px; padding:.35em .9em; white-space:nowrap; }
+  .cs-grid { display:grid; grid-template-columns:repeat(3, 1fr); gap:calc(var(--u)*56); margin-top:calc(var(--u)*48); word-break:keep-all; }
+  .cs-grid h4 { margin:0 0 calc(var(--u)*14); font-size:max(11px, calc(var(--u)*14)); letter-spacing:.16em; text-transform:uppercase; color:#6f8fd9; font-weight:600; }
+  .cs-grid p { margin:0; font-size:max(13px, calc(var(--u)*19)); line-height:1.65; color:#d8d8d8; }
+
+  /* light sheet pages */
+  .sheet { background:#fff; color:#111; font-size:16px; line-height:1.5; }
+  .sh { padding:calc(var(--u)*160) calc(var(--u)*160) calc(var(--u)*170); word-break:keep-all; }
+  .sh-head { display:grid; grid-template-columns:calc(var(--u)*534) 1fr; column-gap:calc(var(--u)*80); row-gap:calc(var(--u)*24); margin-bottom:calc(var(--u)*90); }
+  .lbl { grid-column:1 / -1; font-size:max(11px, calc(var(--u)*15)); letter-spacing:.18em; font-weight:700; color:var(--blue); }
+  .sh-head h2 { margin:0; font-size:max(20px, calc(var(--u)*40)); line-height:1.35; letter-spacing:-.02em; font-weight:700; }
+  .sh-head p { margin:0; align-self:end; font-size:max(13px, calc(var(--u)*19)); line-height:1.7; color:#666; }
+  .sheet h4 { margin:0; font-size:max(14px, calc(var(--u)*22)); font-weight:700; letter-spacing:-.01em; color:#111; }
+
+  .flow { list-style:none; margin:0 0 calc(var(--u)*90); padding:0; display:grid; grid-template-columns:repeat(4, 1fr); gap:calc(var(--u)*20); counter-reset:none; }
+  .flow li { position:relative; background:#f5f6f8; border-radius:calc(var(--u)*20); padding:calc(var(--u)*36) calc(var(--u)*32) calc(var(--u)*32); display:flex; flex-direction:column; gap:calc(var(--u)*12); }
+  .flow li:not(:last-child)::after { content:'→'; position:absolute; right:calc(var(--u)*-17); top:50%; transform:translateY(-50%); width:calc(var(--u)*28); height:calc(var(--u)*28); min-width:20px; min-height:20px; border-radius:50%; background:#fff; color:#111; display:grid; place-items:center; font-size:max(11px, calc(var(--u)*14)); z-index:1; box-shadow:0 2px 8px rgba(0,0,0,.08); }
+  .flow b { font-size:max(11px, calc(var(--u)*14)); color:var(--blue); letter-spacing:.06em; }
+  .flow p { margin:0; font-size:max(12px, calc(var(--u)*17)); color:#555; line-height:1.6; flex:1; }
+  .tool { align-self:flex-start; font-size:max(11px, calc(var(--u)*14)); padding:.3em .8em; border-radius:999px; background:#111; color:#fff; }
+
+  .cmp { display:grid; grid-template-columns:1fr calc(var(--u)*80) 1fr; align-items:start; margin-bottom:calc(var(--u)*90); }
+  .cmp-mid { align-self:center; text-align:center; font-size:max(18px, calc(var(--u)*36)); color:#bbb; }
+  .prompt { background:#111; color:#eaeaea; border-radius:calc(var(--u)*16); padding:calc(var(--u)*24) calc(var(--u)*28); font-size:max(12px, calc(var(--u)*17)); line-height:1.6; margin-bottom:calc(var(--u)*20); font-family:ui-monospace, "SF Mono", Menlo, monospace; }
+  .prompt span { display:block; font-family:var(--f-body); font-size:max(10px, calc(var(--u)*13)); letter-spacing:.14em; color:#7fa2ff; margin-bottom:6px; font-weight:700; }
+  .shot { margin:0; background:#f5f6f8; border-radius:calc(var(--u)*20); padding:calc(var(--u)*32); text-align:center; }
+  .shot.dark { background:#ececec; }
+  .shot img { max-width:100%; height:auto; max-height:calc(var(--u)*900); width:auto; display:inline-block; border-radius:calc(var(--u)*8); }
+  .shot figcaption { margin-top:calc(var(--u)*16); font-size:max(11px, calc(var(--u)*14)); color:#777; letter-spacing:.06em; }
+  .cmp-col .shot + .notes { margin-top:calc(var(--u)*28); }
+  .notes { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:calc(var(--u)*18); }
+  .notes li { display:grid; grid-template-columns:calc(var(--u)*100) 1fr; column-gap:calc(var(--u)*16); row-gap:4px; align-items:baseline; }
+  .notes em { grid-row:span 2; font-style:normal; font-size:max(10px, calc(var(--u)*12)); font-weight:700; letter-spacing:.1em; text-align:center; padding:.35em 0; border-radius:6px; }
+  .notes em.k { background:#eef0f3; color:#555; } .notes em.c { background:#e6eeff; color:var(--blue); } .notes em.a { background:#111; color:#fff; }
+  .notes b { font-size:max(13px, calc(var(--u)*18)); }
+  .notes span { font-size:max(12px, calc(var(--u)*16)); color:#666; line-height:1.6; }
+
+  .criteria { border-top:1px solid #e5e5e5; padding-top:calc(var(--u)*48); }
+  .cr-grid { display:grid; grid-template-columns:repeat(4, 1fr); gap:calc(var(--u)*20); margin-top:calc(var(--u)*24); }
+  .cr-grid div { border:1px solid #e5e5e5; border-radius:calc(var(--u)*16); padding:calc(var(--u)*26); display:flex; flex-direction:column; gap:8px; }
+  .cr-grid b { font-size:max(13px, calc(var(--u)*18)); }
+  .cr-grid span { font-size:max(12px, calc(var(--u)*16)); color:#666; line-height:1.6; }
+
+  .comp-grid { display:grid; grid-template-columns:repeat(2, 1fr); gap:calc(var(--u)*28); }
+  .comp { background:#f5f6f8; border-radius:calc(var(--u)*24); padding:calc(var(--u)*36); display:grid; grid-template-columns:1fr 1fr; gap:calc(var(--u)*32); align-items:start; }
+  .comp.wide { grid-column:1 / -1; grid-template-columns:1.25fr 1fr; }
+  .comp-img { background:#fff; border-radius:calc(var(--u)*16); padding:calc(var(--u)*20); display:grid; place-items:center; }
+  .comp-img.two { grid-template-columns:1fr 1fr; gap:calc(var(--u)*16); }
+  .comp-img img { max-width:100%; height:auto; max-height:calc(var(--u)*520); width:auto; display:block; }
+  .comp-txt p { margin:calc(var(--u)*10) 0 calc(var(--u)*16); font-size:max(12px, calc(var(--u)*17)); color:#555; }
+  .comp-txt ul { margin:0; padding:0 0 0 1.1em; display:flex; flex-direction:column; gap:calc(var(--u)*8); font-size:max(12px, calc(var(--u)*16)); color:#555; line-height:1.55; }
+  .comp-txt li b { color:#111; margin-right:.3em; }
+
+  .stats { display:grid; grid-template-columns:repeat(5, 1fr); border-top:2px solid #111; border-bottom:1px solid #e5e5e5; margin-bottom:calc(var(--u)*70); }
+  .stats div { padding:calc(var(--u)*30) 0; display:flex; flex-direction:column; gap:6px; }
+  .stats b { font-family:var(--f-title); font-size:max(24px, calc(var(--u)*56)); line-height:1; font-weight:700; letter-spacing:-.02em; }
+  .stats span { font-size:max(11px, calc(var(--u)*15)); color:#777; }
+  .fd-grid { display:grid; grid-template-columns:1fr 1fr; gap:calc(var(--u)*28); margin-bottom:calc(var(--u)*28); }
+  .fd { background:#f5f6f8; border-radius:calc(var(--u)*24); padding:calc(var(--u)*40); }
+  .fd-sub { margin:calc(var(--u)*24) 0 calc(var(--u)*12); font-size:max(11px, calc(var(--u)*14)); color:#888; letter-spacing:.04em; }
+  .fd-note { margin:calc(var(--u)*12) 0 calc(var(--u)*22); font-size:max(12px, calc(var(--u)*15)); color:#666; line-height:1.6; }
+  .sws { display:grid; grid-template-columns:repeat(auto-fill, minmax(max(64px, calc(var(--u)*104)), 1fr)); gap:calc(var(--u)*12); }
+  .sw { display:flex; flex-direction:column; gap:4px; }
+  .sw i { display:block; height:max(34px, calc(var(--u)*64)); border-radius:calc(var(--u)*10); }
+  .sw.lt i { box-shadow:inset 0 0 0 1px #ddd; }
+  .sw b { font-size:max(10px, calc(var(--u)*13)); font-weight:500; font-variant-numeric:tabular-nums; }
+  .sw span { font-size:max(10px, calc(var(--u)*12)); color:#888; }
+  .ts { list-style:none; margin:0; padding:0; }
+  .ts li { display:flex; align-items:baseline; gap:calc(var(--u)*20); padding:calc(var(--u)*7) 0; border-bottom:1px solid #e3e5e8; white-space:nowrap; overflow:hidden; }
+  .ts-k { width:calc(var(--u)*70); min-width:44px; flex:none; font-size:max(11px, calc(var(--u)*14)); color:#888; font-variant-numeric:tabular-nums; }
+  .ts-s { font-weight:700; letter-spacing:-.01em; line-height:1.2; }
+  .ts em { font-style:normal; font-size:max(10px, calc(var(--u)*12)); color:var(--blue); margin-left:auto; }
+  .grid-demo { background:#fff; border-radius:calc(var(--u)*12); padding:calc(var(--u)*18) 0; margin-top:calc(var(--u)*20); }
+  .grid-demo.pc .gd { margin:0 12.5%; }
+  .grid-demo.mo { width:30%; }
+  .grid-demo.mo .gd { margin:0 6.6%; }
+  .gd { display:flex; gap:calc(var(--u)*8); height:calc(var(--u)*110); min-height:56px; }
+  .gd i { flex:1; background:rgba(16,78,227,.14); border-radius:3px; }
+  .sp { list-style:none; margin:calc(var(--u)*24) 0 0; padding:0; display:flex; flex-direction:column; gap:calc(var(--u)*14); }
+  .sp li { display:grid; grid-template-columns:calc(var(--u)*50) auto 1fr; align-items:center; gap:calc(var(--u)*16); }
+  .sp span { font-size:max(12px, calc(var(--u)*16)); font-weight:700; font-variant-numeric:tabular-nums; }
+  .sp i { height:max(14px, calc(var(--u)*22)); background:rgba(16,78,227,.22); border-radius:3px; min-width:8px; }
+  .sp em { font-style:normal; font-size:max(10px, calc(var(--u)*13)); color:#888; }
+
+  .inv { display:grid; grid-template-columns:repeat(4, 1fr); gap:calc(var(--u)*16); margin-bottom:calc(var(--u)*60); }
+  .inv div { border:1px solid #e5e5e5; border-radius:calc(var(--u)*16); padding:calc(var(--u)*26); display:grid; grid-template-columns:1fr auto; row-gap:8px; }
+  .inv b { font-size:max(13px, calc(var(--u)*19)); }
+  .inv em { font-style:normal; font-family:var(--f-title); font-weight:700; font-size:max(16px, calc(var(--u)*28)); color:var(--blue); line-height:1; }
+  .inv span { grid-column:1 / -1; font-size:max(11px, calc(var(--u)*15)); color:#777; line-height:1.5; }
+  .rules { display:grid; grid-template-columns:repeat(4, 1fr); gap:calc(var(--u)*16); margin-bottom:calc(var(--u)*60); }
+  .rule { background:#f5f6f8; border-radius:calc(var(--u)*20); padding:calc(var(--u)*30); display:flex; flex-direction:column; gap:calc(var(--u)*12); }
+  .rule p { margin:auto 0 0; padding-top:calc(var(--u)*10); font-size:max(11px, calc(var(--u)*14)); color:#777; line-height:1.55; }
+  .btn-demo { display:flex; flex-direction:column; gap:8px; margin-top:4px; }
+  .btn-demo span { text-align:center; border-radius:999px; padding:.55em 0; font-size:max(11px, calc(var(--u)*15)); }
+  .btn-demo span { background:#fff; border:1px solid #DDDDDD; color:#313131; } .btn-demo .b3 { color:#AAAAAA; }
+  .kv { display:flex; justify-content:space-between; border-bottom:1px solid #e3e5e8; padding:6px 0; font-size:max(12px, calc(var(--u)*16)); }
+  .kv span { color:#777; } .kv b { font-variant-numeric:tabular-nums; }
+  .st { margin:0; padding:0 0 0 1.2em; display:flex; flex-direction:column; gap:6px; font-size:max(12px, calc(var(--u)*16)); }
+  .gov { display:grid; grid-template-columns:calc(var(--u)*520) 1fr; gap:calc(var(--u)*40); align-items:start; border-top:1px solid #e5e5e5; padding-top:calc(var(--u)*48); }
+  .gov code { display:block; background:#111; color:#e8e8e8; border-radius:8px; padding:.7em 1em; font-size:max(11px, calc(var(--u)*15)); margin-bottom:8px; overflow-x:auto; white-space:nowrap; }
+  .gov-p { margin:0; font-size:max(12px, calc(var(--u)*17)); color:#333; }
+  .gov-r { margin:0; }
+  .gov-r img { width:100%; height:auto; display:block; border-radius:calc(var(--u)*12); border:1px solid #e5e5e5; }
+  .gov-r figcaption { margin-top:calc(var(--u)*14); font-size:max(11px, calc(var(--u)*15)); color:#777; }
+
+  @media (max-width:860px) {
+    .ttl-text { margin-top:18px !important; }
+    .mx { overflow-x:auto; margin-top:36px; }
+    .mx table { min-width:640px; }
+    .cs { padding:56px 20px 48px; }
+    .cs-head { grid-template-columns:1fr; gap:12px; }
+    .cs-tags { justify-content:flex-start; max-width:none; }
+    .cs-grid { grid-template-columns:1fr; gap:22px; }
+    .sh { padding:56px 20px 64px; }
+    .sh-head { grid-template-columns:1fr; margin-bottom:36px; }
+    .sh-head p br { display:none; }
+    .flow { grid-template-columns:1fr 1fr; margin-bottom:40px; }
+    .flow li::after { display:none !important; }
+    .cmp { grid-template-columns:1fr; gap:16px; margin-bottom:40px; }
+    .cmp-mid { transform:rotate(90deg); }
+    .cr-grid, .inv, .rules { grid-template-columns:1fr 1fr; }
+    .comp-grid, .fd-grid { grid-template-columns:1fr; }
+    .comp, .comp.wide { grid-template-columns:1fr; }
+    .stats { grid-template-columns:repeat(3, 1fr); }
+    .grid-demo.mo { width:50%; }
+    .gov { grid-template-columns:1fr; }
+    .notes li { grid-template-columns:64px 1fr; }
+  }
+
+  /* ===== v2 additions ===== */
+  .sheet-top .sh { padding-bottom:calc(var(--u)*70); }
+  .sheet-top .sh-head { margin-bottom:0; }
+  .sheet-bottom .sh { padding-top:calc(var(--u)*80); }
+  .sheet-tight .sh { padding-bottom:calc(var(--u)*120); }
+  .count-line { margin:calc(var(--u)*40) 0 0; padding-top:calc(var(--u)*22); border-top:1px solid #e5e5e5; font-size:max(11px, calc(var(--u)*15)); color:#888; letter-spacing:.04em; }
+  .band { display:flex; justify-content:center; }
+  .band img { display:block; max-width:100%; height:auto; }
+  .shot.mock { background:#f5f6f8; padding:calc(var(--u)*48) calc(var(--u)*32) calc(var(--u)*28); }
+  .shot.mock img { max-height:calc(var(--u)*820); border-radius:0; }
+
+  .prob { display:grid; grid-template-columns:1fr 1fr; border-top:2px solid #111; }
+  .prob > div { padding:calc(var(--u)*44) calc(var(--u)*48) 0 0; }
+  .prob > div + div { padding-left:calc(var(--u)*48); border-left:1px solid #e5e5e5; }
+  .pn { font-size:max(11px, calc(var(--u)*14)); letter-spacing:.12em; color:var(--blue); font-weight:700; text-transform:uppercase; }
+  .prob h4 { margin-top:calc(var(--u)*10) !important; }
+  .big { display:flex; align-items:baseline; flex-wrap:wrap; gap:calc(var(--u)*6) calc(var(--u)*10); margin:calc(var(--u)*28) 0 calc(var(--u)*18); }
+  .big b { font-family:var(--f-title); font-size:max(30px, calc(var(--u)*72)); line-height:1; letter-spacing:-.03em; }
+  .big em { font-style:normal; font-size:max(12px, calc(var(--u)*18)); color:#555; margin-right:calc(var(--u)*24); }
+  .prob p { margin:0; font-size:max(12px, calc(var(--u)*17)); color:#666; line-height:1.65; }
+
+  .spec4 { display:grid; grid-template-columns:repeat(4, 1fr); gap:calc(var(--u)*40); border-top:2px solid #111; padding-top:calc(var(--u)*36); margin-bottom:calc(var(--u)*110); }
+  .spec4 ul { margin:calc(var(--u)*16) 0 0; padding:0; list-style:none; display:flex; flex-direction:column; gap:calc(var(--u)*10); }
+  .spec4 li { font-size:max(12px, calc(var(--u)*16)); color:#555; line-height:1.55; }
+  .spec4 li b { display:inline-block; min-width:5.2em; color:#111; }
+  .rule-row { display:grid; grid-template-columns:1fr calc(var(--u)*640); gap:calc(var(--u)*80); align-items:center; }
+  .rule-row figure { margin:0; background:#f5f6f8; padding:calc(var(--u)*40); text-align:center; }
+  .rule-row figure img { max-width:100%; height:auto; max-height:calc(var(--u)*760); width:auto; }
+  .rule-txt h3 { margin:calc(var(--u)*18) 0 calc(var(--u)*28); font-size:max(18px, calc(var(--u)*34)); line-height:1.35; letter-spacing:-.02em; }
+  .rule-txt ol { margin:0; padding-left:1.2em; display:flex; flex-direction:column; gap:calc(var(--u)*14); font-size:max(13px, calc(var(--u)*18)); color:#444; line-height:1.6; }
+  .rule-txt b { color:#111; }
+
+  .rules3 { display:grid; grid-template-columns:repeat(3, 1fr); gap:calc(var(--u)*48); margin-bottom:calc(var(--u)*80); }
+  .rules3 > div { border-top:2px solid #111; padding-top:calc(var(--u)*28); display:flex; flex-direction:column; gap:calc(var(--u)*10); }
+  .rules3 h4 { margin-bottom:calc(var(--u)*8) !important; }
+  .rules3 p { margin:calc(var(--u)*10) 0 0; font-size:max(11px, calc(var(--u)*14)); color:#777; line-height:1.55; }
+
+  @media (max-width:860px) {
+    .prob, .spec4, .rule-row, .rules3 { grid-template-columns:1fr; }
+    .prob > div + div { padding-left:0; border-left:0; border-top:1px solid #e5e5e5; margin-top:28px; padding-top:28px; }
+    .prob > div { padding-right:0; }
+    .spec4 { gap:24px; margin-bottom:48px; }
+    .rule-row { gap:24px; }
+    .band img { width:100% !important; }
+  }
+
+  /* ===== v3: unified 300 grid & typography ===== */
+  .sh { padding:calc(var(--u)*180) calc(var(--u)*300) calc(var(--u)*180); }
+  .sh-short { padding-bottom:calc(var(--u)*110) !important; }
+  .sh-head { grid-template-columns:calc(var(--u)*394) 1fr; column-gap:0; row-gap:calc(var(--u)*26); margin-bottom:calc(var(--u)*100); }
+  .sh-head .lbl { grid-column:1; grid-row:1 / span 4; font-size:max(13px, calc(var(--u)*24)); letter-spacing:0; line-height:1.2; text-transform:uppercase; }
+  .sh-head h2 { grid-column:2; font-size:max(17px, calc(var(--u)*28)); line-height:1.4; letter-spacing:-.01em; }
+  .sh-head h2 br { display:none; }
+  .sh-head p { grid-column:2; align-self:start; font-size:max(13px, calc(var(--u)*20)); line-height:1.45; color:#666; }
+  .sh-head p.en { font-family:var(--f-title); font-size:max(14px, calc(var(--u)*24)); color:#9a9a9a; margin-top:calc(var(--u)*-14); }
+  .sheet-top .sh, .sheet-tight .sh, .sheet-bottom .sh { padding-left:calc(var(--u)*300); padding-right:calc(var(--u)*300); }
+  .cs { padding:calc(var(--u)*140) calc(var(--u)*300) calc(var(--u)*120); }
+  .cs-head { grid-template-columns:calc(var(--u)*394) 1fr auto; gap:0; }
+  .cs-grid { gap:calc(var(--u)*48); }
+  .notes b, .cr-grid b { font-size:max(13px, calc(var(--u)*18)); }
+
+  /* SmartThings component cards (rounded) */
+  .cgrid { display:grid; grid-template-columns:1fr 1fr; gap:calc(var(--u)*28); }
+  .cc { border-radius:calc(var(--u)*24); overflow:hidden; background:#fff; border:1px solid #e6e6e6; display:flex; flex-direction:column; }
+  .cc.full { grid-column:1 / -1; }
+  .stage { background:#e8e8e8; display:flex; justify-content:center; align-items:center; gap:calc(var(--u)*80); padding:calc(var(--u)*64) calc(var(--u)*48); flex:1; }
+  .stage.v { flex-direction:column; gap:calc(var(--u)*36); }
+  .stage figure { margin:0; display:flex; flex-direction:column; align-items:center; gap:calc(var(--u)*14); }
+  .stage img { display:block; max-width:100%; height:auto; }
+  .stage figcaption, .rec-img figcaption { font-size:max(11px, calc(var(--u)*14)); color:#888; letter-spacing:.04em; }
+  .cbody { padding:calc(var(--u)*36) calc(var(--u)*44) calc(var(--u)*40); display:grid; grid-template-columns:calc(var(--u)*300) 1fr; gap:calc(var(--u)*16) calc(var(--u)*24); align-items:start; }
+  .cc:not(.full) .cbody { grid-template-columns:1fr; }
+  .cbody ul { list-style:none; margin:0; padding:0; display:flex; flex-direction:column; gap:calc(var(--u)*10); }
+  .cbody li { font-size:max(12px, calc(var(--u)*17)); color:#555; line-height:1.55; display:flex; gap:calc(var(--u)*12); }
+  .cbody li b { flex:none; width:calc(var(--u)*96); min-width:64px; color:#111; }
+  .cc.rec { flex-direction:row; }
+  .rec-img { margin:0; background:#f5f6f8; flex:1 1 56%; padding:calc(var(--u)*48); display:grid; place-items:center; }
+  .rec-img img { max-width:100%; height:auto; max-height:calc(var(--u)*700); width:auto; }
+  .rec-txt { flex:1 1 44%; padding:calc(var(--u)*56); align-self:center; }
+  .rec-txt p { margin:calc(var(--u)*12) 0 calc(var(--u)*24); font-size:max(12px, calc(var(--u)*17)); color:#666; }
+  .rec-txt ol { margin:0; padding-left:1.2em; display:flex; flex-direction:column; gap:calc(var(--u)*12); font-size:max(12px, calc(var(--u)*17)); color:#444; line-height:1.6; }
+  .rec-txt b { color:#111; }
+
+  /* end of project */
+  .endp { text-align:center; padding:calc(var(--u)*30) 0 calc(var(--u)*106); font-size:16px; line-height:1.3; }
+  .endp p { margin:0; font-size:max(12px, calc(var(--u)*20)); color:#313131; }
+
+  /* ACE library bands (full-bleed bg, content on 300 grid) */
+  .lband { font-size:16px; line-height:1.5; color:#111; }
+  .lb-in { padding:calc(var(--u)*150) calc(var(--u)*300); }
+  .blk { display:grid; grid-template-columns:calc(var(--u)*394) 1fr; align-items:start; }
+  .blk + .blk { margin-top:calc(var(--u)*130); }
+  .blk.wide { grid-template-columns:1fr; }
+  .blk.wide .blk-l { display:grid; grid-template-columns:calc(var(--u)*394) 1fr; margin-bottom:calc(var(--u)*48); align-items:baseline; }
+  .blk-l h4 { margin:0; font-size:max(14px, calc(var(--u)*24)); font-weight:700; letter-spacing:-.01em; }
+  .blk-l p { margin:calc(var(--u)*12) 0 0; max-width:calc(var(--u)*330); font-size:max(12px, calc(var(--u)*18)); line-height:1.55; color:#666; word-break:keep-all; }
+  .blk.wide .blk-l p { margin:0; max-width:calc(var(--u)*900); }
+  .blk-r img { display:block; max-width:100%; height:auto; }
+  .blk-r .sws { grid-template-columns:repeat(7, 1fr); }
+  .blk-r .sws.pt { margin-top:calc(var(--u)*28); grid-template-columns:repeat(7, 1fr); }
+  .lband .ts li { border-bottom-color:#e2e2e2; }
+  .pair { display:flex; gap:calc(var(--u)*100); align-items:flex-start; }
+  .gov-band code { display:block; background:#111; color:#e8e8e8; border-radius:6px; padding:.7em 1em; font-size:max(11px, calc(var(--u)*15)); margin-bottom:8px; overflow-x:auto; white-space:nowrap; }
+  .pub { margin:calc(var(--u)*32) 0 0; }
+  .pub img { width:100%; height:auto; display:block; border:1px solid #e5e5e5; }
+  .pub figcaption { margin-top:calc(var(--u)*14); font-size:max(11px, calc(var(--u)*15)); color:#777; }
+
+  @media (max-width:860px) {
+    .sh { padding:56px 20px 64px; }
+    .sh-head { grid-template-columns:1fr; row-gap:12px; margin-bottom:32px; }
+    .sh-head .lbl, .sh-head h2, .sh-head p { grid-column:1; grid-row:auto; }
+    .cs { padding:56px 20px 48px; }
+    .cs-head { grid-template-columns:1fr; gap:12px; }
+    .cgrid { grid-template-columns:1fr; }
+    .stage { flex-direction:column; gap:20px; padding:28px 20px; }
+    .stage img, .blk-r img { width:100% !important; }
+    .cbody { grid-template-columns:1fr; padding:22px 20px; }
+    .cc.rec { flex-direction:column; }
+    .rec-txt { padding:22px 20px; }
+    .lb-in { padding:56px 20px; }
+    .blk, .blk.wide .blk-l { grid-template-columns:1fr; }
+    .blk + .blk { margin-top:48px; }
+    .blk-l { margin-bottom:16px; }
+    .blk-r .sws, .blk-r .sws.pt { grid-template-columns:repeat(4, 1fr); }
+    .pair { flex-direction:column; gap:24px; }
+  }
+  .cs-head { grid-template-columns:calc(var(--u)*394) 1fr; align-items:end; row-gap:calc(var(--u)*26); }
+  .cs-num { grid-row:1 / span 2; align-self:start; }
+  .cs-title, .cs-tags { grid-column:2; }
+  .cs-tags { justify-content:flex-start; max-width:none; }
+  .cs-title h2 { white-space:nowrap; }
+  @media (max-width:860px) { .cs-head { grid-template-columns:1fr; } .cs-num, .cs-title, .cs-tags { grid-column:1; grid-row:auto; } .cs-title h2 { white-space:normal; } }
+
+  /* ===== v4 ===== */
+  /* wide section titles (previous style) */
+  .sh-head { grid-template-columns:calc(var(--u)*660) 1fr; column-gap:calc(var(--u)*80); row-gap:calc(var(--u)*24); margin-bottom:calc(var(--u)*90); }
+  .sh-head .lbl { grid-column:1 / -1; grid-row:auto; font-size:max(11px, calc(var(--u)*15)); letter-spacing:.18em; }
+  .sh-head h2 { grid-column:1; font-size:max(20px, calc(var(--u)*40)); line-height:1.35; letter-spacing:-.02em; }
+  .sh-head h2 br { display:inline; }
+  .sh-head p, .sh-head .sh-r { grid-column:2; align-self:end; }
+  .sh-head p { font-size:max(13px, calc(var(--u)*19)); line-height:1.7; }
+  .sh-head .sh-r p { margin:0; }
+  .sh-head .sh-r p.en { margin:0 0 calc(var(--u)*14); }
+  /* SmartThings component stage */
+  .stage { background:#f7f7f7; }
+  .rec-img { background:#f7f7f7; }
+  /* ACE library */
+  .ts-loose li { padding:calc(var(--u)*18) 0; }
+  .ts-loose .ts-s { line-height:1.3; }
+  .lgal { display:flex; flex-wrap:wrap; gap:calc(var(--u)*90); align-items:flex-start; }
+  .lgal.col { flex-direction:column; gap:calc(var(--u)*64); }
+  .lcol { display:flex; flex-direction:column; gap:calc(var(--u)*64); }
+  .lf { margin:0; display:flex; flex-direction:column; gap:calc(var(--u)*18); }
+  .lf img { display:block; height:auto; max-width:100%; }
+  .lf figcaption { font-size:max(11px, calc(var(--u)*14)); color:#888; letter-spacing:.03em; }
+  .pcard { display:flex; align-items:center; gap:calc(var(--u)*56); }
+  .pc-arrow { font-size:max(18px, calc(var(--u)*32)); color:#bbb; }
+  .pc-notes { list-style:none; margin:0 0 0 calc(var(--u)*60); padding:0; display:flex; flex-direction:column; gap:calc(var(--u)*30); max-width:calc(var(--u)*460); }
+  .pc-notes b { display:block; font-size:max(13px, calc(var(--u)*18)); margin-bottom:6px; }
+  .pc-notes span { font-size:max(12px, calc(var(--u)*16)); color:#666; line-height:1.6; }
+  /* More Works dropdown */
+  .mw-btn { background:none; border:0; font-size:13px; color:var(--muted); padding:8px 12px; border-radius:8px; white-space:nowrap; cursor:pointer; display:inline-flex; align-items:center; gap:6px; transition:color .15s, background .15s; }
+  .mw-btn svg { width:9px; height:6px; fill:none; stroke:currentColor; stroke-width:1.4; transition:transform .2s; }
+  .mw-btn[aria-expanded="true"] svg { transform:rotate(180deg); }
+  .mw-btn:hover, .mw-btn.active { color:var(--fg); }
+  .mw-btn.active { background:rgba(255,255,255,.09); }
+  .mw-menu { position:absolute; top:calc(var(--nav-h) - 4px); left:0; min-width:250px; padding:8px; display:none; flex-direction:column; background:rgba(16,16,16,.97); border:1px solid rgba(255,255,255,.1); border-radius:12px; box-shadow:0 12px 32px rgba(0,0,0,.4); z-index:70; }
+  .mw-menu.open { display:flex; }
+  .mw-menu a { font-size:13px; color:#bdbdbd; padding:10px 12px; border-radius:8px; display:flex; align-items:center; gap:12px; }
+  .mw-menu a span { font-size:11px; color:#666; font-variant-numeric:tabular-nums; }
+  .mw-menu a:hover, .mw-menu a.cur { background:rgba(255,255,255,.08); color:#fff; }
+  .mw-menu a.cur span { color:var(--blue); }
+  .mw-menu .mw-all { color:#8a8a8a; border-bottom:1px solid rgba(255,255,255,.08); border-radius:8px 8px 0 0; margin-bottom:4px; }
+
+  @media (max-width:860px) {
+    .sh-head { grid-template-columns:1fr; row-gap:12px; margin-bottom:32px; }
+    .sh-head .lbl, .sh-head h2, .sh-head p, .sh-head .sh-r { grid-column:1; }
+    .sh-head h2 br { display:none; }
+    .lgal, .lcol { gap:28px; }
+    .lf img { width:100% !important; }
+    .pcard { flex-wrap:wrap; gap:16px; }
+    .pcard .lf { width:42%; }
+    .pc-notes { margin:12px 0 0; max-width:none; }
+    .mw-btn { font-size:12px; padding:7px 9px; }
+  }
+
+  /* ===== v5: case intro wide (same 160 side margin as Selected) ===== */
+  .cs { padding:calc(var(--u)*120) calc(var(--u)*160) calc(var(--u)*110); }
+  .cs-head { grid-template-columns:calc(var(--u)*150) 1fr auto; gap:calc(var(--u)*24); row-gap:0; align-items:end; }
+  .cs-num { grid-row:auto; align-self:end; }
+  .cs-title, .cs-tags { grid-column:auto; }
+  .cs-tags { justify-content:flex-end; max-width:calc(var(--u)*640); }
+  .cs-grid { gap:calc(var(--u)*56); }
+  .fix-ttl { position:absolute; background:#fff; display:flex; align-items:center; font-family:var(--f-body); font-weight:700; color:#000; font-size:calc(var(--u)*28); line-height:1; letter-spacing:-.01em; white-space:nowrap; }
+  @media (max-width:860px) {
+    .cs { padding:56px 20px 48px; }
+    .cs-head { grid-template-columns:1fr; gap:12px; }
+    .cs-num, .cs-title, .cs-tags { grid-column:1; }
+    .cs-tags { justify-content:flex-start; max-width:none; }
+  }
+
+  /* v6 */
+  .cmp-final { display:block; }
+  .cmp.wide-r { grid-template-columns:1fr calc(var(--u)*64) 1.25fr; }
+  .notes.wide { grid-column:1 / -1; margin-top:calc(var(--u)*56); gap:0; border-top:1px solid #e5e5e5; }
+  .notes.wide li { grid-template-columns:calc(var(--u)*100) calc(var(--u)*380) 1fr; column-gap:calc(var(--u)*32); padding:calc(var(--u)*24) 0; border-bottom:1px solid #eee; align-items:center; }
+  .notes.wide em { grid-row:auto; }
+  .cmp-col.cmp-final .shot + .notes { margin-top:0; }
+  .cmp-final .shot.mock { padding:calc(var(--u)*40) calc(var(--u)*20) calc(var(--u)*24); }
+  .cmp-final .shot.mock img { max-height:calc(var(--u)*900); width:auto; }
+  .cmp.wide-r .prompt { font-size:max(11px, calc(var(--u)*14)); }
+  .flow5 { grid-template-columns:repeat(5, 1fr); }
+  .flow5 h4 { font-size:max(13px, calc(var(--u)*20)); }
+  .fps { gap:calc(var(--u)*28); align-items:flex-start; flex-wrap:wrap; padding:calc(var(--u)*64) calc(var(--u)*56); background:#f2f2f2; }
+  .fp { background:#fff; border:1px solid #e3e3e3; border-radius:calc(var(--u)*12); width:calc(var(--u)*380); min-width:220px; font-size:max(11px, calc(var(--u)*15)); box-shadow:0 2px 12px rgba(0,0,0,.04); overflow:hidden; }
+  .fp-h { display:flex; align-items:center; gap:8px; padding:calc(var(--u)*16) calc(var(--u)*20); font-weight:700; border-bottom:1px solid #eee; color:#111; }
+  .fp-h i { font-style:normal; color:#9747ff; font-size:.85em; }
+  .fp-h span { margin-left:auto; font-weight:400; color:#999; font-size:.85em; }
+  .fp-row { display:grid; grid-template-columns:calc(var(--u)*64) 1fr auto; gap:10px; align-items:center; padding:calc(var(--u)*12) calc(var(--u)*20); border-bottom:1px solid #f3f3f3; }
+  .fp-row:last-child { border-bottom:0; }
+  .fp-row b { color:#111; font-weight:600; min-width:44px; }
+  .fp-row em { font-style:normal; color:#555; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  .fp-row small { font-size:.8em; color:#9747ff; background:#f4ecff; border-radius:4px; padding:2px 6px; white-space:nowrap; }
+  .stage.icons { padding:calc(var(--u)*56) calc(var(--u)*48); }
+  .ico3d { list-style:none; margin:0; padding:0; display:flex; gap:calc(var(--u)*28); flex-wrap:wrap; justify-content:center; }
+  .ico3d li { width:calc(var(--u)*120); min-width:52px; aspect-ratio:1; background:#fff; border-radius:calc(var(--u)*20); display:grid; place-items:center; }
+  .ico3d img { width:72%; height:auto; display:block; }
+  .specw { padding:calc(var(--u)*56) calc(var(--u)*64); background:#f2f2f2; }
+  .stui .stage { background:#f2f2f2; }
+  .spec { border-collapse:collapse; width:100%; max-width:calc(var(--u)*1100); font-size:max(11px, calc(var(--u)*16)); background:#fff; border-radius:calc(var(--u)*12); overflow:hidden; }
+  .spec th, .spec td { text-align:left; padding:calc(var(--u)*16) calc(var(--u)*20); border-bottom:1px solid #eee; white-space:nowrap; }
+  .spec thead th { font-size:.85em; color:#888; font-weight:500; letter-spacing:.04em; }
+  .spec tbody th { font-weight:700; color:#111; }
+  .spec tr.sel { background:#f2f8ff; }
+  .spec tr.sel th { color:#006BEA; }
+  .hx { display:inline-flex; align-items:center; gap:8px; font-family:ui-monospace, Menlo, monospace; color:#333; }
+  .hx i { width:calc(var(--u)*22); height:calc(var(--u)*22); min-width:14px; min-height:14px; border-radius:5px; display:inline-block; }
+  .hx i.lt { box-shadow:inset 0 0 0 1px #d6d6d6; }
+  .res3 { display:grid; grid-template-columns:repeat(3, 1fr); gap:calc(var(--u)*24); }
+  .res3 > div { background:#f7f7f7; border-radius:calc(var(--u)*24); padding:calc(var(--u)*40) calc(var(--u)*36); display:flex; flex-direction:column; gap:calc(var(--u)*8); word-break:keep-all; }
+  .res3 .rk { font-size:max(11px, calc(var(--u)*14)); color:var(--blue); font-weight:700; letter-spacing:.06em; }
+  .res3 h4 { margin:0; font-size:max(16px, calc(var(--u)*26)); }
+  .res3 .rt { margin:0 0 calc(var(--u)*16); font-size:max(11px, calc(var(--u)*15)); color:#999; }
+  .res3 dl { margin:0; display:grid; grid-template-columns:calc(var(--u)*44) 1fr; gap:calc(var(--u)*14) calc(var(--u)*12); font-size:max(12px, calc(var(--u)*17)); line-height:1.6; }
+  .res3 dt { font-weight:700; color:#111; min-width:28px; }
+  .res3 dd { margin:0; color:#555; }
+  .res-out { display:grid; grid-template-columns:1.3fr 1fr; gap:calc(var(--u)*24); margin-top:calc(var(--u)*24); }
+  .res-out > div { border:1px solid #e5e5e5; border-radius:calc(var(--u)*24); padding:calc(var(--u)*32) calc(var(--u)*36); display:flex; flex-wrap:wrap; align-items:center; gap:calc(var(--u)*10) calc(var(--u)*16); word-break:keep-all; }
+  .res-out b { font-size:max(14px, calc(var(--u)*22)); }
+  .res-out span { color:var(--blue); font-size:max(14px, calc(var(--u)*22)); }
+  .res-out em { flex-basis:100%; font-style:normal; color:#777; font-size:max(12px, calc(var(--u)*16)); }
+  .res3 dl { grid-template-columns:calc(var(--u)*84) 1fr; }
+  .res-flow { margin-top:calc(var(--u)*24); border:1px solid #e5e5e5; border-radius:calc(var(--u)*24); padding:calc(var(--u)*40) calc(var(--u)*40) calc(var(--u)*36); word-break:keep-all; }
+  .res-flow h4 { margin:0 0 calc(var(--u)*24); font-size:max(15px, calc(var(--u)*22)); }
+  .rf-row { display:grid; grid-template-columns:calc(var(--u)*90) 1fr auto; align-items:center; gap:calc(var(--u)*20); padding:calc(var(--u)*16) 0; border-top:1px solid #f0f0f0; }
+  .rf-row em { font-style:normal; font-size:max(10px, calc(var(--u)*13)); font-weight:700; letter-spacing:.1em; color:#888; }
+  .rf-row.to em { color:var(--blue); }
+  .rf-c { display:flex; flex-wrap:wrap; align-items:center; gap:calc(var(--u)*8); }
+  .rf-c span { font-size:max(11px, calc(var(--u)*15)); background:#f2f2f2; color:#555; border-radius:999px; padding:calc(var(--u)*7) calc(var(--u)*14); }
+  .rf-row.to .rf-c span { background:#e6eeff; color:var(--blue); font-weight:600; }
+  .rf-c i { font-style:normal; color:#bbb; font-size:max(10px, calc(var(--u)*13)); }
+  .rf-row b { font-size:max(12px, calc(var(--u)*16)); white-space:nowrap; }
+  .rf-row.to b { color:var(--blue); }
+  .res-flow p { margin:calc(var(--u)*16) 0 0; font-size:max(12px, calc(var(--u)*16)); color:#666; line-height:1.6; }
+  .res3 .rd { margin:0; font-size:max(12px, calc(var(--u)*17)); line-height:1.65; color:#555; }
+  .res-flow > p { margin:0 0 calc(var(--u)*28); }
+  .uf { margin:0 0 calc(var(--u)*16); border-radius:calc(var(--u)*16); overflow:hidden; padding:calc(var(--u)*28) calc(var(--u)*24); }
+  .uf.asis { border:1px solid #eee; background:#fff; padding:calc(var(--u)*8) calc(var(--u)*24); }
+  .uf.asis img { width:78%; margin:0 auto; }
+  .uf.tobe { background:#f6f6f6; margin-bottom:0; }
+  .uf img { display:block; width:100%; height:auto; }
+  .uf figcaption { display:flex; align-items:center; gap:calc(var(--u)*14); margin:0 0 calc(var(--u)*24); font-size:max(13px, calc(var(--u)*18)); color:#666; }
+  .uf figcaption b { font-size:max(14px, calc(var(--u)*22)); color:#111; letter-spacing:.02em; }
+  .uf figcaption i { width:1px; height:1em; background:#ccc; }
+  .uf.tobe figcaption, .uf.tobe figcaption b { color:var(--blue); }
+  .uf.tobe figcaption i { background:#9db8ff; }
+  .cmp.wide-r { align-items:stretch; }
+  .cmp-final { display:flex; flex-direction:column; }
+  .cmp-final .shot.mock { flex:1; display:flex; flex-direction:column; justify-content:center; align-items:center; }
+
+  .uf { padding:calc(var(--u)*28) calc(var(--u)*36) calc(var(--u)*24) !important; }
+  .uf.asis img { display:none; }
+  .uf.asis2 { border:1px solid #eee; background:#fff; }
+  .uf.tobe2 { background:#f6f6f6; margin-bottom:0; }
+  .uf.asis2, .uf.tobe2 { padding:calc(var(--u)*40) calc(var(--u)*48) !important; }
+  .uf.asis2 img { width:100%; }
+  .uf-t { display:flex; align-items:center; gap:calc(var(--u)*14); margin-bottom:calc(var(--u)*20); font-size:max(11px, calc(var(--u)*15)); color:#777; }
+  .uf-t b { font-size:max(14px, calc(var(--u)*22)); color:#8a8a8a; margin-right:calc(var(--u)*14); }
+  .uf-t i { width:1px; height:1em; background:#bbb; }
+  .uf-t .bl { color:var(--blue); }
+  .ufl { position:relative; display:grid; grid-template-columns:repeat(6, 1fr); column-gap:calc(var(--u)*22); row-gap:calc(var(--u)*6); align-items:start; }
+  .ufl::before { content:''; position:absolute; left:4%; right:4%; top:calc(var(--u)*50); height:1px; background:#bbb; }
+  .us { text-align:center; font-size:max(9px, calc(var(--u)*12)); color:#999; z-index:1; }
+  .us em { font-style:normal; color:var(--blue); font-weight:700; }
+  .ucell { position:relative; z-index:1; }
+  .usub { display:flex; flex-direction:column; gap:calc(var(--u)*8); margin-top:calc(var(--u)*4); }
+  .un { background:#111; color:#fff; border:1px solid #111; border-radius:calc(var(--u)*4); min-height:calc(var(--u)*46); padding:calc(var(--u)*6) calc(var(--u)*8); display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; line-height:1.25; }
+  .un b { font-size:max(10px, calc(var(--u)*14)); font-weight:700; white-space:nowrap; }
+  .un small { font-size:max(8px, calc(var(--u)*10)); opacity:.6; margin-top:2px; white-space:nowrap; }
+  .un.o { background:#fff; color:#111; }
+  .un.p { background:#1428a0; border-color:#1428a0; }
+  .un.dash { background:transparent; color:#777; border:1px dashed #888; }
+  .uf.asis .un.dash { border-color:#5b8def; }
+  .usub .un { min-height:calc(var(--u)*40); }
+  .ugrp { align-self:stretch; background:rgba(16,78,227,.06); border:1px solid #9db8ff; border-radius:calc(var(--u)*10); margin:calc(var(--u)*-8) calc(var(--u)*-10) calc(var(--u)*-10); z-index:0; }
+  .uf.tobe .ugrp { background:rgba(16,78,227,.08); }
+  .unote { margin:calc(var(--u)*10) 0 0 !important; font-size:max(10px, calc(var(--u)*13)) !important; color:var(--blue) !important; text-align:left; }
+  .uf.tobe .unote { text-align:center; }
+  .unote.x { align-self:center; text-align:right; margin:0 !important; }
+  .rv-badge { position:absolute; display:inline-flex; align-items:center; gap:6px; background:#111; color:#fff; border-radius:999px; padding:calc(var(--u)*8) calc(var(--u)*16); font-size:max(10px, calc(var(--u)*15)); font-weight:600; letter-spacing:.02em; white-space:nowrap; z-index:2; line-height:1.3; }
+  .rv-badge::before { content:'✦'; color:#8fb8ff; }
+  .fix-ttl.sm { font-size:calc(var(--u)*24); }
+  .fix-ttl.af { background:#f7f7f7; font-size:calc(var(--u)*20); font-weight:600; color:#222; letter-spacing:-.01em; }
+  .cover-box { position:absolute; }
+  .fix-role { position:absolute; display:flex; align-items:center; font-family:var(--f-body); font-weight:400; font-size:calc(var(--u)*18); line-height:1; white-space:nowrap; }
+  .mg-h { display:flex; align-items:baseline; gap:calc(var(--u)*14); padding:calc(var(--u)*44) 0 calc(var(--u)*14); border-bottom:1px solid #2c2c2c; }
+  .mg-h b { font-size:max(11px, calc(var(--u)*15)); letter-spacing:.16em; color:#6f8fd9; font-weight:700; text-transform:uppercase; }
+  .mg-h span { font-size:max(10px, calc(var(--u)*13)); color:#666; }
+  .mg-strip { background:#0b0b0b; color:#fff; font-size:16px; line-height:1.4; border-top:1px solid #1e1e1e; }
+  .mg-strip div { display:flex; align-items:center; gap:calc(var(--u)*18); padding:calc(var(--u)*56) calc(var(--u)*160); flex-wrap:wrap; }
+  .mg-strip b { font-size:max(11px, calc(var(--u)*15)); letter-spacing:.16em; color:#777; text-transform:uppercase; font-weight:600; }
+  .mg-strip i { width:1px; height:calc(var(--u)*20); min-height:12px; background:#444; }
+  .mg-strip span { font-family:var(--f-title); font-size:max(18px, calc(var(--u)*32)); font-weight:600; }
+  .mg-strip em { font-style:normal; margin-left:auto; font-size:max(11px, calc(var(--u)*15)); color:#8a8a8a; }
+  .mw-g { font-size:10px; letter-spacing:.16em; color:#6f8fd9; font-weight:700; padding:10px 12px 4px; text-transform:uppercase; }
+  /* About experience */
+  .xp { background:#000; color:#fff; font-size:16px; line-height:1.5; }
+  .xp-band { display:grid; grid-template-columns:calc(var(--u)*523) 1fr; padding:calc(var(--u)*200) calc(var(--u)*160) calc(var(--u)*190); word-break:keep-all; }
+  .xp-band.b2 { background:#141414; }
+  .xp-band.b3 { background:#0a0a0a; border-top:1px solid #1f1f1f; padding-top:calc(var(--u)*150); }
+  .xp-l h2 { margin:0 0 calc(var(--u)*20); font-family:var(--f-title); font-size:max(22px, calc(var(--u)*40)); letter-spacing:-.01em; }
+  .xp-l p { margin:0; font-size:max(12px, calc(var(--u)*17)); color:#bbb; display:flex; align-items:center; gap:calc(var(--u)*16); }
+  .xp-l p i { width:1px; height:1em; background:#666; }
+  .xp-r { max-width:calc(var(--u)*1000); }
+  .xp-r h3 { margin:0 0 calc(var(--u)*24); font-size:max(15px, calc(var(--u)*22)); font-weight:700; }
+  .xp-r > p { margin:0 0 calc(var(--u)*16); font-size:max(13px, calc(var(--u)*18)); line-height:1.75; color:#a3a3a3; }
+  .xp-comp { list-style:none; margin:0; padding:0; display:grid; grid-template-columns:repeat(2, 1fr); gap:calc(var(--u)*20); }
+  .xp-comp li { border:1px solid #2a2a2a; border-radius:calc(var(--u)*20); padding:calc(var(--u)*30) calc(var(--u)*32); display:flex; flex-direction:column; gap:calc(var(--u)*10); }
+  .xp-comp span { font-size:max(11px, calc(var(--u)*14)); color:#6f8fd9; font-weight:700; letter-spacing:.08em; }
+  .xp-comp h4 { margin:0; font-size:max(15px, calc(var(--u)*22)); }
+  .xp-comp p { margin:0; font-size:max(12px, calc(var(--u)*16)); line-height:1.65; color:#a3a3a3; }
+  .xp-comp em { font-style:normal; font-size:max(11px, calc(var(--u)*14)); color:#777; }
+  .xp-tools { display:flex; flex-wrap:wrap; align-items:center; gap:calc(var(--u)*10); margin-top:calc(var(--u)*36); }
+  .xp-tools span { font-size:max(11px, calc(var(--u)*14)); letter-spacing:.14em; color:#6f8fd9; font-weight:700; margin-right:calc(var(--u)*10); text-transform:uppercase; }
+  .xp-tools b { font-weight:500; font-size:max(12px, calc(var(--u)*15)); color:#ddd; border:1px solid #333; border-radius:999px; padding:calc(var(--u)*7) calc(var(--u)*16); }
+  @media (max-width: 760px) {
+    .cmp-final { display:block; }
+  .cmp.wide-r { grid-template-columns:1fr calc(var(--u)*64) 1.25fr; }
+  .notes.wide { grid-column:1 / -1; margin-top:calc(var(--u)*56); gap:0; border-top:1px solid #e5e5e5; }
+  .notes.wide li { grid-template-columns:calc(var(--u)*100) calc(var(--u)*380) 1fr; column-gap:calc(var(--u)*32); padding:calc(var(--u)*24) 0; border-bottom:1px solid #eee; align-items:center; }
+  .notes.wide em { grid-row:auto; }
+  .cmp-col.cmp-final .shot + .notes { margin-top:0; }
+  .cmp-final .shot.mock { padding:calc(var(--u)*40) calc(var(--u)*20) calc(var(--u)*24); }
+  .cmp-final .shot.mock img { max-height:calc(var(--u)*900); width:auto; }
+  .cmp.wide-r .prompt { font-size:max(11px, calc(var(--u)*14)); }
+  .flow5 { grid-template-columns:1fr 1fr; }
+    .fps { flex-direction:column; align-items:stretch; padding:24px 16px; }
+    .fp { width:auto; }
+    .specw { padding:20px 12px; overflow-x:auto; display:block; }
+    .res3, .res-out { grid-template-columns:1fr; }
+    .xp-band { grid-template-columns:1fr; gap:28px; padding:64px 20px; }
+    .xp-comp { grid-template-columns:1fr; }
+    .mg-strip div { padding:28px 20px; }
+    .mg-strip em { margin-left:0; flex-basis:100%; }
+  }
+
+</style>
+</head>
+<body>
+<div id="progress" aria-hidden="true"></div>
+<header>
+  <a class="brand" href="#cover">KWON YEJIN <span>UIUX / AI DESIGN</span></a>
+  <nav aria-label="Sections">
+<a href="#about" data-nav="about">About</a>
+<a href="#selected" data-nav="selected">Selected</a>
+<a href="#case-ace" data-nav="case-ace">01 Samsung ACE</a>
+<a href="#case-tag" data-nav="case-tag">02 TAG SEOUL</a>
+<a href="#case-st" data-nav="case-st">03 SmartThings Studio</a>
+<button type="button" class="mw-btn" data-nav="more" aria-haspopup="true" aria-expanded="false">More Works <svg viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4"/></svg></button>
+  </nav>
+  <div class="mw-menu" role="menu" aria-label="More Works projects"><a href="#more" role="menuitem" class="mw-all">More Works 전체</a><div class="mw-g">UI · UX</div><a href="#samsung-search" role="menuitem"><span>01</span>Samsung.com Search</a><a href="#design-system" role="menuitem"><span>02</span>Samsung.com Design System</a><div class="mw-g">AX · AI Design</div><a href="#samsung-health" role="menuitem"><span>03</span>Samsung Health</a><a href="#ai-living" role="menuitem"><span>04</span>AI Living</a><a href="#family-hub" role="menuitem"><span>05</span>Family Hub</a><div class="mw-g">Operation</div><a href="#operation" role="menuitem"><span>06</span>Operation</a></div>
+  <a class="contact" href="mailto:dpwls902717@gmail.com">dpwls902717@gmail.com</a>
+</header>
+
+<main>
+<section id="cover" class="page" data-group="cover" aria-label="Cover">
+<img src="../img/p01-01.jpg" srcset="../img/p01-01.jpg 1920w, ../img/p01-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="Cover 1">
+</section>
+<section id="about" class="page" data-group="about" aria-label="About">
+<img src="../img/p02-01.jpg" srcset="../img/p02-01.jpg 1920w, ../img/p02-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="About 1" loading="lazy" decoding="async"><div class="fix-role" style="left:59.8958%;top:46.6935%;width:20.8333%;height:2.2581%;padding-left:0.2083%;background:#000;color:#fff">PTKOREA - CRG</div><div class="fix-role" style="left:59.8958%;top:50.3226%;width:20.8333%;height:2.2581%;padding-left:0.2083%;background:#000;color:#fff">PTKOREA - CYLNDR AX</div><div class="fix-role" style="left:59.8958%;top:59.1935%;width:20.8333%;height:2.2581%;padding-left:0.2083%;background:#000;color:#fff">iF Design Award 2026 · Concept Design</div><div class="fix-role" style="left:59.8958%;top:61.4516%;width:20.8333%;height:2.2581%;padding-left:0.2083%;background:#000;color:#fff">TAG SEOUL</div>
+</section>
+<section id="experience" class="page xp" data-group="about" aria-label="Experience UI UX and AX">
+<div class="xp-band">
+  <div class="xp-l"><h2>UI · UX Design</h2><p>2023. 07 - 2025. 11<i></i>PTKOREA - CRG</p></div>
+  <div class="xp-r"><h3>사용자 상태와 맥락에 맞춘 흐름 설계</h3>
+    <p>삼성닷컴 리빙가전 · SmartThings 영역의 UI 설계와 운영을 맡았습니다. 검색 · 상품평 UX 개선과 ACE 신규 서비스 런칭에 참여했습니다.</p>
+    <p>ACE에서는 로그인 전 · 후 사용자 상태에 따라 메인의 역할을 나누고, 활동 기반 추천 → 링크 생성 → 성과 확인으로 이어지는 반복 활동 흐름을 설계해 런칭했습니다. 신규 UI는 공유 라이브러리로 정의해 퍼블리셔와 QA까지 진행했습니다.</p>
+    <p>SmartThings Studio에서는 운영 데이터와 사용성 테스트로 이탈 지점을 찾고, 온보딩 기반 개인화 추천으로 체험부터 구매까지 이어지는 흐름을 제안했습니다. TAG SEOUL에서는 AI 채팅 추천과 지역 해금으로 새로운 지역 탐색을 이어가는 경험을 설계해 iF Design Award를 수상했습니다.</p>
+  </div>
+</div>
+<div class="xp-band b2">
+  <div class="xp-l"><h2>AX · AI Design</h2><p>2025. 11 - 2026. 09<i></i>PTKOREA - CYLNDR AX</p></div>
+  <div class="xp-r"><h3>AI 생성 규칙 · 품질 기준 · 가이드 배포</h3>
+    <p>생성형 AI로 콘텐츠를 만들 수 있는 기반을 만들고, 생성 규칙과 품질 기준을 가이드로 문서화해 64개국 지사에 배포했습니다.</p>
+    <p>리서치부터 시안 · 영상까지 AI 툴을 연결한 워크플로우를 만들어 삼성닷컴 무빙 키비주얼, 삼성 MX · DA 숏폼 제작에 적용했습니다.</p>
+  </div>
+</div>
+<div class="xp-band b3">
+  <div class="xp-l"><h2>Core Skills</h2><p>프로젝트에서 반복해 해온 일</p></div>
+  <div class="xp-r">
+    <ul class="xp-comp"><li><span>01</span><h4>User Flow · State</h4><p>사용자의 상태와 맥락을 나눠 보고, 각 상태에서 다음 행동이 분명한 흐름으로 설계</p><em>Samsung ACE · TAG SEOUL</em></li><li><span>02</span><h4>Personalization</h4><p>온보딩 응답과 활동 데이터로 추천 규칙을 정의해, 사용자마다 다른 출발점을 제공</p><em>SmartThings Studio · ACE · TAG SEOUL</em></li><li><span>03</span><h4>Data × Intuition</h4><p>운영 데이터와 사용성 테스트로 문제를 찾고, 근거 위에서 유지·변경을 판단</p><em>SmartThings Studio</em></li><li><span>04</span><h4>Fast Iteration with AI</h4><p>AI로 리서치·초안·비주얼을 빠르게 만들고, 기준을 세워 검수해 속도와 품질을 함께</p><em>SmartThings Studio · Samsung Health</em></li></ul>
+    <div class="xp-tools"><span>Tools</span><b>Figma</b><b>XD</b><b>Photoshop</b><b>Illustrator</b><b>Higgsfield</b><b>Claude Code</b></div>
+  </div>
+</div>
+</section>
+<section id="selected" class="page chap" data-group="selected" aria-label="Selected Works">
+<div class="ch">
+  <div class="ch-top">
+    <div class="ch-l">
+      <div class="tag"><span class="num">SW</span>SELECTED WORKS</div>
+      <h2 class="ttl-text">Selected Works</h2>
+      <div class="meta"><span>2023 - 2026</span><i></i><span>User Flow × Engagement</span></div>
+    </div>
+    <div class="ch-r">
+      <h3>사용자의 상태를 단순한 흐름으로, 다음 행동까지 이어지게</h3>
+      <p>처음 온 사용자와 이미 활동 중인 사용자, 새로운 장소를 찾는 여행자처럼 상태와 맥락이 다른 사용자에게 <br>각자 다음에 할 행동이 분명한 흐름을 설계했습니다.</p>
+      <p>운영 데이터와 사용성 테스트로 문제를 찾고, AI로 빠르게 시안을 만든 뒤 근거 위에서 판단했습니다.</p>
+    </div>
+  </div>
+  <nav class="list" aria-label="Selected projects">
+<a class="row" href="#case-ace"><span class="n">01</span><span class="t">Samsung ACE</span><span class="s">State-based Main · Engagement Loop · Launch</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#case-tag"><span class="n">02</span><span class="t">TAG SEOUL</span><span class="s">Hyperlocal · AI Chat · Notification</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#case-st"><span class="n">03</span><span class="t">SmartThings Studio</span><span class="s">Personalization · Recommendation · Data × Intuition</span><span class="arr" aria-hidden="true">→</span></a>
+  </nav>
+  <div class="mx"><table><thead><tr><th></th><th>사용자 상태 · 흐름 설계</th><th>개인화 · 추천</th><th>재방문 · 활동 루프</th><th>데이터 기반 판단</th><th>AI 활용 실험</th><th>런칭 · 품질</th></tr></thead><tbody><tr><th>Samsung ACE</th><td><i class="d full" title="핵심"></i></td><td><i class="d half" title="부분"></i></td><td><i class="d full" title="핵심"></i></td><td></td><td></td><td><i class="d full" title="핵심"></i></td></tr><tr><th>TAG SEOUL</th><td><i class="d full" title="핵심"></i></td><td><i class="d full" title="핵심"></i></td><td><i class="d full" title="핵심"></i></td><td><i class="d half" title="부분"></i></td><td><i class="d half" title="부분"></i></td><td></td></tr><tr><th>SmartThings Studio</th><td><i class="d full" title="핵심"></i></td><td><i class="d full" title="핵심"></i></td><td></td><td><i class="d full" title="핵심"></i></td><td><i class="d full" title="핵심"></i></td><td></td></tr></tbody></table><p class="mx-legend"><i class="d full"></i> 핵심 역량 <i class="d half"></i> 부분 역량</p></div>
+</div>
+</section>
+<section id="case-ace" class="page case" data-group="case-ace" aria-label="Samsung ACE">
+<div class="cs">
+  <div class="cs-head">
+    <div class="cs-num">01</div>
+    <div class="cs-title"><h2>Samsung ACE</h2><div class="cs-meta">2025.03 - 2025.06<i></i>UX/UI Designer · 디자이너 3인</div></div>
+    <div class="cs-tags"><span>State-based Main</span><span>Engagement Loop</span><span>Recommendation</span><span>Dashboard</span><span>Launch</span></div>
+  </div>
+  <div class="cs-grid">
+    <div><h4>Problem</h4><p>처음 온 사용자와 이미 활동 중인 회원은 메인에서 해야 할 일이 달랐습니다. 하나의 메인으로는 가입과 반복 홍보 활동을 함께 이끌기 어려웠습니다.</p></div>
+    <div><h4>What I did</h4><p>로그인 전 메인은 서비스 이해와 가입에, 로그인 후 메인은 활동 기반 추천 → 링크 생성 → 성과 확인으로 이어지는 반복 활동에 집중하도록 나눠 설계했습니다. 신규 UI는 컴포넌트로 정의해 퍼블리셔와 QA까지 진행했습니다.</p></div>
+    <div><h4>Result</h4><p>서비스를 런칭했고, 런칭 후 3개월간 약 2.2만 회 방문, ACE Gate 트래픽 비중 3.63%를 기록했습니다.</p></div>
+  </div>
+</div>
+</section>
+<section class="page" data-group="case-ace" aria-label="Samsung ACE intro">
+<img src="img/ace-a-01.jpg" srcset="img/ace-a-01.jpg 1920w, img/ace-a-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1300" alt="Samsung ACE intro 1" loading="lazy" decoding="async">
+</section>
+<section class="page" data-group="case-ace" aria-label="Samsung ACE direction &amp; design system">
+<img src="img/ace-b-01.jpg" srcset="img/ace-b-01.jpg 1920w, img/ace-b-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2041" alt="Samsung ACE direction &amp; design system 1" loading="lazy" decoding="async">
+<img src="img/ace-b-02.jpg" srcset="img/ace-b-02.jpg 1920w, img/ace-b-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1080" alt="Samsung ACE direction &amp; design system 2" loading="lazy" decoding="async">
+</section>
+<section class="page sheet" data-group="case-ace" aria-label="ACE UX strategy">
+<div class="sh sh-short">
+  <div class="sh-head"><div class="lbl">UX STRATEGY</div>
+    <h2>이해부터 성과 확인까지 <br>자연스럽게 이어지는 흐름을 설계했습니다</h2>
+    <div class="sh-r"><p class="en">From Understanding To Action, In One Connected Flow.</p>
+    <p>ACE는 사용자의 상태에 따라 필요한 정보와 다음 행동이 달라지는 서비스입니다. 그래서 로그인 전에는 서비스 이해와 가입을, 로그인 후에는 제품 탐색 · 링크 생성 · 성과 확인을 빠르게 시작할 수 있도록 각 단계의 역할을 분명하게 나누고 자연스럽게 연결했습니다.</p></div>
+  </div>
+</div>
+</section>
+<section class="page" data-group="case-ace" aria-label="Samsung ACE screens">
+<img src="img/ace-c-01.jpg" srcset="img/ace-c-01.jpg 1920w, img/ace-c-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 1" loading="lazy" decoding="async">
+<img src="img/ace-c-02.jpg" srcset="img/ace-c-02.jpg 1920w, img/ace-c-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 2" loading="lazy" decoding="async">
+<img src="img/ace-c-03.jpg" srcset="img/ace-c-03.jpg 1920w, img/ace-c-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 3" loading="lazy" decoding="async">
+<img src="img/ace-c-04.jpg" srcset="img/ace-c-04.jpg 1920w, img/ace-c-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 4" loading="lazy" decoding="async">
+<img src="img/ace-c-05.jpg" srcset="img/ace-c-05.jpg 1920w, img/ace-c-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1941" alt="Samsung ACE screens 5" loading="lazy" decoding="async">
+<div class="fix-ttl af" style="left:17.9167%;top:24.4616%;width:5.7292%;height:0.3091%;padding-left:0.2083%">After Login</div>
+</section>
+<section class="page endp" style="background:#f9f9f9" aria-label="End of project"><p>End Of Project</p></section>
+<section id="case-tag" class="page case" data-group="case-tag" aria-label="TAG SEOUL">
+<div class="cs">
+  <div class="cs-head">
+    <div class="cs-num">02</div>
+    <div class="cs-title"><h2>TAG SEOUL</h2><div class="cs-meta">2025.07 - 2026.02<i></i>UX/UI Designer · 디자이너 3인</div></div>
+    <div class="cs-tags"><span>Hyperlocal</span><span>AI Chat</span><span>Notification</span><span>Gamification</span><span>iF Design Award 2026</span></div>
+  </div>
+  <div class="cs-grid">
+    <div><h4>Problem</h4><p>외국인 관광객은 일부 지역에 몰리고, 새로운 지역을 가려는 여행자는 가입·결제·길찾기 같은 디지털 진입 단계에서 막혔습니다. 방한 여행 불편의 27.8%가 디지털 영역이었습니다.</p></div>
+    <div><h4>What I did</h4><p>NFC 태그 한 번으로 AI 채팅 추천 → 이동 · 결제 · 통역 → 지역 해금으로 이어지는 흐름을 설계했습니다. 새 지역에 도착하면 알림을 보내고, 지도 해금과 주변 쿠폰으로 다음 탐색을 이어가도록 했습니다.</p></div>
+    <div><h4>Result</h4><p>발견부터 이동, 현장 경험, 다음 탐색까지 하나의 순환 흐름으로 제안해 iF Design Award 2026 Concept Design을 수상했습니다.</p></div>
+  </div>
+</div>
+</section>
+<section id="tag-seoul" class="page" data-group="case-tag" aria-label="TAG SEOUL">
+<img src="../img/p05-01.jpg" srcset="../img/p05-01.jpg 1920w, ../img/p05-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 1" loading="lazy" decoding="async">
+<img src="../img/p05-02.jpg" srcset="../img/p05-02.jpg 1920w, ../img/p05-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 2" loading="lazy" decoding="async">
+<img src="../img/p05-03.jpg" srcset="../img/p05-03.jpg 1920w, ../img/p05-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 3" loading="lazy" decoding="async">
+<img src="../img/p05-04.jpg" srcset="../img/p05-04.jpg 1920w, ../img/p05-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 4" loading="lazy" decoding="async">
+<img src="../img/p05-05.jpg" srcset="../img/p05-05.jpg 1920w, ../img/p05-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 5" loading="lazy" decoding="async">
+<img src="../img/p05-06.jpg" srcset="../img/p05-06.jpg 1920w, ../img/p05-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 6" loading="lazy" decoding="async">
+<img src="../img/p05-07.jpg" srcset="../img/p05-07.jpg 1920w, ../img/p05-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 7" loading="lazy" decoding="async">
+<img src="../img/p05-08.jpg" srcset="../img/p05-08.jpg 1920w, ../img/p05-08@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 8" loading="lazy" decoding="async">
+<img src="../img/p05-09.jpg" srcset="../img/p05-09.jpg 1920w, ../img/p05-09@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 9" loading="lazy" decoding="async">
+<img src="../img/p05-10.jpg" srcset="../img/p05-10.jpg 1920w, ../img/p05-10@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2193" alt="TAG SEOUL 10" loading="lazy" decoding="async">
+<img src="../img/p05-11.jpg" srcset="../img/p05-11.jpg 1920w, ../img/p05-11@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2185" alt="TAG SEOUL 11" loading="lazy" decoding="async"><div class="cover-box" style="left:7.8125%;top:4.6693%;width:23.9583%;height:0.1410%;background:#f7f7f7"></div>
+</section>
+<section id="case-st" class="page case" data-group="case-st" aria-label="SmartThings Studio">
+<div class="cs">
+  <div class="cs-head">
+    <div class="cs-num">03</div>
+    <div class="cs-title"><h2>SmartThings Studio</h2><div class="cs-meta">2025.07 - 2025.10<i></i>UX/UI Designer · 디자이너 3인</div></div>
+    <div class="cs-tags"><span>Personalization</span><span>Recommendation Logic</span><span>User Flow</span><span>Data × Intuition</span><span>AI Workflow</span></div>
+  </div>
+  <div class="cs-grid">
+    <div><h4>Problem</h4><p>스마트홈 콘텐츠는 많았지만 구매로 이어지지 않았습니다. 사용성 테스트에서 83%가 예상 경로를 벗어났습니다.</p></div>
+    <div><h4>What I did</h4><p>운영 데이터와 비대면 사용성 테스트로 이탈 지점을 찾고, 3문항 온보딩과 추천 로직으로 사용자마다 다른 3D 룸 뷰 체험을 설계했습니다. AI로 만든 초안은 리서치 근거로 검수해 유지 · 변경할 것을 판단했습니다.</p></div>
+    <div><h4>Result</h4><p>구매까지 최대 10단계 · 페이지 이동 7회였던 경로를 체험 → 추천 → 구매의 한 흐름으로 제안했습니다.</p></div>
+  </div>
+</div>
+</section>
+<section class="page" data-group="case-st" aria-label="SmartThings Studio overview &amp; research">
+<img src="img/st-a-01.jpg" srcset="img/st-a-01.jpg 1920w, img/st-a-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2165" alt="SmartThings Studio overview &amp; research 1" loading="lazy" decoding="async">
+<img src="img/st-a-02.jpg" srcset="img/st-a-02.jpg 1920w, img/st-a-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2165" alt="SmartThings Studio overview &amp; research 2" loading="lazy" decoding="async">
+<div class="fix-ttl" style="left:35.8333%;top:42.1709%;width:29.1667%;height:1.0624%;padding-left:0.3125%">평균 대비 높은 이탈률, 짧은 체류시간</div>
+</section>
+<section class="page" data-group="case-st" aria-label="SmartThings Studio problems">
+<img src="img/st-prob-01.jpg" srcset="img/st-prob-01.jpg 1920w, img/st-prob-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2370" alt="SmartThings Studio problems 1" loading="lazy" decoding="async">
+</section>
+<section class="page" data-group="case-st" aria-label="SmartThings Studio UX strategy">
+<img src="img/st-strat-01.jpg" srcset="img/st-strat-01.jpg 1920w, img/st-strat-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2000" alt="SmartThings Studio UX strategy 1" loading="lazy" decoding="async">
+</section>
+<section class="page sheet" data-group="case-st" aria-label="SmartThings Studio AI workflow">
+<div class="sh">
+  <div class="sh-head">
+    <div class="lbl">AI-INTEGRATED UX WORKFLOW</div>
+    <h2>UX 워크플로우 단계별로 AI를 적용하고, <br>방향은 리서치 근거로 정했습니다</h2>
+    <p>사용성 테스트, 화면 초안, 3D 룸 뷰 시안을 AI로 만들었습니다. 결과물은 리서치에서 확인한 문제를 기준으로 검수하고, Figma 컴포넌트 세트로 정리해 최종 화면을 완성했습니다.</p>
+  </div>
+  <ol class="flow">
+    <li><b>01 · AI</b><h4>AI Usability Test</h4><p>비대면 테스트 12명, AI 후속 질문과 AI 요약 → 원문과 대조해 이탈 원인 확정</p><span class="tool">Maze AI</span></li>
+    <li><b>02 · AI</b><h4>AI Draft &amp; Review</h4><p>서비스 설명으로 화면 초안을 생성하고, 4가지 검수 기준으로 유지할 것과 바꿀 것을 판단</p><span class="tool">Uizard</span></li>
+    <li><b>03 · AI</b><h4>AI Visual</h4><p>공간·생활 시나리오별 3D 룸 뷰 시안 이미지를 AI로 제작</p><span class="tool">Higgsfield</span></li>
+    <li><b>04</b><h4>Systemize</h4><p>Component Property로 등록한 컴포넌트 세트로 최종 화면 완성</p><span class="tool">Figma</span></li>
+  </ol>
+  <div class="cmp wide-r">
+    <div class="cmp-col">
+      <div class="prompt"><span>Input · Prompt</span>A smart home experience service for Samsung.com, built around an interactive 3D room view. Users explore each room and control connected devices ...</div>
+      <figure class="shot dark"><img src="img/st/uizard.jpg" alt="Uizard로 생성한 SmartThings Studio 와이어프레임 초안 2종" loading="lazy" width="1600" height="2640"><figcaption>AI Draft · Uizard</figcaption></figure>
+    </div>
+    <div class="cmp-mid" aria-hidden="true">→</div>
+    <div class="cmp-col cmp-final">
+      <figure class="shot mock"><img src="img/st/mockup.png" srcset="img/st/mockup.png 1x, img/st/mockup@2x.png 2x" alt="SmartThings Studio 최종 메인 화면" loading="lazy" width="560" height="977"><figcaption>Final · Figma</figcaption></figure>
+    </div>
+  <ul class="notes wide">
+        <li><em class="k">KEEP</em><b>3D 룸 뷰를 첫 화면의 중심으로</b><span>공간 안에서 기기를 보여주는 구조는 체험 서비스의 핵심이라 유지했습니다. 공간·시나리오별 룸 이미지는 AI로 제작했습니다.</span></li>
+        <li><em class="c">CHANGE</em><b>상품 그리드 → 생활 기능 카드</b><span>리서치에서 상품 탭을 떠난 사용자가 83%였기에, 상품 나열 대신 라이프스타일에 맞는 기능을 먼저 보여주도록 바꿨습니다.</span></li>
+        <li><em class="c">CHANGE</em><b>번들 가격 요약 → 추천 단계로 분리</b><span>체험 화면에서는 구매 정보를 덜어내고, 공간별 추천 목록에서 수량과 가격을 조정하도록 나눴습니다.</span></li>
+        <li><em class="a">ADD</em><b>3가지 질문 온보딩과 필터</b><span>초안에는 개인화가 없었습니다. 함께 사는 사람·관심 경험·공간을 묻고, 답에 맞춰 룸 뷰를 다시 구성했습니다.</span></li>
+        <li><em class="c">CHANGE</em><b>범용 다크 UI → 삼성닷컴 톤</b><span>흰 배경, 블랙 CTA, SamsungOne 서체 등 삼성닷컴 화면 기준으로 정리했습니다.</span></li>
+      </ul>
+  </div>
+  <div class="criteria">
+    <h4>AI 초안 검수 기준</h4>
+    <div class="cr-grid">
+      <div><b>리서치 근거</b><span>이탈 원인(본품 부재, 반복 설명)을 해결하는가</span></div>
+      <div><b>흐름</b><span>탐색 → 체험 → 구매가 끊기지 않는가</span></div>
+      <div><b>개인화</b><span>사용자의 생활 맥락이 반영되는가</span></div>
+      <div><b>브랜드 · 시스템</b><span>삼성닷컴 UI 규칙과 컴포넌트로 만들 수 있는가</span></div>
+    </div>
+  </div>
+</div>
+</section>
+<section class="page" data-group="case-st" aria-label="SmartThings Studio concept &amp; landing">
+<img src="img/st-b-01.jpg" srcset="img/st-b-01.jpg 1920w, img/st-b-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1300" alt="SmartThings Studio concept &amp; landing 1" loading="lazy" decoding="async">
+<img src="img/st-b-02.jpg" srcset="img/st-b-02.jpg 1920w, img/st-b-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1300" alt="SmartThings Studio concept &amp; landing 2" loading="lazy" decoding="async">
+</section>
+<section class="page" data-group="case-st" aria-label="SmartThings Studio final UI">
+<img src="img/st-c-01.jpg" srcset="img/st-c-01.jpg 1920w, img/st-c-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1939" alt="SmartThings Studio final UI 1" loading="lazy" decoding="async">
+<img src="img/st-c-02.jpg" srcset="img/st-c-02.jpg 1920w, img/st-c-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1939" alt="SmartThings Studio final UI 2" loading="lazy" decoding="async">
+<img src="img/st-c-03.jpg" srcset="img/st-c-03.jpg 1920w, img/st-c-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1937" alt="SmartThings Studio final UI 3" loading="lazy" decoding="async">
+<div class="rv-badge" style="left:7.8125%;top:45.5718%">AI Generated · 3D Room View</div>
+</section>
+<section class="page endp" style="background:#fff" aria-label="End of project"><p>End Of Project</p></section>
+<section id="more" class="page chap" data-group="more" aria-label="More Works">
+<div class="ch ch-short">
+  <div class="ch-top">
+    <div class="ch-l">
+      <div class="tag"><span class="num">MW</span>MORE WORKS</div>
+      <h2 class="ttl-text">More Works</h2>
+      <div class="meta"><span>UI · UX</span><i></i><span>AX · AI Design</span><i></i><span>Operation</span></div>
+    </div>
+    <div class="ch-r">
+      <h3>화면 설계와 AI 비주얼, 운영까지</h3>
+      <p>서비스 제안부터 UX 개선, AI 기반 키비주얼·숏폼 제작, 삼성닷컴 운영까지 함께 진행한 작업입니다.</p>
+    </div>
+  </div>
+  <nav class="list" aria-label="More projects">
+<div class="mg-h"><b>UI · UX</b><span>02</span></div>
+<a class="row" href="#samsung-search"><span class="n">01</span><span class="t">Samsung.com Search</span><span class="s">UX Improvement</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#design-system"><span class="n">02</span><span class="t">Samsung.com Design System</span><span class="s">Foundation Guide</span><span class="arr" aria-hidden="true">→</span></a>
+<div class="mg-h"><b>AX · AI Design</b><span>03</span></div>
+<a class="row" href="#samsung-health"><span class="n">03</span><span class="t">Samsung Health AI Character</span><span class="s">AI Character System</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#ai-living"><span class="n">04</span><span class="t">S.com AI Living</span><span class="s">Moving Key Visual</span><span class="arr" aria-hidden="true">→</span></a>
+<a class="row" href="#family-hub"><span class="n">05</span><span class="t">Family Hub AI Food Manager</span><span class="s">Concept Visual</span><span class="arr" aria-hidden="true">→</span></a>
+<div class="mg-h"><b>Operation</b><span>01</span></div>
+<a class="row" href="#operation"><span class="n">06</span><span class="t">Samsung.com Operation</span><span class="s">Living · SmartThings · Energy · Banner</span><span class="arr" aria-hidden="true">→</span></a>
+  </nav>
+</div>
+</section>
+<section class="page mg-strip" data-group="more" aria-label="More Works UI · UX"><div><b>More Works</b><i></i><span>UI · UX</span><em>Samsung.com Search · Samsung.com Design System</em></div></section>
+<section id="samsung-search" class="page" data-group="more" aria-label="Samsung.com Search">
+<img src="../img/p08-01.jpg" srcset="../img/p08-01.jpg 1920w, ../img/p08-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 1" loading="lazy" decoding="async">
+<img src="../img/p08-02.jpg" srcset="../img/p08-02.jpg 1920w, ../img/p08-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 2" loading="lazy" decoding="async">
+<img src="../img/p08-03.jpg" srcset="../img/p08-03.jpg 1920w, ../img/p08-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 3" loading="lazy" decoding="async">
+<img src="../img/p08-04.jpg" srcset="../img/p08-04.jpg 1920w, ../img/p08-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 4" loading="lazy" decoding="async">
+<img src="../img/p08-05.jpg" srcset="../img/p08-05.jpg 1920w, ../img/p08-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2064" alt="Samsung.com Search 5" loading="lazy" decoding="async">
+</section>
+<section id="design-system" class="page" data-group="more" aria-label="Samsung.com Design System guide">
+<img src="img/ds-01.jpg" srcset="img/ds-01.jpg 1920w, img/ds-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2221" alt="Samsung.com Design System guide 1" loading="lazy" decoding="async">
+<img src="img/ds-02.jpg" srcset="img/ds-02.jpg 1920w, img/ds-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2221" alt="Samsung.com Design System guide 2" loading="lazy" decoding="async">
+<img src="img/ds-03.jpg" srcset="img/ds-03.jpg 1920w, img/ds-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2221" alt="Samsung.com Design System guide 3" loading="lazy" decoding="async">
+<img src="img/ds-04.jpg" srcset="img/ds-04.jpg 1920w, img/ds-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2221" alt="Samsung.com Design System guide 4" loading="lazy" decoding="async">
+<img src="img/ds-05.jpg" srcset="img/ds-05.jpg 1920w, img/ds-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2221" alt="Samsung.com Design System guide 5" loading="lazy" decoding="async">
+<img src="img/ds-06.jpg" srcset="img/ds-06.jpg 1920w, img/ds-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2221" alt="Samsung.com Design System guide 6" loading="lazy" decoding="async">
+<img src="img/ds-07.jpg" srcset="img/ds-07.jpg 1920w, img/ds-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2221" alt="Samsung.com Design System guide 7" loading="lazy" decoding="async">
+<img src="img/ds-08.jpg" srcset="img/ds-08.jpg 1920w, img/ds-08@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2221" alt="Samsung.com Design System guide 8" loading="lazy" decoding="async">
+<img src="img/ds-09.jpg" srcset="img/ds-09.jpg 1920w, img/ds-09@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2214" alt="Samsung.com Design System guide 9" loading="lazy" decoding="async">
+</section>
+<section class="page mg-strip" data-group="more" aria-label="More Works AX · AI Design"><div><b>More Works</b><i></i><span>AX · AI Design</span><em>Samsung Health · AI Living · Family Hub</em></div></section>
+<section class="page" data-group="more" aria-label="AX Workflow">
+<img src="../img/p12-01.jpg" srcset="../img/p12-01.jpg 1920w, ../img/p12-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1240" alt="AX Workflow 1" loading="lazy" decoding="async">
+</section>
+<section id="samsung-health" class="page" data-group="more" aria-label="Samsung Health">
+<img src="../img/p13-01.jpg" srcset="../img/p13-01.jpg 1920w, ../img/p13-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 1" loading="lazy" decoding="async">
+<img src="../img/p13-02.jpg" srcset="../img/p13-02.jpg 1920w, ../img/p13-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 2" loading="lazy" decoding="async">
+<img src="../img/p13-03.jpg" srcset="../img/p13-03.jpg 1920w, ../img/p13-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 3" loading="lazy" decoding="async">
+<img src="../img/p13-04.jpg" srcset="../img/p13-04.jpg 1920w, ../img/p13-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 4" loading="lazy" decoding="async">
+<img src="../img/p13-05.jpg" srcset="../img/p13-05.jpg 1920w, ../img/p13-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 5" loading="lazy" decoding="async">
+<img src="../img/p13-06.jpg" srcset="../img/p13-06.jpg 1920w, ../img/p13-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2266" alt="Samsung Health 6" loading="lazy" decoding="async">
+<img src="../img/p13-07.jpg" srcset="../img/p13-07.jpg 1920w, ../img/p13-07@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2264" alt="Samsung Health 7" loading="lazy" decoding="async"><div class="fix-ttl sm" style="left:35.8333%;top:75.3720%;width:39.5833%;height:0.2270%;padding-left:0.3125%">요소별 라이브러리를 조합해 쓰는 방법을, 실제 활용 예시로 만들었습니다.</div><div class="fix-role" style="left:5.0000%;top:6.8979%;width:20.8333%;height:0.1765%;padding-left:0.2083%;background:#f0f9fe;color:#111">AI Art Director · Team of 3 Designers</div>
+</section>
+<section id="ai-living" class="page" data-group="more" aria-label="S.com AI Living">
+<img src="../img/p14-01.jpg" srcset="../img/p14-01.jpg 1920w, ../img/p14-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 1" loading="lazy" decoding="async">
+<img src="../img/p14-02.jpg" srcset="../img/p14-02.jpg 1920w, ../img/p14-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 2" loading="lazy" decoding="async">
+<img src="../img/p14-03.jpg" srcset="../img/p14-03.jpg 1920w, ../img/p14-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 3" loading="lazy" decoding="async">
+<img src="../img/p14-04.jpg" srcset="../img/p14-04.jpg 1920w, ../img/p14-04@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 4" loading="lazy" decoding="async">
+<img src="../img/p14-05.jpg" srcset="../img/p14-05.jpg 1920w, ../img/p14-05@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2306" alt="S.com AI Living 5" loading="lazy" decoding="async">
+<img src="../img/p14-06.jpg" srcset="../img/p14-06.jpg 1920w, ../img/p14-06@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="2302" alt="S.com AI Living 6" loading="lazy" decoding="async"><div class="vid kv" style="left:8.3333%;top:47.5130%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="../video/ail-1.jpg" data-src="../video/ail-1.mp4"></video><div class="kvtext"><h3>Feel your best every day</h3><p>Your devices analyze data and offer <br>ways to improve your wellbeing</p></div></div><div class="vid kv" style="left:8.3333%;top:56.0440%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="../video/ail-2.jpg" data-src="../video/ail-2.mp4"></video><div class="kvtext"><h3>Reach out to family <br>from anywhere</h3><p>Send reminders or alerts to care for your loved ones.</p></div></div><div class="vid kv" style="left:8.3333%;top:64.5749%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="../video/ail-3.jpg" data-src="../video/ail-3.mp4"></video><div class="kvtext"><h3>Keep your pets comfortable <br>anytime</h3><p>Provide an optimal climate and entertainment when you leave your pet at home</p></div></div><div class="vid kv" style="left:8.3333%;top:73.1058%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="../video/ail-4.jpg" data-src="../video/ail-4.mp4"></video><div class="kvtext"><h3>Your entertainment, <br>elevated</h3><p>Make every view personal. With intuitive recommendations and commands, your home tunes into mood, giving you room to smile and rest easy.</p></div></div><div class="vid kv" style="left:8.3333%;top:81.6368%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="../video/ail-5.jpg" data-src="../video/ail-5.mp4"></video><div class="kvtext light"><h3>Consume smart, <br>meet energy goals</h3><p>Let AI figure out your power patterns and make home more efficient.</p></div></div><div class="vid kv" style="left:8.3333%;top:90.1677%;width:83.3333%;height:5.1403%"><video muted loop playsinline preload="none" poster="../video/ail-6.jpg" data-src="../video/ail-6.mp4"></video><div class="kvtext"><h3>Protect what matters, <br>whenever, wherever</h3><p>Home sweet home is now home safe home.</p></div></div><div class="fix-role" style="left:5.0000%;top:5.2776%;width:20.8333%;height:0.2024%;padding-left:0.2083%;background:#f5f5f5;color:#111">AI Art Director · Team of 3 Designers</div>
+</section>
+<section id="family-hub" class="page" data-group="more" aria-label="Family Hub AI Food Manager">
+<img src="../img/p17-01.jpg" srcset="../img/p17-01.jpg 1920w, ../img/p17-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1705" alt="Family Hub AI Food Manager 1" loading="lazy" decoding="async">
+<img src="../img/p17-02.jpg" srcset="../img/p17-02.jpg 1920w, ../img/p17-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1705" alt="Family Hub AI Food Manager 2" loading="lazy" decoding="async">
+<img src="../img/p17-03.jpg" srcset="../img/p17-03.jpg 1920w, ../img/p17-03@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1705" alt="Family Hub AI Food Manager 3" loading="lazy" decoding="async"><div class="vid tall" style="left:10.4167%;top:57.5367%;width:21.0938%;height:14.0762%"><video muted loop playsinline preload="none" poster="../video/fh-taco.jpg" data-src="../video/fh-taco.mp4"></video></div><div class="vid tall" style="left:10.4167%;top:78.6510%;width:21.0938%;height:14.0762%"><video muted loop playsinline preload="none" poster="../video/fh-sushi.jpg" data-src="../video/fh-sushi.mp4"></video></div><div class="fix-role" style="left:5.0000%;top:21.2317%;width:20.8333%;height:0.5474%;padding-left:0.2083%;background:#000;color:#fff">AI Art Director · Team of 3 Designers</div>
+</section>
+<section class="page mg-strip" data-group="more" aria-label="More Works Operation"><div><b>More Works</b><i></i><span>Operation</span><em>Living · SmartThings · Energy Calculator</em></div></section>
+<section id="operation" class="page opsec" data-group="more" aria-label="Operation">
+<div class="opg" id="op-living" data-group="more"><div class="op-head"><div class="op-l"><h3>삼성닷컴 리빙가전 운영</h3><span>2023.07 - 2025.11</span></div><p class="op-d">에어컨 · 공기청정기 등 리빙가전 카테고리의 키비주얼과 기획전 페이지를 운영했습니다. <br>시즌과 신제품 출시에 맞춰 제품의 핵심 기능을 소구하는 상세페이지로 제작했습니다.</p></div>
+<div class="op-ctl"><span class="cnt"><b>01</b> / 05</span><button type="button" class="prev" aria-label="이전">←</button><button type="button" class="next" aria-label="다음">→</button></div>
+<ul class="track" style="--ch:600" tabindex="0" aria-label="삼성닷컴 리빙가전 운영 슬라이드"><li class="slide" style="--w:1114;--h:600"><img src="../img/op/living-1.jpg" srcset="../img/op/living-1.jpg 1x, ../img/op/living-1@2x.jpg 2x" width="1114" height="600" alt="삼성닷컴 리빙가전 운영 1" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1116;--h:600"><img src="../img/op/living-2.jpg" srcset="../img/op/living-2.jpg 1x, ../img/op/living-2@2x.jpg 2x" width="1116" height="600" alt="삼성닷컴 리빙가전 운영 2" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1110;--h:600"><img src="../img/op/living-3.jpg" srcset="../img/op/living-3.jpg 1x, ../img/op/living-3@2x.jpg 2x" width="1110" height="600" alt="삼성닷컴 리빙가전 운영 3" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1254;--h:600"><img src="../img/op/living-4.jpg" srcset="../img/op/living-4.jpg 1x, ../img/op/living-4@2x.jpg 2x" width="1254" height="600" alt="삼성닷컴 리빙가전 운영 4" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1254;--h:600"><img src="../img/op/living-5.jpg" srcset="../img/op/living-5.jpg 1x, ../img/op/living-5@2x.jpg 2x" width="1254" height="600" alt="삼성닷컴 리빙가전 운영 5" loading="lazy" decoding="async" draggable="false"></li></ul></div>
+<div class="opg" id="op-smartthings" data-group="more"><div class="op-head"><div class="op-l"><h3>SmartThings 운영</h3><span>2023.07 - 2025.11</span></div><p class="op-d">삼성닷컴 SmartThings 페이지를 운영하며 키비주얼과 서비스 소개 페이지를 제작했습니다. <br>이 과정에서 얻은 인사이트가 SmartThings Studio 프로젝트의 출발점이 되었습니다.</p></div>
+<div class="op-ctl"><span class="cnt"><b>01</b> / 04</span><button type="button" class="prev" aria-label="이전">←</button><button type="button" class="next" aria-label="다음">→</button></div>
+<ul class="track" style="--ch:600" tabindex="0" aria-label="SmartThings 운영 슬라이드"><li class="slide" style="--w:1350;--h:601"><img src="../img/op/smartthings-1.jpg" srcset="../img/op/smartthings-1.jpg 1x, ../img/op/smartthings-1@2x.jpg 2x" width="1350" height="601" alt="SmartThings 운영 1" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1115;--h:601"><img src="../img/op/smartthings-2.jpg" srcset="../img/op/smartthings-2.jpg 1x, ../img/op/smartthings-2@2x.jpg 2x" width="1115" height="601" alt="SmartThings 운영 2" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1116;--h:601"><img src="../img/op/smartthings-3.jpg" srcset="../img/op/smartthings-3.jpg 1x, ../img/op/smartthings-3@2x.jpg 2x" width="1116" height="601" alt="SmartThings 운영 3" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1116;--h:601"><img src="../img/op/smartthings-4.jpg" srcset="../img/op/smartthings-4.jpg 1x, ../img/op/smartthings-4@2x.jpg 2x" width="1116" height="601" alt="SmartThings 운영 4" loading="lazy" decoding="async" draggable="false"></li></ul></div>
+<div class="opg" id="op-energy" data-group="more"><div class="op-head"><div class="op-l"><h3>Energy Calculator</h3><span>2024.11 - 2024.12</span></div><p class="op-d">삼성닷컴 제품의 에너지 사용량을 확인하는 에너지 계산기 UI를 설계했습니다. <br>에너지 단가와 가전 종류를 단계별로 입력하도록 구성해, 복잡한 계산을 쉽게 체험할 수 있도록 했습니다.</p></div>
+<div class="op-ctl"><span class="cnt"><b>01</b> / 04</span><button type="button" class="prev" aria-label="이전">←</button><button type="button" class="next" aria-label="다음">→</button></div>
+<ul class="track" style="--ch:800" tabindex="0" aria-label="Energy Calculator 슬라이드"><li class="slide" style="--w:1147;--h:800"><img src="../img/op/energy-1.jpg" srcset="../img/op/energy-1.jpg 1x, ../img/op/energy-1@2x.jpg 2x" width="1147" height="800" alt="Energy Calculator 1" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1147;--h:800"><img src="../img/op/energy-2.jpg" srcset="../img/op/energy-2.jpg 1x, ../img/op/energy-2@2x.jpg 2x" width="1147" height="800" alt="Energy Calculator 2" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1147;--h:800"><img src="../img/op/energy-3.jpg" srcset="../img/op/energy-3.jpg 1x, ../img/op/energy-3@2x.jpg 2x" width="1147" height="800" alt="Energy Calculator 3" loading="lazy" decoding="async" draggable="false"></li>
+<li class="slide" style="--w:1147;--h:800"><img src="../img/op/energy-4.jpg" srcset="../img/op/energy-4.jpg 1x, ../img/op/energy-4@2x.jpg 2x" width="1147" height="800" alt="Energy Calculator 4" loading="lazy" decoding="async" draggable="false"></li></ul></div>
+</section>
+</main>
+
+<footer>
+  <strong>KWON YEJIN</strong> · UIUX / AI Design Portfolio 2023–2026 <br>
+  <span class="mail">dpwls902717@gmail.com</span> <br>
+  © 2026 Kwon Yejin. All rights reserved.
+</footer>
+<button id="top" aria-label="맨 위로" title="맨 위로">↑</button>
+
+<script>
+(function(){
+  /* ---- nav state, progress ---- */
+  var links = [].slice.call(document.querySelectorAll('header nav a[data-nav]'));
+  var secs = [].slice.call(document.querySelectorAll('main > section'));
+  var topBtn = document.getElementById('top'), prog = document.getElementById('progress');
+  var curGroup = null;
+  function onScroll(){
+    var y = window.scrollY || document.documentElement.scrollTop;
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    prog.style.width = (h > 0 ? Math.min(100, y / h * 100) : 0) + '%';
+    topBtn.classList.toggle('show', y > 600);
+    var line = y + 140, g = null;
+    for (var i = 0; i < secs.length; i++) { if (secs[i].offsetTop <= line) g = secs[i].getAttribute('data-group'); }
+    if (g !== curGroup) {
+      curGroup = g;
+      links.forEach(function(a){
+        var on = a.getAttribute('data-nav') === g;
+        a.classList.toggle('active', on);
+        if (on) { try { a.scrollIntoView({block:'nearest', inline:'center'}); } catch(e){} }
+      });
+    }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll);
+  onScroll();
+  topBtn.addEventListener('click', function(){ window.scrollTo({top:0, behavior:'smooth'}); });
+
+  /* ---- videos: lazy load, play only in view ---- */
+  var vids = [].slice.call(document.querySelectorAll('.vid video'));
+  function load(v){ if (!v.getAttribute('src')) { v.src = v.getAttribute('data-src'); } }
+  if ('IntersectionObserver' in window) {
+    var near = new IntersectionObserver(function(es){ es.forEach(function(e){ if (e.isIntersecting) { load(e.target); near.unobserve(e.target); } }); }, {rootMargin:'800px 0px'});
+    var io = new IntersectionObserver(function(es){
+      es.forEach(function(e){
+        var v = e.target, box = v.parentNode;
+        if (e.isIntersecting) { load(v); box.classList.add('in'); var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+        else { v.pause(); }
+      });
+    }, {threshold:0.3});
+    vids.forEach(function(v){ near.observe(v); io.observe(v); });
+  } else {
+    vids.forEach(function(v){ load(v); v.parentNode.classList.add('in'); v.autoplay = true; });
+  }
+  [].forEach.call(document.querySelectorAll('.snd'), function(b){
+    b.addEventListener('click', function(){
+      var v = b.parentNode.querySelector('video');
+      var turnOn = v.muted;
+      vids.forEach(function(o){ o.muted = true; });
+      [].forEach.call(document.querySelectorAll('.snd'), function(o){ o.setAttribute('aria-pressed','false'); o.setAttribute('aria-label','소리 켜기'); });
+      if (turnOn) { v.muted = false; b.setAttribute('aria-pressed','true'); b.setAttribute('aria-label','소리 끄기'); var p = v.play(); if (p && p.catch) p.catch(function(){}); }
+    });
+  });
+
+  /* ---- carousels ---- */
+  [].forEach.call(document.querySelectorAll('.opg'), function(g){
+    var track = g.querySelector('.track');
+    var slides = [].slice.call(track.children);
+    var prev = g.querySelector('.prev'), next = g.querySelector('.next'), cnt = g.querySelector('.cnt b');
+    function padL(){ return parseFloat(getComputedStyle(track).paddingLeft) || 0; }
+    function index(){
+      var x = track.scrollLeft, best = 0, bd = Infinity;
+      slides.forEach(function(s, i){ var d = Math.abs(s.offsetLeft - padL() - x); if (d < bd) { bd = d; best = i; } });
+      return best;
+    }
+    function maxScroll(){ return track.scrollWidth - track.clientWidth; }
+    function update(){
+      var i = index();
+      if (track.scrollLeft >= maxScroll() - 4) i = slides.length - 1;
+      cnt.textContent = (i + 1 < 10 ? '0' : '') + (i + 1);
+      prev.disabled = track.scrollLeft <= 4;
+      next.disabled = track.scrollLeft >= maxScroll() - 4;
+    }
+    function go(i){
+      i = Math.max(0, Math.min(slides.length - 1, i));
+      track.scrollTo({left: Math.min(maxScroll(), slides[i].offsetLeft - padL()), behavior:'smooth'});
+    }
+    prev.addEventListener('click', function(){ go(index() - 1); });
+    next.addEventListener('click', function(){ go(index() + 1); });
+    track.addEventListener('keydown', function(e){
+      if (e.key === 'ArrowRight') { e.preventDefault(); go(index() + 1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); go(index() - 1); }
+    });
+    var raf = 0;
+    track.addEventListener('scroll', function(){ cancelAnimationFrame(raf); raf = requestAnimationFrame(update); }, {passive:true});
+    window.addEventListener('resize', update);
+    /* mouse drag */
+    var down = false, sx = 0, sl = 0, moved = false;
+    track.addEventListener('pointerdown', function(e){
+      if (e.pointerType !== 'mouse' || e.button !== 0) return;
+      down = true; moved = false; sx = e.clientX; sl = track.scrollLeft;
+    });
+    window.addEventListener('pointermove', function(e){
+      if (!down) return;
+      var dx = e.clientX - sx;
+      if (!moved && Math.abs(dx) > 4) { moved = true; track.classList.add('drag'); }
+      if (moved) track.scrollLeft = sl - dx;
+    });
+    window.addEventListener('pointerup', function(e){
+      if (!down) return; down = false;
+      if (moved) {
+        var dir = (e.clientX - sx) < 0 ? 1 : -1, i = index();
+        track.classList.remove('drag');
+        var cur = slides[i].offsetLeft - padL();
+        if (dir > 0 && cur < track.scrollLeft - 20) i += 1;
+        if (dir < 0 && cur > track.scrollLeft + 20) i -= 1;
+        go(i);
+      }
+    });
+    update();
+  });
+})();
+</script>
+<script>
+(function(){
+  var btn = document.querySelector('.mw-btn'), menu = document.querySelector('.mw-menu'), header = document.querySelector('header');
+  if (!btn || !menu) return;
+  var items = [].slice.call(menu.querySelectorAll('a[href^="#"]:not(.mw-all)'));
+  var ids = items.map(function(a){ return a.getAttribute('href').slice(1); });
+  var timer = 0;
+  function place(){
+    var b = btn.getBoundingClientRect(), h = header.getBoundingClientRect();
+    var left = Math.min(b.left - h.left, window.innerWidth - menu.offsetWidth - 12);
+    menu.style.left = Math.max(12, left) + 'px';
+  }
+  function open(){ clearTimeout(timer); menu.classList.add('open'); btn.setAttribute('aria-expanded','true'); place(); }
+  function close(){ menu.classList.remove('open'); btn.setAttribute('aria-expanded','false'); }
+  var fine = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  btn.addEventListener('click', function(e){
+    e.stopPropagation();
+    if (fine) { close(); var m = document.getElementById('more'); if (m) m.scrollIntoView({behavior:'smooth'}); return; }
+    menu.classList.contains('open') ? close() : open();
+  });
+  if (fine) {
+    [btn, menu].forEach(function(el){
+      el.addEventListener('mouseenter', open);
+      el.addEventListener('mouseleave', function(){ timer = setTimeout(close, 180); });
+    });
+  }
+  menu.addEventListener('click', function(e){ if (e.target.closest('a')) close(); });
+  document.addEventListener('click', function(e){ if (!menu.contains(e.target)) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+  window.addEventListener('resize', function(){ if (menu.classList.contains('open')) place(); });
+  var secs = ids.map(function(id){ return document.getElementById(id); });
+  var more = document.getElementById('more');
+  function sync(){
+    var line = (window.scrollY || document.documentElement.scrollTop) + 140;
+    var inMore = more && more.offsetTop <= line;
+    btn.classList.toggle('active', !!inMore);
+    var cur = null;
+    secs.forEach(function(s, i){ if (s && s.getBoundingClientRect().top + window.scrollY <= line) cur = i; });
+    items.forEach(function(a, i){ a.classList.toggle('cur', inMore && i === cur); });
+  }
+  window.addEventListener('scroll', sync, {passive:true});
+  sync();
+})();
+</script>
+
+</body>
+</html>
