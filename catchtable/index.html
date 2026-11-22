@@ -502,12 +502,14 @@
   }
 
   /* v6 */
-  .cmp.wide-r { grid-template-columns:1fr calc(var(--u)*64) 2fr; }
-  .cmp-final { display:flex; flex-direction:column; gap:calc(var(--u)*40); }
-  .cmp-final .notes { display:grid; grid-template-columns:1fr 1fr; gap:calc(var(--u)*28) calc(var(--u)*40); }
+  .cmp-final { display:block; }
+  .cmp.wide-r { grid-template-columns:1fr calc(var(--u)*64) 1.25fr; }
+  .notes.wide { grid-column:1 / -1; margin-top:calc(var(--u)*56); gap:0; border-top:1px solid #e5e5e5; }
+  .notes.wide li { grid-template-columns:calc(var(--u)*100) calc(var(--u)*380) 1fr; column-gap:calc(var(--u)*32); padding:calc(var(--u)*24) 0; border-bottom:1px solid #eee; align-items:center; }
+  .notes.wide em { grid-row:auto; }
   .cmp-col.cmp-final .shot + .notes { margin-top:0; }
   .cmp-final .shot.mock { padding:calc(var(--u)*40) calc(var(--u)*20) calc(var(--u)*24); }
-  .cmp-final .shot.mock img { max-height:calc(var(--u)*760); width:auto; }
+  .cmp-final .shot.mock img { max-height:calc(var(--u)*900); width:auto; }
   .cmp.wide-r .prompt { font-size:max(11px, calc(var(--u)*14)); }
   .flow5 { grid-template-columns:repeat(5, 1fr); }
   .flow5 h4 { font-size:max(13px, calc(var(--u)*20)); }
@@ -549,6 +551,19 @@
   .res-out b { font-size:max(14px, calc(var(--u)*22)); }
   .res-out span { color:var(--blue); font-size:max(14px, calc(var(--u)*22)); }
   .res-out em { flex-basis:100%; font-style:normal; color:#777; font-size:max(12px, calc(var(--u)*16)); }
+  .res3 dl { grid-template-columns:calc(var(--u)*84) 1fr; }
+  .res-flow { margin-top:calc(var(--u)*24); border:1px solid #e5e5e5; border-radius:calc(var(--u)*24); padding:calc(var(--u)*40) calc(var(--u)*40) calc(var(--u)*36); word-break:keep-all; }
+  .res-flow h4 { margin:0 0 calc(var(--u)*24); font-size:max(15px, calc(var(--u)*22)); }
+  .rf-row { display:grid; grid-template-columns:calc(var(--u)*90) 1fr auto; align-items:center; gap:calc(var(--u)*20); padding:calc(var(--u)*16) 0; border-top:1px solid #f0f0f0; }
+  .rf-row em { font-style:normal; font-size:max(10px, calc(var(--u)*13)); font-weight:700; letter-spacing:.1em; color:#888; }
+  .rf-row.to em { color:var(--blue); }
+  .rf-c { display:flex; flex-wrap:wrap; align-items:center; gap:calc(var(--u)*8); }
+  .rf-c span { font-size:max(11px, calc(var(--u)*15)); background:#f2f2f2; color:#555; border-radius:999px; padding:calc(var(--u)*7) calc(var(--u)*14); }
+  .rf-row.to .rf-c span { background:#e6eeff; color:var(--blue); font-weight:600; }
+  .rf-c i { font-style:normal; color:#bbb; font-size:max(10px, calc(var(--u)*13)); }
+  .rf-row b { font-size:max(12px, calc(var(--u)*16)); white-space:nowrap; }
+  .rf-row.to b { color:var(--blue); }
+  .res-flow p { margin:calc(var(--u)*16) 0 0; font-size:max(12px, calc(var(--u)*16)); color:#666; line-height:1.6; }
   .rv-badge { position:absolute; display:inline-flex; align-items:center; gap:6px; background:#111; color:#fff; border-radius:999px; padding:calc(var(--u)*8) calc(var(--u)*16); font-size:max(10px, calc(var(--u)*15)); font-weight:600; letter-spacing:.02em; white-space:nowrap; z-index:2; line-height:1.3; }
   .rv-badge::before { content:'✦'; color:#8fb8ff; }
   .fix-ttl.sm { font-size:calc(var(--u)*24); }
@@ -586,12 +601,14 @@
   .xp-tools span { font-size:max(11px, calc(var(--u)*14)); letter-spacing:.14em; color:#6f8fd9; font-weight:700; margin-right:calc(var(--u)*10); text-transform:uppercase; }
   .xp-tools b { font-weight:500; font-size:max(12px, calc(var(--u)*15)); color:#ddd; border:1px solid #333; border-radius:999px; padding:calc(var(--u)*7) calc(var(--u)*16); }
   @media (max-width: 760px) {
-    .cmp.wide-r { grid-template-columns:1fr calc(var(--u)*64) 2fr; }
-  .cmp-final { display:flex; flex-direction:column; gap:calc(var(--u)*40); }
-  .cmp-final .notes { display:grid; grid-template-columns:1fr 1fr; gap:calc(var(--u)*28) calc(var(--u)*40); }
+    .cmp-final { display:block; }
+  .cmp.wide-r { grid-template-columns:1fr calc(var(--u)*64) 1.25fr; }
+  .notes.wide { grid-column:1 / -1; margin-top:calc(var(--u)*56); gap:0; border-top:1px solid #e5e5e5; }
+  .notes.wide li { grid-template-columns:calc(var(--u)*100) calc(var(--u)*380) 1fr; column-gap:calc(var(--u)*32); padding:calc(var(--u)*24) 0; border-bottom:1px solid #eee; align-items:center; }
+  .notes.wide em { grid-row:auto; }
   .cmp-col.cmp-final .shot + .notes { margin-top:0; }
   .cmp-final .shot.mock { padding:calc(var(--u)*40) calc(var(--u)*20) calc(var(--u)*24); }
-  .cmp-final .shot.mock img { max-height:calc(var(--u)*760); width:auto; }
+  .cmp-final .shot.mock img { max-height:calc(var(--u)*900); width:auto; }
   .cmp.wide-r .prompt { font-size:max(11px, calc(var(--u)*14)); }
   .flow5 { grid-template-columns:1fr 1fr; }
     .fps { flex-direction:column; align-items:stretch; padding:24px 16px; }
@@ -700,7 +717,7 @@
 <div class="sh">
   <div class="sh-head">
     <div class="lbl">AI-INTEGRATED UX WORKFLOW</div>
-    <h2>UX 워크플로우의 단계마다 AI를 넣고, <br>판단은 리서치 근거로 했습니다</h2>
+    <h2>UX 워크플로우의 단계마다 AI를 도구로 넣고, <br>방향은 리서치 근거로 정했습니다</h2>
     <p>사용성 테스트, 화면 초안, 3D 룸 뷰 시안을 AI로 만들었습니다. 결과물은 리서치에서 확인한 문제를 기준으로 검수하고, Figma 컴포넌트 세트로 정리해 최종 화면을 완성했습니다.</p>
   </div>
   <ol class="flow">
@@ -717,14 +734,14 @@
     <div class="cmp-mid" aria-hidden="true">→</div>
     <div class="cmp-col cmp-final">
       <figure class="shot mock"><img src="img/st/mockup.png" srcset="img/st/mockup.png 1x, img/st/mockup@2x.png 2x" alt="SmartThings Studio 최종 메인 화면" loading="lazy" width="560" height="977"><figcaption>Final · Figma</figcaption></figure>
-      <ul class="notes">
+    </div>
+  <ul class="notes wide">
         <li><em class="k">KEEP</em><b>3D 룸 뷰를 첫 화면의 중심으로</b><span>공간 안에서 기기를 보여주는 구조는 체험 서비스의 핵심이라 유지했습니다. 공간·시나리오별 룸 이미지는 AI로 제작했습니다.</span></li>
         <li><em class="c">CHANGE</em><b>상품 그리드 → 생활 기능 카드</b><span>리서치에서 상품 탭을 떠난 사용자가 83%였기에, 상품 나열 대신 라이프스타일에 맞는 기능을 먼저 보여주도록 바꿨습니다.</span></li>
         <li><em class="c">CHANGE</em><b>번들 가격 요약 → 추천 단계로 분리</b><span>체험 화면에서는 구매 정보를 덜어내고, 공간별 추천 목록에서 수량과 가격을 조정하도록 나눴습니다.</span></li>
         <li><em class="a">ADD</em><b>3가지 질문 온보딩과 필터</b><span>초안에는 개인화가 없었습니다. 함께 사는 사람·관심 경험·공간을 묻고, 답에 맞춰 룸 뷰를 다시 구성했습니다.</span></li>
         <li><em class="c">CHANGE</em><b>범용 다크 UI → 삼성닷컴 톤</b><span>흰 배경, 블랙 CTA, SamsungOne 서체 등 삼성닷컴 화면 기준으로 정리했습니다.</span></li>
       </ul>
-    </div>
   </div>
   <div class="criteria">
     <h4>AI 초안 검수 기준</h4>
@@ -811,21 +828,23 @@
 </section>
 <section class="page sheet" data-group="case-st" aria-label="SmartThings Studio result">
 <div class="sh">
-  <div class="sh-head"><div class="lbl">RESULT</div><h2>AI로 속도를 높이고, <br>판단은 리서치와 시스템이 했습니다</h2><p>리서치 · 초안 · 비주얼 세 단계에 AI를 넣어 탐색 속도를 높이고, 각 단계의 결과는 리서치 근거와 Figma 컴포넌트 기준으로 검수했습니다.</p></div>
+  <div class="sh-head"><div class="lbl">RESULT</div><h2>AI를 도구로 다루고, <br>설계 방향은 디자이너가 정했습니다</h2><p>리서치 · 초안 · 비주얼 단계마다 AI에 맡길 일과 직접 판단할 일을 나눴습니다. AI 결과물은 리서치 근거와 검수 기준으로 걸러 실제 화면과 컴포넌트로 만들었습니다.</p></div>
   <div class="res3">
     <div><span class="rk">01 · Research</span><h4>AI Usability Test</h4><p class="rt">Maze AI</p>
-      <dl><dt>AI</dt><dd>12명 비대면 테스트에서 후속 질문을 생성하고 응답을 테마별로 요약</dd>
-      <dt>Me</dt><dd>요약을 원문과 대조해 이탈 원인 3가지를 확정 — 본품 부재 9/12 · 메뉴 재이동 8/12 · 설명 반복 5/12</dd></dl></div>
+      <dl><dt>AI</dt><dd>참가자별 후속 질문 생성, 응답을 테마별로 요약</dd>
+      <dt>Designer</dt><dd>테스트를 설계·진행하고, 요약을 원문과 대조해 이탈 원인 3가지를 확정 — 본품 부재 9/12 · 메뉴 재이동 8/12 · 설명 반복 5/12</dd></dl></div>
     <div><span class="rk">02 · Draft</span><h4>AI Wireframe</h4><p class="rt">Uizard</p>
-      <dl><dt>AI</dt><dd>서비스 설명 텍스트로 화면 구조 초안 생성</dd>
-      <dt>Me</dt><dd>4가지 검수 기준으로 판단 — KEEP 1 · CHANGE 3 · ADD 1</dd></dl></div>
+      <dl><dt>AI</dt><dd>서비스 설명 프롬프트로 화면 구조 초안 생성</dd>
+      <dt>Designer</dt><dd>프롬프트를 작성하고 검수 기준 4가지를 먼저 정의해 판단 — KEEP 1 · CHANGE 3 · ADD 1</dd></dl></div>
     <div><span class="rk">03 · Visual</span><h4>AI 3D Room View</h4><p class="rt">Higgsfield</p>
       <dl><dt>AI</dt><dd>거실 · 주방 · 침실 등 공간과 생활 시나리오별 3D 룸 이미지 제작</dd>
-      <dt>Me</dt><dd>추천 로직에 맞춰 제품 배치와 시나리오를 구성하고 UI에 결합</dd></dl></div>
+      <dt>Designer</dt><dd>추천 로직에 맞춰 제품 배치와 시나리오를 구성하고, Figma 컴포넌트로 UI에 결합</dd></dl></div>
   </div>
-  <div class="res-out">
-    <div><b>최대 10단계 · 페이지 이동 7회</b><span>→</span><b>체험 → 추천 → 구매, 한 흐름</b><em>구매 경로 제안</em></div>
-    <div><b>Figma 컴포넌트 세트</b><em>Component Property로 상태 · 아이콘 · 라벨을 관리해 화면 확장에 같은 기준 적용</em></div>
+  <div class="res-flow">
+    <h4>그 결과, 구매까지의 흐름을 다시 설계했습니다</h4>
+    <div class="rf-row"><em>AS-IS</em><div class="rf-c"><span>Home</span><i>→</i><span>GNB · 기획전</span><i>→</i><span>스마트싱스 개요</span><i>→</i><span>스마트싱스 상품</span><i>→</i><span>장바구니</span><i>→</i><span>구매하기</span></div><b>최대 10단계 · 페이지 이동 7회</b></div>
+    <div class="rf-row to"><em>TO-BE</em><div class="rf-c"><span>라이프스타일 온보딩</span><i>→</i><span>3D 룸 뷰 체험</span><i>→</i><span>공간별 추천 구성</span><i>→</i><span>장바구니 · 바로 구매</span></div><b>체험에서 구매까지 하나의 흐름</b></div>
+    <p>기능 설명은 여러 콘텐츠 페이지에, 제품은 상품 목록에 나뉘어 있던 구조를 SmartThings Studio 안에서 체험 → 추천 → 구매로 이어지도록 제안했습니다.</p>
   </div>
 </div>
 </section>
