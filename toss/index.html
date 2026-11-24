@@ -741,6 +741,14 @@
   .nt2 span { font-size:max(12px, calc(var(--u)*15)); color:#666; line-height:1.6; }
   @media (max-width: 760px) { .rl2, .nt2 { grid-template-columns:1fr; } }
 
+  .ff-row { margin-bottom:calc(var(--u)*40); }
+  .ff-cap { font-size:max(12px, calc(var(--u)*15)); color:#666; margin-bottom:calc(var(--u)*14); }
+  .ff-cap em { font-style:normal; font-weight:700; color:var(--blue); letter-spacing:.06em; margin-right:calc(var(--u)*10); }
+  .ff-g2 { display:grid; grid-template-columns:1fr 1fr; gap:calc(var(--u)*20); align-items:start; }
+  .ff-im { margin:0; border-radius:calc(var(--u)*16); overflow:hidden; background:#fff; box-shadow:0 2px 14px rgba(0,0,0,.06); }
+  .ff-im img { display:block; width:100%; height:auto; }
+  @media (max-width: 760px) { .ff-g2 { grid-template-columns:1fr; } }
+
 </style>
 </head>
 <body>
@@ -808,7 +816,7 @@
 <a class="row" href="#case-ace"><span class="n">02</span><span class="t">Samsung ACE</span><span class="s">Tokens · Shared Library · Publisher QA</span><span class="arr" aria-hidden="true">→</span></a>
 <a class="row" href="#case-tag"><span class="n">03</span><span class="t">TAG SEOUL</span><span class="s">Multi-device · Keyring × Phone · iF 2026</span><span class="arr" aria-hidden="true">→</span></a>
   </nav>
-  <div class="mx"><table><thead><tr><th></th><th>비주얼 완성도</th><th>컴포넌트 · 패턴 체계화</th><th>폼팩터 · 사용 환경</th><th>문서화 · 전파</th><th>AI 생산성</th><th>런칭 · QA</th></tr></thead><tbody><tr><th>SmartThings Studio</th><td><i class="d full" title="핵심"></i></td><td><i class="d full" title="핵심"></i></td><td><i class="d half" title="부분"></i></td><td><i class="d half" title="부분"></i></td><td><i class="d full" title="핵심"></i></td><td></td></tr><tr><th>Samsung ACE</th><td><i class="d half" title="부분"></i></td><td><i class="d full" title="핵심"></i></td><td><i class="d half" title="부분"></i></td><td><i class="d full" title="핵심"></i></td><td></td><td><i class="d full" title="핵심"></i></td></tr><tr><th>TAG SEOUL</th><td><i class="d full" title="핵심"></i></td><td><i class="d half" title="부분"></i></td><td><i class="d full" title="핵심"></i></td><td></td><td><i class="d half" title="부분"></i></td><td></td></tr></tbody></table><p class="mx-legend"><i class="d full"></i> 핵심 역량 <i class="d half"></i> 부분 역량</p></div>
+  <div class="mx"><table><thead><tr><th></th><th>비주얼 완성도</th><th>컴포넌트 · 패턴 체계화</th><th>폼팩터 · 사용 환경</th><th>문서화 · 전파</th><th>AI 생산성</th><th>런칭 · QA</th></tr></thead><tbody><tr><th>SmartThings Studio</th><td><i class="d full" title="핵심"></i></td><td><i class="d full" title="핵심"></i></td><td><i class="d full" title="핵심"></i></td><td><i class="d half" title="부분"></i></td><td><i class="d full" title="핵심"></i></td><td></td></tr><tr><th>Samsung ACE</th><td><i class="d half" title="부분"></i></td><td><i class="d full" title="핵심"></i></td><td><i class="d half" title="부분"></i></td><td><i class="d full" title="핵심"></i></td><td></td><td><i class="d full" title="핵심"></i></td></tr><tr><th>TAG SEOUL</th><td><i class="d full" title="핵심"></i></td><td><i class="d half" title="부분"></i></td><td><i class="d full" title="핵심"></i></td><td></td><td><i class="d half" title="부분"></i></td><td></td></tr></tbody></table><p class="mx-legend"><i class="d full"></i> 핵심 역량 <i class="d half"></i> 부분 역량</p></div>
 </div>
 </section>
 <section id="case-st" class="page case" data-group="case-st" aria-label="SmartThings Studio">
@@ -816,7 +824,7 @@
   <div class="cs-head">
     <div class="cs-num">01</div>
     <div class="cs-title"><h2>SmartThings Studio</h2><div class="cs-meta">2025.07 - 2025.10<i></i>UX/UI Designer · 디자이너 3인</div></div>
-    <div class="cs-tags"><span>Figma Component Set</span><span>State Color Rules</span><span>Recommendation Rules</span><span>AI Workflow</span></div>
+    <div class="cs-tags"><span>Figma Component Set</span><span>State Color Rules</span><span>Fold × PC Modal</span><span>AI Workflow</span></div>
   </div>
   <div class="cs-grid">
     <div><h4>Problem</h4><p>같은 기능 설명이 5개 탭에 반복되고, 기능 탐색과 구매가 분리돼 있었습니다. 사용성 테스트에서 83%가 예상 경로를 벗어났습니다.</p></div>
@@ -936,6 +944,7 @@
   </div>
 </div>
 </section>
+<section class="page sheet stp ff" data-group="case-st" style="background:#f2f2f2" aria-label="SmartThings Studio form factor"><div class="sh"><div class="sh-head"><div class="lbl"><em>FORM FACTOR</em>Fold × PC<small>폼팩터 대응</small></div><h2>폴드 비율로 설계한 화면을, <br>PC에서는 모달로 띄워 그대로 활용했습니다</h2><p>체험 화면을 폴드 펼침 화면(820px) 비율 기준으로 설계했습니다. PC에서는 같은 레이아웃을 모달로 띄워, 화면을 따로 만들지 않고 하나의 설계로 두 환경에 대응했습니다.</p><p>모달 안에서는 콘텐츠만 스크롤되고 하단 CTA는 고정해, 화면 크기가 달라도 다음 행동의 위치는 같게 유지했습니다.</p></div><div class="stp-x"><div class="ff-row"><div class="ff-cap"><em>Fold</em>820 · 펼침 화면</div><div class="ff-g2"><figure class="ff-im "><img src="img/st/fold-2.jpg" srcset="img/st/fold-2.jpg 1x, img/st/fold-2@2x.jpg 2x" alt="폴드 온보딩 화면" loading="lazy"></figure><figure class="ff-im "><img src="img/st/fold-1.jpg" srcset="img/st/fold-1.jpg 1x, img/st/fold-1@2x.jpg 2x" alt="폴드 추천 결과 화면" loading="lazy"></figure></div></div><div class="ff-row"><div class="ff-cap"><em>PC</em>같은 비율을 모달로</div><div class="ff-g2 pc"><figure class="ff-im "><img src="img/st/pcm-2.jpg" srcset="img/st/pcm-2.jpg 1x, img/st/pcm-2@2x.jpg 2x" alt="PC 온보딩 모달" loading="lazy"></figure><figure class="ff-im "><img src="img/st/pcm-1.jpg" srcset="img/st/pcm-1.jpg 1x, img/st/pcm-1@2x.jpg 2x" alt="PC 추천 결과 모달" loading="lazy"></figure></div></div></div></div></section>
 <section class="page" data-group="case-st" aria-label="SmartThings Studio concept &amp; landing">
 <img src="img/st-b-01.jpg" srcset="img/st-b-01.jpg 1920w, img/st-b-01@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1300" alt="SmartThings Studio concept &amp; landing 1" loading="lazy" decoding="async">
 <img src="img/st-b-02.jpg" srcset="img/st-b-02.jpg 1920w, img/st-b-02@2x.jpg 2880w" sizes="min(100vw, 1920px)" width="1920" height="1300" alt="SmartThings Studio concept &amp; landing 2" loading="lazy" decoding="async">
